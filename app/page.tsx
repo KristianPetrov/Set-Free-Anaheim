@@ -242,7 +242,7 @@ export default function SetFreeChurch() {
                 <CarouselContent>
                   <CarouselItem>
                     <Image
-                      src="/PastorBrian.jpg"
+                      src="/chief-sunglasses.jpg"
                       alt="Pastor Brian"
                       width={400}
                       height={500}
@@ -251,7 +251,7 @@ export default function SetFreeChurch() {
                   </CarouselItem>
                   <CarouselItem>
                     <Image
-                      src="/BrianAngelaHands.jpg"
+                      src="/chief-preaching.jpg"
                       alt="Brian and Angela Hands"
                       width={400}
                       height={500}
@@ -260,7 +260,7 @@ export default function SetFreeChurch() {
                   </CarouselItem>
                   <CarouselItem>
                     <Image
-                      src="/PhilSandra.jpg"
+                      src="/chill-phil.jpg"
                       alt="Phil and Sandra"
                       width={400}
                       height={500}
@@ -538,7 +538,7 @@ export default function SetFreeChurch() {
           </div>
           <p className="text-gray-400 mb-4">"So if the Son sets you free, you will be free indeed." - John 8:36</p>
           <p className="text-gray-500 text-sm">
-            © 2025 Set Free Anaheim. All rights reserved. | Saving souls with some edge.
+            © 2025 Set Free Digital Disciples. All rights reserved. | Saving souls with some edge.
           </p>
         </div>
       </footer>
