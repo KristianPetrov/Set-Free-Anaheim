@@ -1,6 +1,7 @@
 "use client"
 
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -8,12 +9,24 @@ import Image from 'next/image'
 
 export default function DonateModal() {
   const router = useRouter()
+  const [selectedAmount, setSelectedAmount] = useState<number | null>(null)
+  const [customAmount, setCustomAmount] = useState<string>('')
 
   const handleClose = () => {
     router.back()
   }
 
   const donationAmounts = [25, 50, 100, 250, 500, 1000]
+
+  const handleCashAppDonation = () => {
+    const amount = selectedAmount || parseFloat(customAmount) || 0
+    if (amount > 0) {
+      const cashAppUrl = `https://cash.app/$Setfreephil/${amount}`
+      window.open(cashAppUrl, '_blank')
+    } else {
+      alert('Please select or enter a donation amount first')
+    }
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
@@ -59,8 +72,8 @@ export default function DonateModal() {
                          : 'text-red-400 hover:bg-red-600 hover:border-red-600 hover:text-white'
                      }`}
                      onClick={() => {
-                       // Handle donation amount selection
-                       console.log(`Selected amount: $${amount}`)
+                       setSelectedAmount(amount)
+                       setCustomAmount('')
                      }}
                    >
                      ${amount}
@@ -75,11 +88,16 @@ export default function DonateModal() {
               <div className="flex gap-2">
                 <div className="relative flex-1">
                   <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg">$</span>
-                  <input
-                    type="number"
-                    placeholder="Enter amount"
-                    className="w-full pl-8 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-red-500 focus:outline-none"
-                  />
+                                     <input
+                     type="number"
+                     placeholder="Enter amount"
+                     value={customAmount}
+                     onChange={(e) => {
+                       setCustomAmount(e.target.value)
+                       setSelectedAmount(null)
+                     }}
+                     className="w-full pl-8 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-red-500 focus:outline-none"
+                   />
                 </div>
                 <Button className="bg-red-600 hover:bg-red-700 text-white font-bold px-8">
                   Donate
@@ -103,12 +121,13 @@ export default function DonateModal() {
                 >
                   Venmo
                 </Button>
-                <Button
-                  variant="outline"
-                  className="border-purple-500/50 text-purple-400 hover:bg-purple-600 hover:text-white font-bold py-3"
-                >
-                  CashApp
-                </Button>
+                                 <Button
+                   variant="outline"
+                   className="border-purple-500/50 text-purple-400 hover:bg-purple-600 hover:text-white font-bold py-3"
+                   onClick={handleCashAppDonation}
+                 >
+                   CashApp
+                 </Button>
                 <Button
                   variant="outline"
                   className="border-yellow-500/50 text-yellow-400 hover:bg-yellow-600 hover:text-white font-bold py-3"

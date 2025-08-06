@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -7,7 +8,20 @@ import Image from 'next/image'
 import { ArrowLeft } from 'lucide-react'
 
 export default function DonatePage() {
+  const [selectedAmount, setSelectedAmount] = useState<number | null>(null)
+  const [customAmount, setCustomAmount] = useState<string>('')
+
   const donationAmounts = [25, 50, 100, 250, 500, 1000]
+
+  const handleCashAppDonation = () => {
+    const amount = selectedAmount || parseFloat(customAmount) || 0
+    if (amount > 0) {
+      const cashAppUrl = `https://cash.app/$AguilarSandy52/${amount}`
+      window.open(cashAppUrl, '_blank')
+    } else {
+      alert('Please select or enter a donation amount first')
+    }
+  }
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -59,8 +73,8 @@ export default function DonatePage() {
                            : 'text-red-400 hover:bg-red-600 hover:border-red-600 hover:text-white'
                        }`}
                        onClick={() => {
-                         // Handle donation amount selection
-                         console.log(`Selected amount: $${amount}`)
+                         setSelectedAmount(amount)
+                         setCustomAmount('')
                        }}
                      >
                        ${amount}
@@ -75,11 +89,16 @@ export default function DonatePage() {
                 <div className="flex gap-3">
                   <div className="relative flex-1">
                     <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl">$</span>
-                    <input
-                      type="number"
-                      placeholder="Enter amount"
-                      className="w-full pl-10 pr-4 py-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-lg"
-                    />
+                                         <input
+                       type="number"
+                       placeholder="Enter amount"
+                       value={customAmount}
+                       onChange={(e) => {
+                         setCustomAmount(e.target.value)
+                         setSelectedAmount(null)
+                       }}
+                       className="w-full pl-10 pr-4 py-4 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-lg"
+                     />
                   </div>
                   <Button className="bg-red-600 hover:bg-red-700 text-white font-bold px-10 py-4 text-lg">
                     Donate
@@ -103,12 +122,13 @@ export default function DonatePage() {
                   >
                     Venmo
                   </Button>
-                  <Button
-                    variant="outline"
-                    className="border-purple-500/50 text-purple-400 hover:bg-purple-600 hover:text-white font-bold py-4 text-lg"
-                  >
-                    CashApp
-                  </Button>
+                                     <Button
+                     variant="outline"
+                     className="border-purple-500/50 text-purple-400 hover:bg-purple-600 hover:text-white font-bold py-4 text-lg"
+                     onClick={handleCashAppDonation}
+                   >
+                     CashApp
+                   </Button>
                   <Button
                     variant="outline"
                     className="border-yellow-500/50 text-yellow-400 hover:bg-yellow-600 hover:text-white font-bold py-4 text-lg"
