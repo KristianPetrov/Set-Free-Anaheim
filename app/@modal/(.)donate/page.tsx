@@ -18,8 +18,11 @@ export default function DonateModal() {
 
   const donationAmounts = [25, 50, 100, 250, 500, 1000]
 
+  const getCurrentAmount = () => selectedAmount || parseFloat(customAmount) || 0
+  const hasAmount = () => getCurrentAmount() > 0
+
   const handleCashAppDonation = () => {
-    const amount = selectedAmount || parseFloat(customAmount) || 0
+    const amount = getCurrentAmount()
     if (amount > 0) {
       const cashAppUrl = `https://cash.app/$Setfreephil/${amount}`
       window.open(cashAppUrl, '_blank')
@@ -66,10 +69,12 @@ export default function DonateModal() {
                    <Button
                      key={amount}
                      variant="outline"
-                     className={`border-red-900/50 font-bold py-3 ${
-                       amount > 100
-                         ? 'text-yellow-400 hover:bg-yellow-600 hover:border-yellow-600 hover:text-black'
-                         : 'text-red-400 hover:bg-red-600 hover:border-red-600 hover:text-white'
+                     className={`border-red-900/50 font-bold py-3 transition-all duration-300 ${
+                       selectedAmount === amount
+                         ? 'ring-2 ring-red-500 bg-red-600 text-white border-red-600'
+                         : amount > 100
+                           ? 'text-yellow-400 hover:bg-yellow-600 hover:border-yellow-600 hover:text-black'
+                           : 'text-red-400 hover:bg-red-600 hover:border-red-600 hover:text-white'
                      }`}
                      onClick={() => {
                        setSelectedAmount(amount)
@@ -96,7 +101,9 @@ export default function DonateModal() {
                        setCustomAmount(e.target.value)
                        setSelectedAmount(null)
                      }}
-                     className="w-full pl-8 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-red-500 focus:outline-none"
+                     className={`w-full pl-8 pr-4 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-400 focus:outline-none transition-all duration-300 ${
+                       customAmount ? 'border-red-500 ring-2 ring-red-500/50' : 'border-gray-600 focus:border-red-500'
+                     }`}
                    />
                 </div>
                 <Button className="bg-red-600 hover:bg-red-700 text-white font-bold px-8">
@@ -105,32 +112,50 @@ export default function DonateModal() {
               </div>
             </div>
 
-            {/* Payment Methods */}
+                        {/* Payment Methods */}
             <div>
-              <h3 className="text-lg font-semibold text-white mb-4">Payment Methods</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Payment Methods {hasAmount() && <span className="text-green-400">- Ready for ${getCurrentAmount()}</span>}
+              </h3>
               <div className="grid grid-cols-2 gap-3">
                 <Button
                   variant="outline"
-                  className="border-blue-500/50 text-blue-400 hover:bg-blue-600 hover:text-white font-bold py-3"
+                  className={`font-bold py-3 transition-all duration-300 ${
+                    hasAmount()
+                      ? 'border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white shadow-lg shadow-blue-500/50 animate-pulse'
+                      : 'border-blue-500/50 text-blue-400 hover:bg-blue-600 hover:text-white'
+                  }`}
                 >
                   PayPal
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-green-500/50 text-green-400 hover:bg-green-600 hover:text-white font-bold py-3"
+                  className={`font-bold py-3 transition-all duration-300 ${
+                    hasAmount()
+                      ? 'border-green-500 text-green-400 hover:bg-green-600 hover:text-white shadow-lg shadow-green-500/50 animate-pulse'
+                      : 'border-green-500/50 text-green-400 hover:bg-green-600 hover:text-white'
+                  }`}
                 >
                   Venmo
                 </Button>
-                                 <Button
-                   variant="outline"
-                   className="border-purple-500/50 text-purple-400 hover:bg-purple-600 hover:text-white font-bold py-3"
-                   onClick={handleCashAppDonation}
-                 >
-                   CashApp
-                 </Button>
                 <Button
                   variant="outline"
-                  className="border-yellow-500/50 text-yellow-400 hover:bg-yellow-600 hover:text-white font-bold py-3"
+                  className={`font-bold py-3 transition-all duration-300 ${
+                    hasAmount()
+                      ? 'border-purple-500 text-purple-400 hover:bg-purple-600 hover:text-white shadow-lg shadow-purple-500/50 animate-pulse'
+                      : 'border-purple-500/50 text-purple-400 hover:bg-purple-600 hover:text-white'
+                  }`}
+                  onClick={handleCashAppDonation}
+                >
+                  CashApp
+                </Button>
+                <Button
+                  variant="outline"
+                  className={`font-bold py-3 transition-all duration-300 ${
+                    hasAmount()
+                      ? 'border-yellow-500 text-yellow-400 hover:bg-yellow-600 hover:text-white shadow-lg shadow-yellow-500/50 animate-pulse'
+                      : 'border-yellow-500/50 text-yellow-400 hover:bg-yellow-600 hover:text-white'
+                  }`}
                 >
                   Zelle
                 </Button>
