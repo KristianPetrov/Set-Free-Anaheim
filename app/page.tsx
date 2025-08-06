@@ -194,7 +194,7 @@ export default function SetFreeChurch() {
             </Button>
           </div>
         </div>
-      </section>git
+      </section>
 
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-900">
@@ -212,16 +212,13 @@ export default function SetFreeChurch() {
               </div>
               <h2 className="text-2xl font-bold text-red-500 mb-4">The Magic House — Set Free Anaheim</h2>
               <p className="text-lg text-gray-300 mb-4 leading-relaxed">
-                This ain't your grandma's church.
-              </p>
-              <p className="text-lg text-gray-300 mb-4 leading-relaxed">
                 This is straight Jesus with a switchblade—where the holy meets the hood. We're out here in Anaheim pullin' souls outta the gutter with that raw love of Christ. No suits. No judgment. Just real ones gettin' set free by the blood of Jesus.
               </p>
               <p className="text-lg text-gray-300 mb-4 leading-relaxed">
                 Started in '82 right here in the streets of Anaheim, Set Free blew up from one church to a worldwide movement: churches, ranches, recovery homes, even a seminary called Set Free University. But it all started with a handful of broken people who said "Yes" to Jesus and never looked back.
               </p>
               <p className="text-lg text-gray-300 mb-4 leading-relaxed">
-                At the Magic House, we don't ask where you came from—we ask if you're ready to change. Addicts, convicts, gangsters, single moms, lost kids—we take 'em all in. We house you, feed you, pray over you, and walk with you. Not because we're saints, but because we were you. We don't got a perfect past, but we got a redeemed future.
+                At the Magic House, we don't ask where you came from—we ask if you're ready to change. Addicts, convicts, gangsters, single moms, lost kids—we take 'em all in. We house you, feed you, pray over you, and walk with you. Not because we're saints, but because we were you.
               </p>
               <p className="text-lg text-gray-300 mb-4 leading-relaxed">
                 We pull you in with that gangsta grit—raw, unfiltered, and real—and hit you with that <span className="text-yellow-400 font-bold">unconditional Christ love</span> when you least expect it. You come for the safety, but you stay 'cause the Holy Spirit wrecks you—in the best way.
