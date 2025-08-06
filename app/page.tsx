@@ -177,19 +177,60 @@ export default function SetFreeChurch() {
       {/* Video Section */}
       <section id="video" className="py-20 bg-black">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8 text-red-500">WATCH OUR STORY</h2>
-          <div className="flex justify-center">
-            <div className="w-full max-w-4xl aspect-video rounded-lg overflow-hidden shadow-2xl border-4 border-red-900/30">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/K-7A42wgFoU"
-                title="Set Free Anaheim Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
+          <h2 className="text-4xl font-bold mb-12 text-red-500">WATCH OUR STORIES</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Set Free Special */}
+            <div className="space-y-4">
+              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl border-4 border-red-900/30">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/gzhQkKofO4o"
+                  title="Set Free Special"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+              <h3 className="text-xl font-bold text-white">Set Free Special</h3>
+              <p className="text-gray-300 text-sm">Experience the raw power of Set Free ministry in action</p>
+            </div>
+
+            {/* America's Most Dangerous Pastor */}
+            <div className="space-y-4">
+              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl border-4 border-red-900/30">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/cm4yLL6BXMo"
+                  title="America's Most Dangerous Pastor"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+              <h3 className="text-xl font-bold text-white">America's Most Dangerous Pastor</h3>
+              <p className="text-gray-300 text-sm">The story behind the man who changed everything</p>
+            </div>
+
+            {/* Set Free Posse */}
+            <div className="space-y-4">
+              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl border-4 border-red-900/30">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/qTP6m_KcLdw"
+                  title="Set Free Posse"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+              <h3 className="text-xl font-bold text-white">Set Free Posse</h3>
+              <p className="text-gray-300 text-sm">Meet the crew that's changing lives on the streets</p>
             </div>
           </div>
         </div>
