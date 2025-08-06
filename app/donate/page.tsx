@@ -16,11 +16,45 @@ export default function DonatePage() {
   const getCurrentAmount = () => selectedAmount || parseFloat(customAmount) || 0
   const hasAmount = () => getCurrentAmount() > 0
 
+  const handlePayPalDonation = () => {
+    const amount = getCurrentAmount()
+    if (amount > 0) {
+      const paypalUrl = `https://www.paypal.com/paypalme/setfreephil/${amount}`
+      window.open(paypalUrl, '_blank')
+    } else {
+      alert('Please select or enter a donation amount first')
+    }
+  }
+
+  const handleVenmoDonation = () => {
+    const amount = getCurrentAmount()
+    if (amount > 0) {
+      const venmoUrl = `https://venmo.com/u/sandra-aguilar-73?txn=pay&amount=${amount}&note=Donation%20to%20Set%20Free%20Anaheim`
+      window.open(venmoUrl, '_blank')
+    } else {
+      alert('Please select or enter a donation amount first')
+    }
+  }
+
   const handleCashAppDonation = () => {
     const amount = getCurrentAmount()
     if (amount > 0) {
       const cashAppUrl = `https://cash.app/$Setfreephil/${amount}`
       window.open(cashAppUrl, '_blank')
+    } else {
+      alert('Please select or enter a donation amount first')
+    }
+  }
+
+  const handleZelleDonation = () => {
+    const amount = getCurrentAmount()
+    if (amount > 0) {
+      // Copy to clipboard and show instructions
+      navigator.clipboard.writeText('714-329-1003').then(() => {
+        alert(`Zelle Details Copied!\n\nPhone: 714-329-1003\nAmount: $${amount}\n\nOpen your banking app and send to the phone number that's been copied to your clipboard.`)
+      }).catch(() => {
+        alert(`Zelle Payment Details:\n\nPhone: 714-329-1003\nAmount: $${amount}\n\nPlease open your banking app and send this amount to the phone number above.`)
+      })
     } else {
       alert('Please select or enter a donation amount first')
     }
@@ -119,13 +153,14 @@ export default function DonatePage() {
                   Payment Methods {hasAmount() && <span className="text-green-400">- Ready for ${getCurrentAmount()}</span>}
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
-                  <Button
+                                    <Button
                     variant="outline"
                     className={`font-bold py-4 text-lg transition-all duration-300 ${
                       hasAmount()
                         ? 'border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white shadow-lg shadow-blue-500/50 animate-pulse'
                         : 'border-blue-500/50 text-blue-400 hover:bg-blue-600 hover:text-white'
                     }`}
+                    onClick={handlePayPalDonation}
                   >
                     PayPal
                   </Button>
@@ -136,6 +171,7 @@ export default function DonatePage() {
                         ? 'border-green-500 text-green-400 hover:bg-green-600 hover:text-white shadow-lg shadow-green-500/50 animate-pulse'
                         : 'border-green-500/50 text-green-400 hover:bg-green-600 hover:text-white'
                     }`}
+                    onClick={handleVenmoDonation}
                   >
                     Venmo
                   </Button>
@@ -157,6 +193,7 @@ export default function DonatePage() {
                         ? 'border-yellow-500 text-yellow-400 hover:bg-yellow-600 hover:text-white shadow-lg shadow-yellow-500/50 animate-pulse'
                         : 'border-yellow-500/50 text-yellow-400 hover:bg-yellow-600 hover:text-white'
                     }`}
+                    onClick={handleZelleDonation}
                   >
                     Zelle
                   </Button>
