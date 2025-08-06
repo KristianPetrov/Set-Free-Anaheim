@@ -1,0 +1,131 @@
+"use client"
+
+import { useRouter } from 'next/navigation'
+import { X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import Image from 'next/image'
+
+export default function DonateModal() {
+  const router = useRouter()
+
+  const handleClose = () => {
+    router.back()
+  }
+
+  const donationAmounts = [25, 50, 100, 250, 500, 1000]
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
+      <div className="relative max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+        <Card className="bg-gray-900 border-red-900/50">
+          <CardHeader className="relative">
+            <button
+              onClick={handleClose}
+              className="absolute right-4 top-4 text-gray-400 hover:text-white transition-colors"
+              aria-label="Close donation modal"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <div className="flex justify-center mb-4">
+              <Image
+                src="/SETFREELOGOWHITE.png"
+                alt="Set Free Anaheim Logo"
+                width={200}
+                height={100}
+                className="object-contain"
+              />
+            </div>
+            <CardTitle className="text-center text-2xl font-bold text-red-500">
+              Support The Magic House
+            </CardTitle>
+            <p className="text-center text-gray-300 mt-2">
+              Help us continue pulling souls outta the gutter with the raw love of Christ
+            </p>
+          </CardHeader>
+
+          <CardContent className="space-y-6">
+            {/* Quick Donation Amounts */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Choose an Amount</h3>
+              <div className="grid grid-cols-3 gap-3">
+                {donationAmounts.map((amount) => (
+                  <Button
+                    key={amount}
+                    variant="outline"
+                    className="border-red-900/50 text-white hover:bg-red-600 hover:border-red-600 font-bold py-3"
+                    onClick={() => {
+                      // Handle donation amount selection
+                      console.log(`Selected amount: $${amount}`)
+                    }}
+                  >
+                    ${amount}
+                  </Button>
+                ))}
+              </div>
+            </div>
+
+            {/* Custom Amount */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Custom Amount</h3>
+              <div className="flex gap-2">
+                <div className="relative flex-1">
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg">$</span>
+                  <input
+                    type="number"
+                    placeholder="Enter amount"
+                    className="w-full pl-8 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-red-500 focus:outline-none"
+                  />
+                </div>
+                <Button className="bg-red-600 hover:bg-red-700 text-white font-bold px-8">
+                  Donate
+                </Button>
+              </div>
+            </div>
+
+            {/* Payment Methods */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Payment Methods</h3>
+              <div className="grid grid-cols-2 gap-3">
+                <Button
+                  variant="outline"
+                  className="border-blue-500/50 text-blue-400 hover:bg-blue-600 hover:text-white font-bold py-3"
+                >
+                  PayPal
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-green-500/50 text-green-400 hover:bg-green-600 hover:text-white font-bold py-3"
+                >
+                  Venmo
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-purple-500/50 text-purple-400 hover:bg-purple-600 hover:text-white font-bold py-3"
+                >
+                  CashApp
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-yellow-500/50 text-yellow-400 hover:bg-yellow-600 hover:text-white font-bold py-3"
+                >
+                  Zelle
+                </Button>
+              </div>
+            </div>
+
+            {/* Message */}
+            <div className="bg-gray-800/50 rounded-lg p-4 border border-red-900/30">
+              <p className="text-gray-300 text-center italic">
+                "Freely you received, freely give." - Matthew 10:8
+              </p>
+              <p className="text-gray-400 text-sm text-center mt-2">
+                Your donation helps us house, feed, and walk with those who need it most.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
+}
