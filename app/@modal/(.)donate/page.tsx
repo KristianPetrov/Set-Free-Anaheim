@@ -49,19 +49,23 @@ export default function DonateModal() {
             <div>
               <h3 className="text-lg font-semibold text-white mb-4">Choose an Amount</h3>
               <div className="grid grid-cols-3 gap-3">
-                {donationAmounts.map((amount) => (
-                  <Button
-                    key={amount}
-                    variant="outline"
-                    className="border-red-900/50 text-white hover:bg-red-600 hover:border-red-600 font-bold py-3"
-                    onClick={() => {
-                      // Handle donation amount selection
-                      console.log(`Selected amount: $${amount}`)
-                    }}
-                  >
-                    ${amount}
-                  </Button>
-                ))}
+                                 {donationAmounts.map((amount) => (
+                   <Button
+                     key={amount}
+                     variant="outline"
+                     className={`border-red-900/50 font-bold py-3 ${
+                       amount > 100
+                         ? 'text-yellow-400 hover:bg-yellow-600 hover:border-yellow-600 hover:text-black'
+                         : 'text-red-400 hover:bg-red-600 hover:border-red-600 hover:text-white'
+                     }`}
+                     onClick={() => {
+                       // Handle donation amount selection
+                       console.log(`Selected amount: $${amount}`)
+                     }}
+                   >
+                     ${amount}
+                   </Button>
+                 ))}
               </div>
             </div>
 
