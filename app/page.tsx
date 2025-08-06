@@ -149,6 +149,18 @@ export default function SetFreeChurch() {
           />
         </div>
 
+        {/* Donation Button in top right */}
+        <div className="absolute top-24 right-6 z-10">
+          <a
+            href="https://dot.cards/setfree"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+          >
+            DONATE NOW
+          </a>
+        </div>
+
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-[50%] animate-bounce">
           <Image
@@ -182,7 +194,7 @@ export default function SetFreeChurch() {
             </Button>
           </div>
         </div>
-      </section>git 
+      </section>git
 
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-900">
