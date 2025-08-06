@@ -182,7 +182,7 @@ export default function SetFreeChurch() {
             </Button>
           </div>
         </div>
-      </section>
+      </section>git 
 
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-900">
@@ -198,15 +198,28 @@ export default function SetFreeChurch() {
                   className="mb-6"
                 />
               </div>
-              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                We ain't your grandma's church. We're out here in the streets, in the struggle, meeting young homies
-                right where they at. No judgment, no fake smiles - just real talk about a real God who loves you
-                unconditionally.
+              <h2 className="text-2xl font-bold text-red-500 mb-4">The Magic House — Set Free Anaheim</h2>
+              <p className="text-lg text-gray-300 mb-4 leading-relaxed">
+                This ain't your grandma's church.
+              </p>
+              <p className="text-lg text-gray-300 mb-4 leading-relaxed">
+                This is straight Jesus with a switchblade—where the holy meets the hood. We're out here in Anaheim pullin' souls outta the gutter with that raw love of Christ. No suits. No judgment. Just real ones gettin' set free by the blood of Jesus.
+              </p>
+              <p className="text-lg text-gray-300 mb-4 leading-relaxed">
+                Started in '82 right here in the streets of Anaheim, Set Free blew up from one church to a worldwide movement: churches, ranches, recovery homes, even a seminary called Set Free University. But it all started with a handful of broken people who said "Yes" to Jesus and never looked back.
+              </p>
+              <p className="text-lg text-gray-300 mb-4 leading-relaxed">
+                At the Magic House, we don't ask where you came from—we ask if you're ready to change. Addicts, convicts, gangsters, single moms, lost kids—we take 'em all in. We house you, feed you, pray over you, and walk with you. Not because we're saints, but because we were you. We don't got a perfect past, but we got a redeemed future.
+              </p>
+              <p className="text-lg text-gray-300 mb-4 leading-relaxed">
+                We pull you in with that gangsta grit—raw, unfiltered, and real—and hit you with that <span className="text-yellow-400 font-bold">unconditional Christ love</span> when you least expect it. You come for the safety, but you stay 'cause the Holy Spirit wrecks you—in the best way.
+              </p>
+              <p className="text-lg text-gray-300 mb-4 leading-relaxed italic text-center border-l-4 border-red-500 pl-4">
+                "If anyone is in Christ, he is a new creation. The old is gone, the new has come." – 2 Corinthians 5:17
               </p>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                Jesus didn't hang with the religious elite. He rolled with tax collectors, drunks, addicts, prostitutes, and outcasts.
-                That's our crew. That's our calling.
-                <span className="text-yellow-400 font-bold"> Saving souls with some edge.</span>
+                We don't always got room, but we always make room. 'Cause Jesus never turned people away—and neither do we.
+                <span className="text-red-400 font-bold"> Freely we give, 'cause freely we received.</span>
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
