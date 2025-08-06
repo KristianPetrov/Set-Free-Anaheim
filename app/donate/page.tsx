@@ -16,7 +16,7 @@ export default function DonatePage() {
   const handleCashAppDonation = () => {
     const amount = selectedAmount || parseFloat(customAmount) || 0
     if (amount > 0) {
-      const cashAppUrl = `https://cash.app/$AguilarSandy52/${amount}`
+      const cashAppUrl = `https://cash.app/$Setfreephil/${amount}`
       window.open(cashAppUrl, '_blank')
     } else {
       alert('Please select or enter a donation amount first')
