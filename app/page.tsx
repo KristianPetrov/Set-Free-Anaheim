@@ -418,9 +418,9 @@ export default function SetFreeChurch() {
               <MapPin className="h-12 w-12 text-red-500 mb-4" />
               <h3 className="font-bold text-white mb-2">LOCATION</h3>
               <p className="text-gray-300">
-                301 S Archer St.
+                1567 W Embassy Street
                 <br />
-                Anaheim, CA 92801
+                Anaheim, CA 92802
               </p>
             </div>
 
@@ -438,7 +438,7 @@ export default function SetFreeChurch() {
               <Calendar className="h-12 w-12 text-red-500 mb-4" />
               <h3 className="font-bold text-white mb-2">SERVICE TIMES</h3>
               <p className="text-gray-300">
-                Sundays 10:30AM & 7:00PM
+                Sundays 10:00AM & 7:00PM
                 <br />
                 No dress code required
               </p>
