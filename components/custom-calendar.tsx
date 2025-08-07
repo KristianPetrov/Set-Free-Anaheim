@@ -56,7 +56,7 @@ const weeklyEvents: Event[] = [
     title: "SUNDAY NIGHT RECOVERY",
     time: "7:00 PM",
     description: "One of the biggest and best recovery meetings in Southern California, where we get to share stories, talents and encourage one another with love and hope.",
-    image: "/chief-preaching.jpg",
+    image: "/sunday-sobreity-celebration.jpg",
     dayOfWeek: 0, // Sunday
     location: "Main Sanctuary",
     recurring: true
@@ -100,7 +100,7 @@ const weeklyEvents: Event[] = [
     time: "7:00 PM",
     address: addresses["Main Sanctuary"],
     description: "Want a classroom style bible study? Come on over to SFU Class where you will be taught something new as we navigate through subjects in the bible as a church. Bring your notebook and pencils. We're gunna dive deep!",
-    image: "/Set-Free-2.jpg",
+    image: "/bible-nerd.jpg",
     dayOfWeek: 4, // Thursday
     location: "Prayer Room",
     recurring: true
