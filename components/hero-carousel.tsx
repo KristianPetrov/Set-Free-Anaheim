@@ -7,10 +7,65 @@ import Image from "next/image"
 
 const carouselImages = [
   {
-    src: "/chief-sunglasses.jpg",
-    alt: "Chief Sunglasses",
+    src:"/i-am-redemption.jpg",
+    alt: "I Am Redemption",
     width: 400,
     height: 500,
+  },
+  {
+    src:"hooligan-phil-preaching.jpg",
+    alt: "Hooligan Phil Preaching",
+    width: 400,
+    height: 500,
+  },
+  {
+src:"/risky-speaking-truth.jpg",
+alt: "Risky Speaking Truth",
+width: 400,
+height: 500,
+  },
+  {
+    src:"phil-hugging-black-guy.jpg",
+    alt: "Phil Hugging Black Guy",
+    width: 400,
+    height: 500,
+  },
+  {
+    src:"/dj-anthony.jpg",
+    alt: "DJ Anthony",
+    width: 400,
+    height: 500,
+  },
+  {
+    src:"chill-phil-finger.jpg",
+    alt: "Chill Phil Finger",
+    width: 400,
+    height: 500,
+  },
+  {
+src:"/anthony-rachel-fun.jpg",
+alt: "Anthony and Rachel Fun",
+width: 400,
+height: 500,
+  },
+  {
+src:"/phil-sunday-setfree-hat.jpg",
+alt: "Phil Sunday Set Free Hat",
+width: 400,
+height: 500,
+  },
+  {
+    src:"/red-chill-handshake.jpg",
+    alt: "Red Chill Handshake",
+    width: 400,
+    height: 500,
+  },
+  {
+    src:"/chill-phil-finger.jpg",
+    alt: "Chill Phil Finger",
+    width: 400,
+    height: 500,
+   
   },
   {
     src: "/chief-preaching.jpg",
@@ -49,7 +104,7 @@ const carouselImages = [
     height: 500,
   },
   {
-    src:"/set-free-2.jpg",
+    src:"/Set-Free-2.jpg",
     alt: "Set Free Church Crowd",
     width: 400,
     height: 500,
