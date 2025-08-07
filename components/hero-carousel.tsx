@@ -8,22 +8,65 @@ import Image from "next/image"
 const carouselImages = [
   {
     src: "/chief-sunglasses.jpg",
-    alt: "Pastor Brian",
+    alt: "Chief Sunglasses",
     width: 400,
     height: 500,
   },
   {
     src: "/chief-preaching.jpg",
-    alt: "Brian and Angela Hands",
+    alt: "Chief Preaching",
     width: 400,
     height: 500,
   },
   {
     src: "/chill-phil.jpg",
-    alt: "Phil and Sandra",
+    alt: "Chill Phil",
     width: 400,
     height: 500,
-  }
+  },
+  {
+    src: "/sunday-soberiety-celebration.jpg",
+    alt: "Sunday Soberiety Celebration",
+    width: 400,
+    height: 500,
+  },
+  {
+    src: "/bible-nerd.jpg",
+    alt: "Bible Nerd",
+    width: 400,
+    height: 500,
+  },
+  {
+    src:"/risky-wife.jpg",
+    alt: "Risky Wife",
+    width: 400,
+    height: 500,
+  },
+  {
+    src:"/happy-phil.jpg",
+    alt: "Happy Phil",
+    width: 400,
+    height: 500,
+  },
+  {
+    src:"/set-free-2.jpg",
+    alt: "Set Free Church Crowd",
+    width: 400,
+    height: 500,
+  },
+  {
+    src:"/BrianAngelaHands.jpg",
+    alt: "Brian and Angela Hands",
+    width: 400,
+    height: 500,
+  },
+ {
+  src:"/sunday-angela.jpg",
+  alt: "Sunday Angela",
+  width: 400,
+  height: 500,
+ },
+
 ]
 
 export default function HeroCarousel() {
