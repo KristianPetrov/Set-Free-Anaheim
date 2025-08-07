@@ -11,14 +11,12 @@ interface VideoStory {
   embedId: string
 }
 
-const videoStories: VideoStory[] = [
-  {
-    id: "set-free-special",
-    title: "Set Free Special",
-    description: "Experience the raw power of Set Free ministry in action",
-    embedId: "gzhQkKofO4o"
-  },
-  {
+const videoStories: VideoStory[] = [{
+    id: "dirty-dozen",
+    title: "The Dirty Dozen",
+    description: "The original story that started it all",
+    embedId: "K-7A42wgFoU"
+  },{
     id: "dangerous-pastor",
     title: "America's Most Dangerous Pastor",
     description: "The story behind the man who changed everything",
@@ -31,11 +29,13 @@ const videoStories: VideoStory[] = [
     embedId: "qTP6m_KcLdw"
   },
   {
-    id: "dirty-dozen",
-    title: "The Dirty Dozen",
-    description: "The original story that started it all",
-    embedId: "K-7A42wgFoU"
-  }
+    id: "set-free-special",
+    title: "Set Free Special",
+    description: "Experience the raw power of Set Free ministry in action",
+    embedId: "gzhQkKofO4o"
+  },
+
+
 ]
 
 export default function VideoCarousel() {

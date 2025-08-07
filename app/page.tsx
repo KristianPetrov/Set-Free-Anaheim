@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Calendar, MapPin, Phone, Instagram, Facebook, Youtube } from "lucide-react"
+import { Calendar, MapPin, Phone, Instagram, Facebook, Youtube, Mail } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import CustomCalendar from "@/components/custom-calendar"
@@ -165,6 +165,70 @@ export default function SetFreeChurch() {
         </div>
       </section>
 
+      {/* Events Section */}
+      <section id="events" className="py-20 bg-black">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-red-500">WHERE WE AT</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="bg-gray-900 border-red-900/30">
+              <CardContent className="p-6">
+                <div className="mb-4 flex justify-center">
+                  <Image
+                    src="/set-free-church.png"
+                    alt="Set Free Church"
+                    width={150}
+                    height={150}
+                    className="object-contain"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">SUNDAY SERVICE</h3>
+                <p className="text-gray-300 mb-4">
+                  Raw worship, real preaching, no BS. Come through and experience God's love in a whole new way.
+                </p>
+                <p className="text-red-400 font-bold">Every Sunday 10AM</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gray-900 border-red-900/30">
+              <CardContent className="p-6">
+                <div className="mb-4 flex justify-center">
+                  <Image
+                    src="/holy-disciples.png"
+                    alt="Holy Disciples"
+                    width={150}
+                    height={150}
+                    className="object-contain"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">SUNDAY NIGHT RECOVERY</h3>
+                <p className="text-gray-300 mb-4">
+                Come as you are every Sunday night to Magic House for a powerful time of healing, hope, and real community. We’ve got good music, free hot dogs, and most importantly—unconditional love through Christ. No judgment, just Jesus. Let’s recover together.
+                </p>
+                <p className="text-red-400 font-bold">Saturdays 6PM</p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gray-900 border-red-900/30">
+              <CardContent className="p-6">
+                <div className="mb-4 flex justify-center">
+                  <Image
+                    src="/wellbreity.png"
+                    alt="Wellbriety Icon"
+                    width={150}
+                    height={150}
+                    className="object-contain bg-gray-900 rounded-lg"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Wellbriety</h3>
+                <p className="text-gray-300 mb-4">
+                Wellness meeting based in native tradition and using culture as a form of prevention.
+                </p>
+                <p className="text-red-400 font-bold">Mondays 7PM</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
       {/* Calendar Section */}
       <section id="calendar" className="py-20 bg-black">
         <div className="container mx-auto px-4">
@@ -235,18 +299,18 @@ export default function SetFreeChurch() {
             {/* Article 3 */}
             <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
               <img
-                src="https://www.christianitytoday.com/wp-content/uploads/1993/09/106425.jpg"
-                alt="Phil Aguilar: Faithful Flee from Set Free"
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=faces"
+                alt="Set Free Ministries helps whole congregations break spiritual chains"
                 className="rounded-md mb-4 w-full h-48 object-cover"
               />
               <h3 className="text-xl font-bold text-white mb-2">
-                Phil Aguilar: Faithful Flee from Set Free
+                Set Free Ministries helps whole congregations break spiritual chains
               </h3>
               <p className="text-gray-300 mb-4 text-sm">
-                Christianity Today explores the history and controversies surrounding Set Free Ministries and its founder, Pastor Phil Aguilar.
+                Mission Network News explores how Set Free Ministries is partnering with churches to equip congregations with the Freedom in Christ course, helping break spiritual bondage and enhance discipleship.
               </p>
               <a
-                href="https://www.christianitytoday.com/1993/09/phil-aguilar-faithful-flee-from-set-free/"
+                href="https://www.mnnonline.org/news/set-free-ministries-helps-whole-congregations-break-spiritual-chains/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-auto inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition"
@@ -258,70 +322,6 @@ export default function SetFreeChurch() {
         </div>
       </section>
 
-      {/* Events Section */}
-      <section id="events" className="py-20 bg-black">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-red-500">WHERE WE AT</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gray-900 border-red-900/30">
-              <CardContent className="p-6">
-                <div className="mb-4 flex justify-center">
-                  <Image
-                    src="/set-free-church.png"
-                    alt="Set Free Church"
-                    width={150}
-                    height={150}
-                    className="object-contain"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">SUNDAY SERVICE</h3>
-                <p className="text-gray-300 mb-4">
-                  Raw worship, real preaching, no BS. Come through and experience God's love in a whole new way.
-                </p>
-                <p className="text-red-400 font-bold">Every Sunday 10AM</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gray-900 border-red-900/30">
-              <CardContent className="p-6">
-                <div className="mb-4 flex justify-center">
-                  <Image
-                    src="/holy-disciples.png"
-                    alt="Holy Disciples"
-                    width={150}
-                    height={150}
-                    className="object-contain"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">SUNDAY NIGHT RECOVERY</h3>
-                <p className="text-gray-300 mb-4">
-                Come as you are every Sunday night to Magic House for a powerful time of healing, hope, and real community. We’ve got good music, free hot dogs, and most importantly—unconditional love through Christ. No judgment, just Jesus. Let’s recover together.
-                </p>
-                <p className="text-red-400 font-bold">Saturdays 6PM</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gray-900 border-red-900/30">
-              <CardContent className="p-6">
-                <div className="mb-4 flex justify-center">
-                  <Image
-                    src="/wellbreity.png"
-                    alt="Wellbriety Icon"
-                    width={150}
-                    height={150}
-                    className="object-contain bg-gray-900 rounded-lg"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Wellbriety</h3>
-                <p className="text-gray-300 mb-4">
-                Wellness meeting based in native tradition and using culture as a form of prevention.
-                </p>
-                <p className="text-red-400 font-bold">Mondays 7PM</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Testimonies Section */}
       <section id="testimonies" className="py-20 bg-gradient-to-r from-gray-900 to-black">
@@ -360,7 +360,37 @@ export default function SetFreeChurch() {
             unconditional love.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-5 gap-6 mb-12">
+            <div className="flex flex-col items-center">
+              <a
+                href="tel:714-329-1003"
+                className="group flex flex-col items-center"
+              >
+                <Phone className="h-12 w-12 text-red-500 mb-4 group-hover:text-red-400 transition-colors" />
+                <h3 className="font-bold text-white mb-2 group-hover:text-red-400 transition-colors">CALL US</h3>
+                <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-center">
+                  714-329-1003
+                  <br />
+                  Ready to help
+                </p>
+              </a>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <a
+                href="mailto:setfreephil@aol.com"
+                className="group flex flex-col items-center"
+              >
+                <Mail className="h-12 w-12 text-red-500 mb-4 group-hover:text-red-400 transition-colors" />
+                <h3 className="font-bold text-white mb-2 group-hover:text-red-400 transition-colors">EMAIL US</h3>
+                <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-center">
+                  setfreephil@aol.com
+                  <br />
+                  Direct contact
+                </p>
+              </a>
+            </div>
+
             <div className="flex flex-col items-center">
               <a
                 href="https://www.instagram.com/setfreeanaheim"
