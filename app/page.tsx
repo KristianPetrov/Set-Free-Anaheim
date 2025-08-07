@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Calendar, MapPin, Phone } from "lucide-react"
+import { Calendar, MapPin, Phone, Instagram, Facebook, Youtube } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import CustomCalendar from "@/components/custom-calendar"
@@ -296,7 +296,7 @@ export default function SetFreeChurch() {
                 <h3 className="text-xl font-bold text-white mb-2">SUNDAY NIGHT RECOVERY</h3>
                 <p className="text-gray-300 mb-4">
                 Come as you are every Sunday night to Magic House for a powerful time of healing, hope, and real community. We’ve got good music, free hot dogs, and most importantly—unconditional love through Christ. No judgment, just Jesus. Let’s recover together.
-                </p> 
+                </p>
                 <p className="text-red-400 font-bold">Saturdays 6PM</p>
               </CardContent>
             </Card>
@@ -362,33 +362,54 @@ export default function SetFreeChurch() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="flex flex-col items-center">
-              <MapPin className="h-12 w-12 text-red-500 mb-4" />
-              <h3 className="font-bold text-white mb-2">LOCATION</h3>
-              <p className="text-gray-300">
-                1567 W Embassy Street
-                <br />
-                Anaheim, CA 92802
-              </p>
+              <a
+                href="https://www.instagram.com/setfreeanaheim"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center"
+              >
+                <Instagram className="h-12 w-12 text-red-500 mb-4 group-hover:text-red-400 transition-colors" />
+                <h3 className="font-bold text-white mb-2 group-hover:text-red-400 transition-colors">INSTAGRAM</h3>
+                <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-center">
+                  Follow our daily
+                  <br />
+                  ministry updates
+                </p>
+              </a>
             </div>
 
             <div className="flex flex-col items-center">
-              <Phone className="h-12 w-12 text-red-500 mb-4" />
-              <h3 className="font-bold text-white mb-2">CALL US</h3>
-              <p className="text-gray-300">
-                (714) 400-4573
-                <br />
-                24/7 Prayer Line
-              </p>
+              <a
+                href="https://www.facebook.com/setfreeanaheim"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center"
+              >
+                <Facebook className="h-12 w-12 text-red-500 mb-4 group-hover:text-red-400 transition-colors" />
+                <h3 className="font-bold text-white mb-2 group-hover:text-red-400 transition-colors">FACEBOOK</h3>
+                <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-center">
+                  Connect with our
+                  <br />
+                  community online
+                </p>
+              </a>
             </div>
 
             <div className="flex flex-col items-center">
-              <Calendar className="h-12 w-12 text-red-500 mb-4" />
-              <h3 className="font-bold text-white mb-2">SERVICE TIMES</h3>
-              <p className="text-gray-300">
-                Sundays 10:00AM & 7:00PM
-                <br />
-                No dress code required
-              </p>
+              <a
+                href="https://www.youtube.com/@setfreeanaheim"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center"
+              >
+                <Youtube className="h-12 w-12 text-red-500 mb-4 group-hover:text-red-400 transition-colors" />
+                <h3 className="font-bold text-white mb-2 group-hover:text-red-400 transition-colors">YOUTUBE</h3>
+                <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-center">
+                  Watch sermons &
+                  <br />
+                  ministry content
+                </p>
+              </a>
             </div>
           </div>
 
