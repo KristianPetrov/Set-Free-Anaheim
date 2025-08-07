@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     images: ["/Set-Free.jpg"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/setfree_anaheim_favicon.ico",
   },
   metadataBase: new URL("https://yourdomain.com"),
 }

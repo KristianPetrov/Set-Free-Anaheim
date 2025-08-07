@@ -56,7 +56,7 @@ const weeklyEvents: Event[] = [
     title: "SUNDAY NIGHT RECOVERY",
     time: "7:00 PM",
     description: "One of the biggest and best recovery meetings in Southern California, where we get to share stories, talents and encourage one another with love and hope.",
-    image: "/chill-phil.jpg",
+    image: "/chief-preaching.jpg",
     dayOfWeek: 0, // Sunday
     location: "Main Sanctuary",
     recurring: true
