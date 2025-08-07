@@ -19,6 +19,11 @@ interface Event {
   recurring: boolean
 }
 
+interface EventWithDate extends Event {
+  date: Date
+  dateLabel: string
+}
+
 interface GoogleEvent {
   id: string
   title: string
@@ -148,16 +153,30 @@ export default function CustomCalendar() {
     fetchGoogleEvents()
   }, [])
 
-  // Get current week's events only
-  const getCurrentWeekEvents = () => {
+      // Get events for the next 7 days
+  const getNext7DaysEvents = (): EventWithDate[] => {
     const today = new Date()
-    const todayDayOfWeek = today.getDay()
+    const next7Days: EventWithDate[] = []
 
-    // Show only events for the current week, starting from today
-    return weeklyEvents.filter(event => {
-      // Show events from today onwards in the current week
-      return event.dayOfWeek >= todayDayOfWeek
-    }).slice(0, 3) // Limit to 3 events to avoid repetition
+    // Generate the next 7 days
+    for (let i = 0; i < 7; i++) {
+      const date = new Date(today)
+      date.setDate(today.getDate() + i)
+      const dayOfWeek = date.getDay()
+
+      // Find events for this day
+      const eventsForDay = weeklyEvents.filter(event => event.dayOfWeek === dayOfWeek)
+
+      eventsForDay.forEach(event => {
+        next7Days.push({
+          ...event,
+          date: date,
+          dateLabel: i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : format(date, 'EEEE, MMM d')
+        })
+      })
+    }
+
+    return next7Days
   }
 
   return (
@@ -215,7 +234,7 @@ export default function CustomCalendar() {
       <div>
         <h4 className="text-xl font-bold text-red-500 mb-4">UPCOMING THIS WEEK</h4>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {getCurrentWeekEvents().map((event) => (
+          {getNext7DaysEvents().map((event) => (
             <Card key={event.id} className="bg-black/50 border-red-900/30 hover:border-red-500/50 transition-all duration-300 group">
               <CardContent className="p-6">
                 <div className="flex gap-6">
@@ -234,7 +253,7 @@ export default function CustomCalendar() {
                     </h5>
                     <div className="flex items-center gap-2 text-base text-gray-400 mb-2">
                       <Calendar className="w-5 h-5" />
-                      <span>{['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][event.dayOfWeek]}s</span>
+                      <span>{event.dateLabel}</span>
                     </div>
                     <div className="flex items-center gap-2 text-base text-gray-400 mb-3">
                       <Clock className="w-5 h-5" />
