@@ -1,7 +1,10 @@
 "use client"
 
-import { Calendar, Clock, MapPin } from "lucide-react"
+import { useState, useEffect } from "react"
+import { format, startOfWeek, addDays, isSameDay } from "date-fns"
+import { Calendar, Clock, MapPin, Loader2, AlertCircle } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import Image from "next/image"
 
 interface Event {
@@ -15,8 +18,20 @@ interface Event {
   location?: string
   recurring: boolean
 }
+
+interface GoogleEvent {
+  id: string
+  title: string
+  description?: string
+  start: Date
+  end: Date
+  location?: string
+  isAllDay: boolean
+  url?: string
+  creator?: string
+}
 const addresses = {
- "Main Sanctuary" :"301 S Archer St, Anaheim, CA 92801" ,
+ "Main Sanctuary" :"1171 N West St, Anaheim, CA 92801, USA" ,
   "Lift Off Recovery":"1567 W Embassy St, Anaheim, CA 92802, USA" ,}
 const weeklyEvents: Event[] = [
   {
@@ -76,7 +91,7 @@ const weeklyEvents: Event[] = [
   },
   {
     id: "sfu-class",
-    title: "SFU CLASS",
+    title: "SET FREE UNIVERSITY - SFU CLASS",
     time: "7:00 PM",
     address: addresses["Main Sanctuary"],
     description: "Want a classroom style bible study? Come on over to SFU Class where you will be taught something new as we navigate through subjects in the bible as a church. Bring your notebook and pencils. We're gunna dive deep!",
@@ -90,13 +105,117 @@ const weeklyEvents: Event[] = [
 ]
 
 export default function CustomCalendar() {
+  const [googleEvents, setGoogleEvents] = useState<GoogleEvent[]>([])
+  const [isLoadingEvents, setIsLoadingEvents] = useState(false)
+  const [eventError, setEventError] = useState<string | null>(null)
+
+  const currentDate = new Date()
+  const weekStart = startOfWeek(currentDate)
+  const weekDays = Array.from({ length: 7 }, (_, i) => addDays(weekStart, i))
+
+  // Fetch Google Calendar events
+  const fetchGoogleEvents = async () => {
+    setIsLoadingEvents(true)
+    setEventError(null)
+
+    try {
+      const response = await fetch(`/api/calendar/events?view=month&date=${currentDate.toISOString()}`)
+      const data = await response.json()
+
+      if (data.success) {
+        // Convert string dates back to Date objects
+        const events = data.events.map((event: any) => ({
+          ...event,
+          start: new Date(event.start),
+          end: new Date(event.end)
+        }))
+        setGoogleEvents(events)
+      } else {
+        setEventError('Failed to load calendar events')
+        setGoogleEvents([])
+      }
+    } catch (error) {
+      console.error('Error fetching events:', error)
+      setEventError('Unable to connect to calendar')
+      setGoogleEvents([])
+    } finally {
+      setIsLoadingEvents(false)
+    }
+  }
+
+  // Load events when component mounts
+  useEffect(() => {
+    fetchGoogleEvents()
+  }, [])
+
+  // Get current week's events only
+  const getCurrentWeekEvents = () => {
+    const today = new Date()
+    const todayDayOfWeek = today.getDay()
+
+    // Show only events for the current week, starting from today
+    return weeklyEvents.filter(event => {
+      // Show events from today onwards in the current week
+      return event.dayOfWeek >= todayDayOfWeek
+    }).slice(0, 3) // Limit to 3 events to avoid repetition
+  }
+
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      {/* This Week's Events Section */}
+    <div className="w-full max-w-7xl mx-auto space-y-12">
+      {/* Google Calendar Section */}
       <div>
-        <h4 className="text-xl font-bold text-red-500 mb-4">THIS WEEK'S EVENTS</h4>
+        <h4 className="text-xl font-bold text-red-500 mb-6">LIVE CALENDAR</h4>
+
+        {/* Loading and Error States */}
+        {isLoadingEvents && (
+          <div className="flex items-center justify-center py-8">
+            <Loader2 className="w-6 h-6 animate-spin text-red-500 mr-2" />
+            <span className="text-gray-300">Loading calendar events...</span>
+          </div>
+        )}
+
+        {eventError && (
+          <Alert className="mb-6 bg-red-900/20 border-red-500/50">
+            <AlertCircle className="h-4 w-4 text-red-400" />
+            <AlertDescription className="text-red-300">
+              {eventError} - Showing recurring events only.
+            </AlertDescription>
+          </Alert>
+        )}
+
+        {/* Google Calendar Embed */}
+        <div className="bg-gray-900/50 border border-red-900/30 rounded-lg overflow-hidden">
+          <div className="p-4 bg-gray-800/50 border-b border-red-900/30">
+            <div className="flex items-center justify-between">
+              <h4 className="text-lg font-bold text-red-400">Live Events & Updates</h4>
+              <a
+                href="https://calendar.google.com/calendar/embed?src=chiefsthemagichouse%40gmail.com&ctz=America%2FLos_Angeles"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-gray-400 hover:text-red-400 transition-colors flex items-center gap-1"
+              >
+                <Calendar className="w-3 h-3" />
+                Open in Google Calendar
+              </a>
+            </div>
+          </div>
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=chiefsthemagichouse%40gmail.com&ctz=America%2FLos_Angeles&bgcolor=%23000000&color=%23D50000"
+            style={{ border: 0 }}
+            width="100%"
+            height="600"
+            frameBorder="0"
+            scrolling="no"
+            className="w-full h-[600px]"
+          ></iframe>
+        </div>
+      </div>
+
+      {/* This Week's Events Section - Limited */}
+      <div>
+        <h4 className="text-xl font-bold text-red-500 mb-4">UPCOMING THIS WEEK</h4>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {weeklyEvents.map((event) => (
+          {getCurrentWeekEvents().map((event) => (
             <Card key={event.id} className="bg-black/50 border-red-900/30 hover:border-red-500/50 transition-all duration-300 group">
               <CardContent className="p-6">
                 <div className="flex gap-6">
