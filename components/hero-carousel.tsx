@@ -65,7 +65,7 @@ height: 500,
     alt: "Chill Phil Finger",
     width: 400,
     height: 500,
-   
+
   },
   {
     src: "/chief-preaching.jpg",
@@ -112,6 +112,22 @@ height: 500,
   {
     src:"/BrianAngelaHands.jpg",
     alt: "Brian and Angela Hands",
+    width: 400,
+    height: 500,
+  },{
+src:"/tommy-sunglasses.jpg",
+alt: "Tommy Sunglasses",
+width: 400,
+height: 500,
+  },
+  {src:"chill-singing-heart-bw.jpg",
+  alt: "Chill Singing Heart",
+  width: 400,
+  height: 500,
+  },
+  {
+    src:"/chill-hands-out-prayer.jpg",
+    alt: "Chill Hands Out Prayer",
     width: 400,
     height: 500,
   },
