@@ -239,7 +239,7 @@ export default function SetFreeChurch() {
               <CardContent className="p-6">
                 <div className="mb-4 flex justify-center">
                   <Image
-                    src="/wellbreity-hand.jpg"
+                    src="/sunday-toya-oklahoma.jpg"
                     alt="Wellbriety wellness meeting icon"
                     width={150}
                     height={150}
