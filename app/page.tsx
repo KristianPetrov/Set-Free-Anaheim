@@ -204,7 +204,7 @@ export default function SetFreeChurch() {
               <CardContent className="p-6">
                 <div className="mb-4 flex justify-center">
                   <Image
-                    src="/set-free-church.png"
+                    src="/phil-holding-blocks.jpeg"
                     alt="Set Free Church Sunday Service icon"
                     width={150}
                     height={150}
@@ -225,7 +225,7 @@ export default function SetFreeChurch() {
               <CardContent className="p-6">
                 <div className="mb-4 flex justify-center">
                   <Image
-                    src="/holy-disciples.png"
+                    src="/phil-sunday-setfree-hat.jpg"
                     alt="Holy Disciples Sunday Night Recovery icon"
                     width={150}
                     height={150}
@@ -246,7 +246,7 @@ export default function SetFreeChurch() {
               <CardContent className="p-6">
                 <div className="mb-4 flex justify-center">
                   <Image
-                    src="/wellbreity.png"
+                    src="/wellbreity-hand.jpg"
                     alt="Wellbriety wellness meeting icon"
                     width={150}
                     height={150}
