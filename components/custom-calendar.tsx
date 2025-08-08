@@ -203,31 +203,7 @@ export default function CustomCalendar() {
         )}
 
         {/* Google Calendar Embed */}
-        <div className="bg-gray-900/50 border border-red-900/30 rounded-lg overflow-hidden">
-          <div className="p-4 bg-gray-800/50 border-b border-red-900/30">
-            <div className="flex items-center justify-between">
-              <h4 className="text-lg font-bold text-red-400">Live Events & Updates</h4>
-              <a
-                href="https://calendar.google.com/calendar/embed?src=chiefsthemagichouse%40gmail.com&ctz=America%2FLos_Angeles"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-gray-400 hover:text-red-400 transition-colors flex items-center gap-1"
-              >
-                <Calendar className="w-3 h-3" />
-                Open in Google Calendar
-              </a>
-            </div>
-          </div>
-          <iframe
-            src="https://calendar.google.com/calendar/embed?src=chiefsthemagichouse%40gmail.com&ctz=America%2FLos_Angeles&bgcolor=%23000000&color=%23DC2626&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&wkst=1"
-            style={{ border: 0 }}
-            width="100%"
-            height="600"
-            frameBorder="0"
-            scrolling="no"
-            className="w-full h-[600px] bg-black"
-          ></iframe>
-        </div>
+        
       </div>
 
       {/* This Week's Events Section - Limited */}

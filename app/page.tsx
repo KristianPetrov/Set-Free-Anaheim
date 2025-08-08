@@ -443,9 +443,9 @@ export default function SetFreeChurch() {
             </div>
           </div>
 
-          <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-12 text-xl">
+          {/* <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-12 text-xl">
             COME THROUGH THIS SUNDAY
-          </Button>
+          </Button> */}
         </div>
       </section>
 
