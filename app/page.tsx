@@ -7,14 +7,7 @@ import dynamic from 'next/dynamic'
 import Navbar from "@/components/navbar"
 import HeroCarousel from "@/components/hero-carousel"
 
-const CustomCalendar = dynamic(() => import('@/components/custom-calendar'), {
-  loading: () => (
-    <div className="flex items-center justify-center py-12">
-      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-500"></div>
-      <span className="ml-2 text-gray-300">Loading calendar...</span>
-    </div>
-  ),
-})
+import CustomCalendar from "@/components/custom-calendar"
 
 const VideoCarousel = dynamic(() => import('@/components/video-carousel'), {
   loading: () => (

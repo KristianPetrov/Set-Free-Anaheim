@@ -5,25 +5,25 @@ const API_KEY = process.env.GOOGLE_CALENDAR_API_KEY;
 
 export interface GoogleCalendarEvent
 {
-    id: string;
-    summary: string;
-    description?: string;
-    start: {
-        dateTime?: string;
-        date?: string;
-        timeZone?: string;
-    };
-    end: {
-        dateTime?: string;
-        date?: string;
-        timeZone?: string;
-    };
-    location?: string;
-    htmlLink?: string;
+    id?: string | null;
+    summary?: string | null;
+    description?: string | null;
+    start?: {
+        dateTime?: string | null;
+        date?: string | null;
+        timeZone?: string | null;
+    } | null;
+    end?: {
+        dateTime?: string | null;
+        date?: string | null;
+        timeZone?: string | null;
+    } | null;
+    location?: string | null;
+    htmlLink?: string | null;
     creator?: {
-        email?: string;
-        displayName?: string;
-    };
+        email?: string | null;
+        displayName?: string | null;
+    } | null;
 }
 
 export interface ProcessedEvent
@@ -68,7 +68,7 @@ export class GoogleCalendarService
             });
 
             const events = response.data.items || [];
-            return events.map(this.processEvent).filter(Boolean) as ProcessedEvent[];
+            return events.map((this.processEvent || [])).filter(Boolean) as ProcessedEvent[];
         } catch (error) {
             console.error('Error fetching Google Calendar events:', error);
             return [];
@@ -94,28 +94,28 @@ export class GoogleCalendarService
 
     private processEvent (event: GoogleCalendarEvent): ProcessedEvent | null
     {
-        if (!event.start || !event.end) return null;
+        if (!event.start || !event.end || !event.id) return null;
 
         const startDate = event.start.dateTime
             ? new Date(event.start.dateTime)
-            : new Date(event.start.date + 'T00:00:00');
+            : new Date((event.start.date || '') + 'T00:00:00');
 
         const endDate = event.end.dateTime
             ? new Date(event.end.dateTime)
-            : new Date(event.end.date + 'T23:59:59');
+            : new Date((event.end.date || '') + 'T23:59:59');
 
         const isAllDay = !event.start.dateTime;
 
         return {
             id: event.id,
             title: event.summary || 'Untitled Event',
-            description: event.description,
+            description: event.description || undefined,
             start: startDate,
             end: endDate,
-            location: event.location,
+            location: event.location || undefined,
             isAllDay,
-            url: event.htmlLink,
-            creator: event.creator?.displayName || event.creator?.email
+            url: event.htmlLink || undefined,
+            creator: event.creator?.displayName || event.creator?.email || undefined
         };
     }
 }

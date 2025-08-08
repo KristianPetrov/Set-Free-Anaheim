@@ -1,10 +1,8 @@
-"use client"
 
-import { useState, useEffect } from "react"
 import { format, startOfWeek, addDays, isSameDay } from "date-fns"
-import { Calendar, Clock, MapPin, Loader2, AlertCircle } from "lucide-react"
+import { Calendar, Clock, MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Alert, AlertDescription } from "@/components/ui/alert"
+
 import Image from "next/image"
 
 interface Event {
@@ -110,48 +108,48 @@ const weeklyEvents: Event[] = [
 ]
 
 export default function CustomCalendar() {
-  const [googleEvents, setGoogleEvents] = useState<GoogleEvent[]>([])
-  const [isLoadingEvents, setIsLoadingEvents] = useState(false)
-  const [eventError, setEventError] = useState<string | null>(null)
+  // const [googleEvents, setGoogleEvents] = useState<GoogleEvent[]>([])
+  // const [isLoadingEvents, setIsLoadingEvents] = useState(false)
+  // const [eventError, setEventError] = useState<string | null>(null)
 
   const currentDate = new Date()
   const weekStart = startOfWeek(currentDate)
   const weekDays = Array.from({ length: 7 }, (_, i) => addDays(weekStart, i))
 
-  // Fetch Google Calendar events
-  const fetchGoogleEvents = async () => {
-    setIsLoadingEvents(true)
-    setEventError(null)
+  // // Fetch Google Calendar events
+  // const fetchGoogleEvents = async () => {
+  //   setIsLoadingEvents(true)
+  //   setEventError(null)
 
-    try {
-      const response = await fetch(`/api/calendar/events?view=month&date=${currentDate.toISOString()}`)
-      const data = await response.json()
+  //   try {
+  //     const response = await fetch(`/api/calendar/events?view=month&date=${currentDate.toISOString()}`)
+  //     const data = await response.json()
 
-      if (data.success) {
-        // Convert string dates back to Date objects
-        const events = data.events.map((event: any) => ({
-          ...event,
-          start: new Date(event.start),
-          end: new Date(event.end)
-        }))
-        setGoogleEvents(events)
-      } else {
-        setEventError('Failed to load calendar events')
-        setGoogleEvents([])
-      }
-    } catch (error) {
-      console.error('Error fetching events:', error)
-      setEventError('Unable to connect to calendar')
-      setGoogleEvents([])
-    } finally {
-      setIsLoadingEvents(false)
-    }
-  }
+  //     if (data.success) {
+  //       // Convert string dates back to Date objects
+  //       const events = data.events.map((event: any) => ({
+  //         ...event,
+  //         start: new Date(event.start),
+  //         end: new Date(event.end)
+  //       }))
+  //       setGoogleEvents(events)
+  //     } else {
+  //       setEventError('Failed to load calendar events')
+  //       setGoogleEvents([])
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching events:', error)
+  //     setEventError('Unable to connect to calendar')
+  //     setGoogleEvents([])
+  //   } finally {
+  //     setIsLoadingEvents(false)
+  //   }
+  // }
 
-  // Load events when component mounts
-  useEffect(() => {
-    fetchGoogleEvents()
-  }, [])
+  // // Load events when component mounts
+  // useEffect(() => {
+  //   fetchGoogleEvents()
+  // }, [])
 
       // Get events for the next 7 days
   const getNext7DaysEvents = (): EventWithDate[] => {
