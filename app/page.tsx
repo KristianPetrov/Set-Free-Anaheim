@@ -407,13 +407,13 @@ export default function SetFreeChurch() {
           <div className="grid md:grid-cols-5 gap-6 mb-12">
             <div className="flex flex-col items-center">
               <a
-                href="tel:714-329-1003"
+                href="tel:714-400-4573"
                 className="group flex flex-col items-center"
               >
                 <Phone className="h-12 w-12 text-red-500 mb-4 group-hover:text-red-400 transition-colors" />
                 <h3 className="font-bold text-white mb-2 group-hover:text-red-400 transition-colors">CALL US</h3>
                 <p className="text-gray-300 group-hover:text-gray-200 transition-colors text-center">
-                  714-329-1003
+                  714-400-4573
                   <br />
                   Ready to help
                 </p>

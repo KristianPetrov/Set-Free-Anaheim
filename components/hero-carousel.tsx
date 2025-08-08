@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
+import Link from "next/link"
 
 const carouselImages = [
   {
@@ -293,19 +294,26 @@ export default function HeroCarousel() {
         <Carousel plugins={[autoplay.current]} className="w-full">
           <CarouselContent className="-ml-1">
             {carouselImages.map((image, index) => (
-                          <CarouselItem key={index} className="pl-1">
-              <div className="relative aspect-[4/5] w-full">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="rounded-lg shadow-2xl object-cover"
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  loading={index < 3 ? "eager" : "lazy"}
-                  priority={index === 0}
-                />
-              </div>
-            </CarouselItem>
+              <CarouselItem key={index} className="pl-1">
+                <Link href={`/gallery/${index}`} className="block">
+                  <div className="relative aspect-[4/5] w-full cursor-pointer group">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="rounded-lg shadow-2xl object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      loading={index < 3 ? "eager" : "lazy"}
+                      priority={index === 0}
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-lg flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-center">
+                        <p className="text-sm font-medium">Click to view</p>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </CarouselItem>
             ))}
           </CarouselContent>
         </Carousel>
