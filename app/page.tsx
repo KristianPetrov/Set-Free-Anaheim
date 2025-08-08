@@ -84,13 +84,15 @@ export default function SetFreeChurch() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-[50%] animate-bounce">
-          <Image
-            src="/cross-arrow.png"
-            alt="Scroll down arrow"
-            width={40}
-            height={40}
-            className="opacity-80 hover:opacity-100 transition-opacity cursor-pointer drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]"
-          />
+          <Link href="#about" className="block">
+            <Image
+              src="/cross-arrow.png"
+              alt="Scroll down to about section"
+              width={40}
+              height={40}
+              className="opacity-80 hover:opacity-100 transition-opacity cursor-pointer drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]"
+            />
+          </Link>
         </div>
       </section>
 
@@ -103,16 +105,20 @@ export default function SetFreeChurch() {
             {" "}when they least expect it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 text-lg">
-              GET SET FREE
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-black font-bold py-4 px-8 text-lg bg-transparent"
-            >
-              SUNDAY 10AM
-            </Button>
+            <Link href="#contact">
+              <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 text-lg">
+                GET SET FREE
+              </Button>
+            </Link>
+            <Link href="#events">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-black font-bold py-4 px-8 text-lg bg-transparent"
+              >
+                SUNDAY 10AM
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
