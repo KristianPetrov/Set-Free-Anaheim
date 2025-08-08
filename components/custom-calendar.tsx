@@ -67,7 +67,7 @@ const weeklyEvents: Event[] = [
     address: addresses["Lift Off Recovery"],
     time: "7:00 PM",
     description: "Wellness meeting based in native tradition and using culture as a form of prevention.",
-    image: "/BrianAngelaHands.jpg",
+    image: "/wellbreity-hand.jpg",
     dayOfWeek: 1, // Monday
     location: "Youth Room",
     recurring: true
