@@ -219,13 +219,13 @@ export default function CustomCalendar() {
             </div>
           </div>
           <iframe
-            src="https://calendar.google.com/calendar/embed?src=chiefsthemagichouse%40gmail.com&ctz=America%2FLos_Angeles&bgcolor=%23000000&color=%23D50000"
+            src="https://calendar.google.com/calendar/embed?src=chiefsthemagichouse%40gmail.com&ctz=America%2FLos_Angeles&bgcolor=%23000000&color=%23DC2626&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&wkst=1"
             style={{ border: 0 }}
             width="100%"
             height="600"
             frameBorder="0"
             scrolling="no"
-            className="w-full h-[600px]"
+            className="w-full h-[600px] bg-black"
           ></iframe>
         </div>
       </div>
