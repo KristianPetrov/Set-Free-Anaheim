@@ -299,23 +299,23 @@ export default function SetFreeChurch() {
             {/* Article 3 */}
             <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=faces"
-                alt="Set Free Ministries helps whole congregations break spiritual chains"
+                src="https://img.youtube.com/vi/KYbuUC6tGUY/maxresdefault.jpg"
+                alt="Set Free Anaheim Ministry Video"
                 className="rounded-md mb-4 w-full h-48 object-cover"
               />
               <h3 className="text-xl font-bold text-white mb-2">
-                Set Free Ministries helps whole congregations break spiritual chains
+                Set Free Anaheim Ministry Video
               </h3>
               <p className="text-gray-300 mb-4 text-sm">
-                Mission Network News explores how Set Free Ministries is partnering with churches to equip congregations with the Freedom in Christ course, helping break spiritual bondage and enhance discipleship.
+                Watch this powerful video showcasing the heart and mission of Set Free Anaheim ministry, featuring real stories and testimonies from our community.
               </p>
               <a
-                href="https://www.mnnonline.org/news/set-free-ministries-helps-whole-congregations-break-spiritual-chains/"
+                href="https://youtu.be/KYbuUC6tGUY"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-auto inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition"
               >
-                Read Article
+                Watch Video
               </a>
             </div>
           </div>
