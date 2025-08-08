@@ -74,6 +74,26 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Performance optimizations */
+img, video, iframe {
+  content-visibility: auto;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-display: swap;
+}
+
+/* Reduce motion for accessibility and performance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   color: hsl(var(--foreground));
   background: hsl(var(--background));

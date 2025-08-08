@@ -1,8 +1,18 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#DC2626',
+}
+
 export const metadata: Metadata = {
-  title: "Set Free Anaheim | Urban Church & Outreach",
+  title: {
+    default: "Set Free Anaheim | Urban Church & Outreach",
+    template: "%s | Set Free Anaheim"
+  },
   description:
     "Set Free Anaheim is a bold, Christ-centered church and outreach in Orange County, meeting people where they are with real talk, real love, and real transformation. Join us for worship, street outreach, and community events.",
   keywords: [
@@ -15,37 +25,75 @@ export const metadata: Metadata = {
     "Street Ministry",
     "Christian Community",
     "Gang Outreach",
-    "Soft White Underbelly",
-    "Homeboy Industries"
+    "Recovery Ministry",
+    "Magic House",
+    "Wellbriety",
+    "Orange County Church",
+    "California Ministry"
   ],
+  authors: [{ name: "Set Free Anaheim" }],
+  creator: "Set Free Anaheim",
+  publisher: "Set Free Anaheim",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://setfreeanaheim.org",
+    siteName: "Set Free Anaheim",
     title: "Set Free Anaheim | Urban Church & Outreach",
     description:
       "Bold, Christ-centered outreach in Anaheim. Real talk, real love, real transformation. Join us for worship, street outreach, and community events.",
-    url: "https://yourdomain.com",
-    siteName: "Set Free Anaheim",
     images: [
       {
         url: "/Set-Free.jpg",
         width: 1200,
         height: 630,
-        alt: "Set Free Anaheim Hero",
+        alt: "Set Free Anaheim - Urban Church and Outreach Ministry",
+        type: "image/jpeg",
       },
     ],
-    locale: "en_US",
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
+    site: "@setfreeanaheim",
+    creator: "@setfreeanaheim",
     title: "Set Free Anaheim | Urban Church & Outreach",
     description:
       "Bold, Christ-centered outreach in Anaheim. Real talk, real love, real transformation.",
-    images: ["/Set-Free.jpg"],
+    images: [
+      {
+        url: "/Set-Free.jpg",
+        alt: "Set Free Anaheim Ministry",
+      }
+    ],
   },
   icons: {
-    icon: "/setfree_anaheim_favicon.ico",
+    icon: [
+      { url: "/setfree_anaheim_favicon.ico", sizes: "any" },
+      { url: "/setfree_anaheim_favicon.ico", sizes: "16x16", type: "image/x-icon" },
+      { url: "/setfree_anaheim_favicon.ico", sizes: "32x32", type: "image/x-icon" },
+    ],
+    apple: [
+      { url: "/setfree_anaheim_favicon.ico", sizes: "180x180" },
+    ],
   },
-  metadataBase: new URL("https://yourdomain.com"),
+  manifest: "/manifest.json",
+  metadataBase: new URL("https://setfreeanaheim.org"),
+  alternates: {
+    canonical: "https://setfreeanaheim.org",
+  },
+  category: "religion",
+  classification: "Church and Religious Organization",
 }
 
 export default function RootLayout({
@@ -56,9 +104,84 @@ export default function RootLayout({
   modal: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body>
-        {children}
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://calendar.google.com" />
+        <link rel="dns-prefetch" href="https://img.youtube.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Church",
+              "name": "Set Free Anaheim",
+              "alternateName": "Magic House",
+              "description": "Bold, Christ-centered church and outreach in Anaheim, California. Real talk, real love, real transformation.",
+              "url": "https://setfreeanaheim.org",
+              "logo": "https://setfreeanaheim.org/SETFREELOGOWHITE.png",
+              "image": "https://setfreeanaheim.org/Set-Free.jpg",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Anaheim",
+                "addressRegion": "CA",
+                "addressCountry": "US"
+              },
+              "telephone": "714-329-1003",
+              "email": "setfreephil@aol.com",
+              "founder": {
+                "@type": "Person",
+                "name": "Pastor Phil Aguilar"
+              },
+              "sameAs": [
+                "https://www.instagram.com/setfreeanaheim",
+                "https://www.facebook.com/setfreeanaheim",
+                "https://www.youtube.com/@setfreeanaheim"
+              ],
+              "event": [
+                {
+                  "@type": "Event",
+                  "name": "Sunday Service",
+                  "description": "Raw worship, real preaching, no BS. Come through and experience God's love in a whole new way.",
+                  "startDate": "2025-01-01T10:00:00-08:00",
+                  "eventSchedule": {
+                    "@type": "Schedule",
+                    "repeatFrequency": "P1W",
+                    "byDay": "Sunday"
+                  }
+                },
+                {
+                  "@type": "Event",
+                  "name": "Sunday Night Recovery",
+                  "description": "Come as you are every Sunday night to Magic House for a powerful time of healing, hope, and real community.",
+                  "startDate": "2025-01-01T18:00:00-08:00",
+                  "eventSchedule": {
+                    "@type": "Schedule",
+                    "repeatFrequency": "P1W",
+                    "byDay": "Saturday"
+                  }
+                },
+                {
+                  "@type": "Event",
+                  "name": "Wellbriety",
+                  "description": "Wellness meeting based in native tradition and using culture as a form of prevention.",
+                  "startDate": "2025-01-01T19:00:00-08:00",
+                  "eventSchedule": {
+                    "@type": "Schedule",
+                    "repeatFrequency": "P1W",
+                    "byDay": "Monday"
+                  }
+                }
+              ]
+            })
+          }}
+        />
+      </head>
+      <body className="antialiased">
+        <main role="main">
+          {children}
+        </main>
         {modal}
       </body>
     </html>

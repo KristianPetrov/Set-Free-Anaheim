@@ -1,0 +1,35 @@
+{
+    "name": "Set Free Anaheim",
+    "short_name": "Set Free",
+    "description": "Bold, Christ-centered church and outreach in Anaheim, California",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#DC2626",
+    "orientation": "portrait-primary",
+    "categories": [
+        "lifestyle",
+        "social"
+    ],
+    "icons": [
+        {
+            "src": "/setfree_anaheim_favicon.ico",
+            "sizes": "16x16 32x32",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "/SETFREELOGOWHITE.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/Set-Free.jpg",
+            "sizes": "1200x630",
+            "type": "image/jpeg",
+            "platform": "wide"
+        }
+    ]
+}

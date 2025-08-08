@@ -45,7 +45,7 @@ const weeklyEvents: Event[] = [
     title: "SUNDAY SERVICE",
     time: "10:00 AM",
     description: "Time to do church! Set Free style! We'll be talking about Jesus in a way that you may have never heard before. Fully accepting and challenging. Join us for music, testimonies and learning!",
-    image: "/chill-phil.jpg",
+    image: "/phil-holding-blocks.jpeg",
     dayOfWeek: 0, // Sunday
     location: "Main Sanctuary",
     recurring: true
@@ -56,7 +56,7 @@ const weeklyEvents: Event[] = [
     title: "SUNDAY NIGHT RECOVERY",
     time: "7:00 PM",
     description: "One of the biggest and best recovery meetings in Southern California, where we get to share stories, talents and encourage one another with love and hope.",
-    image: "/sunday-soberiety-celebration.jpg",
+    image: "/phil-sunday-setfree-hat.jpg",
     dayOfWeek: 0, // Sunday
     location: "Main Sanctuary",
     recurring: true

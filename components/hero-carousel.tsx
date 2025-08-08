@@ -26,7 +26,7 @@ width: 400,
 height: 500,
   },
   {
-    src:"phil-hugging-black-guy.jpg",
+    src:"/phil-hugging-black-guy.jpg",
     alt: "Phil Hugging Black Guy",
     width: 400,
     height: 500,
@@ -38,14 +38,14 @@ height: 500,
     height: 500,
   },
   {
-   
+
     src:"/dj-anthony.jpg",
     alt: "DJ Anthony",
     width: 400,
     height: 500,
   },
   {
-    src:"chill-phil-finger.jpg",
+    src:"/chill-phil-finger.jpg",
     alt: "Chill Phil Finger",
     width: 400,
     height: 500,
@@ -276,17 +276,19 @@ export default function HeroCarousel() {
         <Carousel plugins={[autoplay.current]} className="w-full">
           <CarouselContent className="-ml-1">
             {carouselImages.map((image, index) => (
-              <CarouselItem key={index} className="pl-1">
-                <div className="relative aspect-[4/5] w-full">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="rounded-lg shadow-2xl object-cover"
-                    sizes="(max-width: 768px) 100vw, 400px"
-                  />
-                </div>
-              </CarouselItem>
+                          <CarouselItem key={index} className="pl-1">
+              <div className="relative aspect-[4/5] w-full">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="rounded-lg shadow-2xl object-cover"
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  loading={index < 3 ? "eager" : "lazy"}
+                  priority={index === 0}
+                />
+              </div>
+            </CarouselItem>
             ))}
           </CarouselContent>
         </Carousel>

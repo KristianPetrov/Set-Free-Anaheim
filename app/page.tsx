@@ -3,10 +3,27 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Calendar, MapPin, Phone, Instagram, Facebook, Youtube, Mail } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import CustomCalendar from "@/components/custom-calendar"
+import dynamic from 'next/dynamic'
 import Navbar from "@/components/navbar"
 import HeroCarousel from "@/components/hero-carousel"
-import VideoCarousel from "@/components/video-carousel"
+
+const CustomCalendar = dynamic(() => import('@/components/custom-calendar'), {
+  loading: () => (
+    <div className="flex items-center justify-center py-12">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-500"></div>
+      <span className="ml-2 text-gray-300">Loading calendar...</span>
+    </div>
+  ),
+})
+
+const VideoCarousel = dynamic(() => import('@/components/video-carousel'), {
+  loading: () => (
+    <div className="flex items-center justify-center py-12">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-500"></div>
+      <span className="ml-2 text-gray-300">Loading videos...</span>
+    </div>
+  ),
+})
 
 export default function SetFreeChurch() {
   return (
@@ -15,33 +32,35 @@ export default function SetFreeChurch() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-red-900/20">
+      <section className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-red-900/20 overflow-hidden">
         {/* Mobile background */}
-        <div
-          className="absolute inset-0 md:hidden"
-          style={{
-            backgroundImage: "url('/godfather.JPG')",
-            backgroundSize: 'contain',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        ></div>
+        <div className="absolute inset-0 md:hidden">
+          <Image
+            src="/godfather.JPG"
+            alt="Set Free Anaheim Hero Background"
+            fill
+            className="object-contain"
+            priority
+            sizes="100vw"
+          />
+        </div>
 
         {/* Desktop background */}
-        <div
-          className="absolute inset-0 hidden md:block"
-          style={{
-            backgroundImage: "url('/gods-father.png')",
-            backgroundSize: 'contain',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        ></div>
+        <div className="absolute inset-0 hidden md:block">
+          <Image
+            src="/gods-father.png"
+            alt="Set Free Anaheim Hero Background"
+            fill
+            className="object-contain"
+            priority
+            sizes="100vw"
+          />
+        </div>
 
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/30 z-10"></div>
 
         {/* Logo in top left */}
-        <div className="absolute top-24 left-6 z-10">
+        <div className="absolute top-24 left-6 z-20">
           <Image
             src="/SETFREELOGOWHITE.png"
             alt="Set Free Anaheim Logo"
@@ -49,11 +68,12 @@ export default function SetFreeChurch() {
             height={90}
             className="drop-shadow-[0_4px_4px_rgba(0,0,0,0.7)] transform -rotate-12"
             priority
+            sizes="(max-width: 768px) 150px, 180px"
           />
         </div>
 
         {/* Donation Button in top right */}
-        <div className="absolute top-24 right-6 z-10">
+        <div className="absolute top-24 right-6 z-20">
           <Link
             href="/donate"
             className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
@@ -136,10 +156,12 @@ export default function SetFreeChurch() {
                   <div className="mx-auto mb-2 flex justify-center">
                     <Image
                       src="/holy-disciples.png"
-                      alt="Holy Disciples"
+                      alt="Holy Disciples representing real community at Set Free Anaheim"
                       width={175}
                       height={175}
                       className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 120px, 175px"
                     />
                   </div>
                   <h3 className="font-bold text-white">Real Community</h3>
@@ -149,10 +171,12 @@ export default function SetFreeChurch() {
                   <div className="mx-auto mb-2 flex justify-center">
                     <Image
                       src="/unconditional-love.png"
-                      alt="Unconditional Love"
+                      alt="Unconditional Love symbol at Set Free Anaheim"
                       width={175}
                       height={175}
                       className="object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 120px, 175px"
                     />
                   </div>
                   <h3 className="font-bold text-white">Unconditional Love</h3>
@@ -175,10 +199,12 @@ export default function SetFreeChurch() {
                 <div className="mb-4 flex justify-center">
                   <Image
                     src="/set-free-church.png"
-                    alt="Set Free Church"
+                    alt="Set Free Church Sunday Service icon"
                     width={150}
                     height={150}
                     className="object-contain"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100px, 150px"
                   />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">SUNDAY SERVICE</h3>
@@ -194,10 +220,12 @@ export default function SetFreeChurch() {
                 <div className="mb-4 flex justify-center">
                   <Image
                     src="/holy-disciples.png"
-                    alt="Holy Disciples"
+                    alt="Holy Disciples Sunday Night Recovery icon"
                     width={150}
                     height={150}
                     className="object-contain"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100px, 150px"
                   />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">SUNDAY NIGHT RECOVERY</h3>
@@ -213,10 +241,12 @@ export default function SetFreeChurch() {
                 <div className="mb-4 flex justify-center">
                   <Image
                     src="/wellbreity.png"
-                    alt="Wellbriety Icon"
+                    alt="Wellbriety wellness meeting icon"
                     width={150}
                     height={150}
                     className="object-contain bg-gray-900 rounded-lg"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100px, 150px"
                   />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Wellbriety</h3>
@@ -254,11 +284,16 @@ export default function SetFreeChurch() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Article 1 */}
             <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
-              <img
-                src="https://i0.wp.com/fandfnews.com/wp-content/uploads/2025/07/1w.jpg?w=1871&ssl=1"
-                alt="Historic Meeting: Homeboy Industries & Set Free Ministries"
-                className="rounded-md mb-4 w-full h-48 object-cover"
-              />
+              <div className="relative w-full h-48 mb-4">
+                <Image
+                  src="https://i0.wp.com/fandfnews.com/wp-content/uploads/2025/07/1w.jpg?w=1871&ssl=1"
+                  alt="Historic Meeting: Homeboy Industries & Set Free Ministries"
+                  fill
+                  className="rounded-md object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
               <h3 className="text-xl font-bold text-white mb-2">
                 Historic Meeting: Homeboy Industries & Set Free Ministries
               </h3>
@@ -276,11 +311,16 @@ export default function SetFreeChurch() {
             </div>
             {/* Article 2 */}
             <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/SoftWhiteUnderbelly.svg/1920px-SoftWhiteUnderbelly.svg.png"
-                alt="Soft White Underbelly Phil Aguilar Interview"
-                className="rounded-md mb-4 w-full h-48 object-cover"
-              />
+              <div className="relative w-full h-48 mb-4">
+                <Image
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/SoftWhiteUnderbelly.svg/1920px-SoftWhiteUnderbelly.svg.png"
+                  alt="Soft White Underbelly Phil Aguilar Interview"
+                  fill
+                  className="rounded-md object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
               <h3 className="text-xl font-bold text-white mb-2">
                 Soft White Underbelly Phil Aguilar Interview
               </h3>
@@ -298,11 +338,16 @@ export default function SetFreeChurch() {
             </div>
             {/* Article 3 */}
             <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
-              <img
-                src="https://img.youtube.com/vi/KYbuUC6tGUY/maxresdefault.jpg"
-                alt="Set Free Anaheim Ministry Video"
-                className="rounded-md mb-4 w-full h-48 object-cover"
-              />
+              <div className="relative w-full h-48 mb-4">
+                <Image
+                  src="https://img.youtube.com/vi/KYbuUC6tGUY/maxresdefault.jpg"
+                  alt="Set Free Anaheim Ministry Video"
+                  fill
+                  className="rounded-md object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
               <h3 className="text-xl font-bold text-white mb-2">
                 Set Free Anaheim Ministry Video
               </h3>
