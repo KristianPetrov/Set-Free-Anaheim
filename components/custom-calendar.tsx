@@ -181,11 +181,10 @@ export default function CustomCalendar() {
 
   return (
     <div className="w-full max-w-7xl mx-auto space-y-12">
-      {/* Google Calendar Section */}
-      <div>
+
+      {/* <div>
         <h4 className="text-xl font-bold text-red-500 mb-6">LIVE CALENDAR</h4>
 
-        {/* Loading and Error States */}
         {isLoadingEvents && (
           <div className="flex items-center justify-center py-8">
             <Loader2 className="w-6 h-6 animate-spin text-red-500 mr-2" />
@@ -202,9 +201,10 @@ export default function CustomCalendar() {
           </Alert>
         )}
 
-        {/* Google Calendar Embed */}
+
 
       </div>
+      */}
 
       {/* This Week's Events Section - Limited */}
       <div>
