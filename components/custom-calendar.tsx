@@ -78,7 +78,7 @@ const weeklyEvents: Event[] = [
     address: addresses["Main Sanctuary"],
     time: "7:00 PM",
     description: "This is a Bible study that encourages interaction and everyone's thoughts and perspectives on Bible scripture to get a better understanding of God's word.",
-    image: "/PhilSandra.jpg",
+    image: "/soldier-phil.jpg",
     dayOfWeek: 2, // Tuesday
     location: "Community",
     recurring: true
@@ -89,7 +89,7 @@ const weeklyEvents: Event[] = [
     address:addresses["Main Sanctuary"],
     time: "7:00 PM",
     description: "Are you a lady? GOOD! That's the only requirement to come on over to hear Saint Sandra teach the Bible to a big group of women! It's a great time to find friends and to be vulnerable.",
-    image: "/PastorBrian.jpg",
+    image: "/womens-saints.jpg",
     dayOfWeek: 3, // Tuesday
     location: "Fellowship Hall",
     recurring: true
@@ -203,7 +203,7 @@ export default function CustomCalendar() {
         )}
 
         {/* Google Calendar Embed */}
-        
+
       </div>
 
       {/* This Week's Events Section - Limited */}

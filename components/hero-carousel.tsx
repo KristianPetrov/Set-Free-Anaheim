@@ -7,6 +7,12 @@ import Image from "next/image"
 
 const carouselImages = [
   {
+    src:"/phil-love-this-guy.JPG",
+    alt: "Phil Love This Guy",
+    width: 400,
+    height: 500,
+  },
+  {
     src:"/i-am-redemption.jpg",
     alt: "I Am Redemption",
     width: 400,
@@ -26,6 +32,13 @@ height: 500,
     height: 500,
   },
   {
+    src:"/phil-black-jesus.jpg",
+    alt: "Phil Black Jesus",
+    width: 400,
+    height: 500,
+  },
+  {
+   
     src:"/dj-anthony.jpg",
     alt: "DJ Anthony",
     width: 400,
