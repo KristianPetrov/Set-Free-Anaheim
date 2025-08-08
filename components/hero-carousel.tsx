@@ -229,25 +229,27 @@ export default function HeroCarousel() {
   const autoplay = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }))
 
   return (
-    <div className="relative">
-      <Carousel plugins={[autoplay.current]}>
-        <CarouselContent>
+    <div className="relative w-full max-w-md mx-auto overflow-hidden">
+      <Carousel plugins={[autoplay.current]} className="w-full">
+        <CarouselContent className="-ml-1">
           {carouselImages.map((image, index) => (
-            <CarouselItem key={index}>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                className="rounded-lg shadow-2xl w-full h-auto object-cover"
-              />
+            <CarouselItem key={index} className="pl-1">
+              <div className="relative aspect-[4/5] w-full">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="rounded-lg shadow-2xl object-cover"
+                  sizes="(max-width: 768px) 100vw, 400px"
+                />
+              </div>
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
-      <div className="absolute -bottom-6 -right-6 bg-red-600 text-white p-4 rounded-lg shadow-lg">
-        <p className="font-bold text-lg">"He came to seek and save the lost"</p>
-        <p className="text-sm opacity-90">- Luke 19:10</p>
+      <div className="absolute -bottom-6 -right-6 bg-red-600 text-white p-4 rounded-lg shadow-lg max-w-xs">
+        <p className="font-bold text-sm sm:text-lg">"He came to seek and save the lost"</p>
+        <p className="text-xs sm:text-sm opacity-90">- Luke 19:10</p>
       </div>
     </div>
   )
