@@ -6,6 +6,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: '#DC2626',
+  interactiveWidget: 'resizes-content',
 }
 
 export const metadata: Metadata = {
@@ -106,10 +107,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://calendar.google.com" />
         <link rel="dns-prefetch" href="https://img.youtube.com" />
+        <link rel="dns-prefetch" href="https://i0.wp.com" />
+        <link rel="dns-prefetch" href="https://upload.wikimedia.org" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -128,7 +130,7 @@ export default function RootLayout({
                 "addressRegion": "CA",
                 "addressCountry": "US"
               },
-              "telephone": "714-329-1003",
+              "telephone": "714-400-4573",
               "email": "setfreephil@aol.com",
               "founder": {
                 "@type": "Person",
@@ -155,11 +157,11 @@ export default function RootLayout({
                   "@type": "Event",
                   "name": "Sunday Night Recovery",
                   "description": "Come as you are every Sunday night to Magic House for a powerful time of healing, hope, and real community.",
-                  "startDate": "2025-01-01T18:00:00-08:00",
+                  "startDate": "2025-01-01T19:00:00-08:00",
                   "eventSchedule": {
                     "@type": "Schedule",
                     "repeatFrequency": "P1W",
-                    "byDay": "Saturday"
+                    "byDay": "Sunday"
                   }
                 },
                 {

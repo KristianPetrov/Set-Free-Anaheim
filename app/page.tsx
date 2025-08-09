@@ -76,17 +76,19 @@ export default function SetFreeChurch() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-[50%] animate-bounce">
-          <Link href="#about" className="block">
-            <Image
-              src="/cross-arrow.png"
-              alt="Scroll down to about section"
-              width={40}
-              height={40}
-              className="opacity-80 hover:opacity-100 transition-opacity cursor-pointer drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]"
-            />
-          </Link>
-        </div>
+        <Link
+          href="#about"
+          className="absolute z-20 bottom-8 left-1/2 -translate-x-1/2 animate-bounce block hover:scale-110 transition-transform duration-300"
+          aria-label="Scroll down to about section"
+        >
+          <Image
+            src="/cross-arrow.png"
+            alt="Scroll down to about section"
+            width={40}
+            height={40}
+            className="opacity-90 hover:opacity-100 transition-opacity cursor-pointer drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]"
+          />
+        </Link>
       </section>
 
       {/* Hero Text Section */}
@@ -152,7 +154,7 @@ export default function SetFreeChurch() {
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="mx-auto mb-2 flex justify-center">
+                  <div className="mx-auto mb-2 h-44 flex items-center justify-center">
                     <Image
                       src="/holy-disciples.png"
                       alt="Holy Disciples representing real community at Set Free Anaheim"
@@ -167,7 +169,7 @@ export default function SetFreeChurch() {
                   <p className="text-gray-400 text-sm">No fake, just family</p>
                 </div>
                 <div className="text-center">
-                  <div className="mx-auto mb-2 flex justify-center">
+                  <div className="mx-auto mb-2 h-44 flex items-center justify-center">
                     <Image
                       src="/unconditional-love.png"
                       alt="Unconditional Love symbol at Set Free Anaheim"
@@ -192,9 +194,9 @@ export default function SetFreeChurch() {
       <section id="events" className="py-20 bg-black">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-red-500">WHERE WE AT</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gray-900 border-red-900/30">
-              <CardContent className="p-6">
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
+            <Card className="bg-gray-900 border-red-900/30 h-full hover:shadow-[0_0_30px_rgba(239,68,68,0.35)] hover:border-red-500/60 transition">
+              <CardContent className="p-6 flex flex-col h-full">
                 <div className="mb-4 flex justify-center">
                   <Image
                     src="/phil-holding-blocks.jpeg"
@@ -208,14 +210,19 @@ export default function SetFreeChurch() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">SUNDAY SERVICE</h3>
                 <p className="text-gray-300 mb-4">
-                  Raw worship, real preaching, no BS. Come through and experience God's love in a whole new way.
+                  Roll through for raw worship and real talk—no polish, no pretense, just Jesus changing lives. Bring your fam, your questions, and your mess—there’s room for you. We pray hard, praise loud, and keep it 100 with real testimonies and breakthrough. Holy but hood—come as you are and leave different.
                 </p>
-                <p className="text-red-400 font-bold">Every Sunday 10AM</p>
+                <div className="mt-auto pt-4">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 text-black font-extrabold tracking-wide uppercase shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)]">
+                    <Calendar className="w-4 h-4" />
+                    Every Sunday 10AM
+                  </span>
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900 border-red-900/30">
-              <CardContent className="p-6">
+            <Card className="bg-gray-900 border-red-900/30 h-full hover:shadow-[0_0_30px_rgba(239,68,68,0.35)] hover:border-red-500/60 transition">
+              <CardContent className="p-6 flex flex-col h-full">
                 <div className="mb-4 flex justify-center">
                   <Image
                     src="/phil-sunday-setfree-hat.jpg"
@@ -229,14 +236,19 @@ export default function SetFreeChurch() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">SUNDAY NIGHT RECOVERY</h3>
                 <p className="text-gray-300 mb-4">
-                Come as you are every Sunday night to Magic House for a powerful time of healing, hope, and real community. We’ve got good music, free hot dogs, and most importantly—unconditional love through Christ. No judgment, just Jesus. Let’s recover together.
+                  Come as you are every Sunday night to Magic House for a powerful time of healing, hope, and real community. We’ve got good music, free hot dogs, and most importantly—unconditional love through Christ. No judgment, just Jesus. Let’s recover together.
                 </p>
-                <p className="text-red-400 font-bold">Saturdays 6PM</p>
+                <div className="mt-auto pt-4">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 text-black font-extrabold tracking-wide uppercase shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)]">
+                    <Calendar className="w-4 h-4" />
+                    Every Sunday 7PM
+                  </span>
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-900 border-red-900/30">
-              <CardContent className="p-6">
+            <Card className="bg-gray-900 border-red-900/30 h-full hover:shadow-[0_0_30px_rgba(239,68,68,0.35)] hover:border-red-500/60 transition">
+              <CardContent className="p-6 flex flex-col h-full">
                 <div className="mb-4 flex justify-center">
                   <Image
                     src="/sunday-toya-oklahoma.jpg"
@@ -250,9 +262,14 @@ export default function SetFreeChurch() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Wellbriety</h3>
                 <p className="text-gray-300 mb-4">
-                Wellness meeting based in native tradition and using culture as a form of prevention.
+                  Step into a healing circle rooted in Native tradition—honoring story, culture, and sobriety with love and respect. We build from the inside out with tools that work, community that holds you down, and space to speak your truth. No shame here—just growth, strength, and hope for the week. Come as you are and walk out steadier.
                 </p>
-                <p className="text-red-400 font-bold">Mondays 7PM</p>
+                <div className="mt-auto pt-4">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 via-red-500 to-yellow-500 text-black font-extrabold tracking-wide uppercase shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)]">
+                    <Calendar className="w-4 h-4" />
+                    Every Monday 7PM
+                  </span>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -285,12 +302,13 @@ export default function SetFreeChurch() {
             <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
               <div className="relative w-full h-48 mb-4">
                 <Image
-                  src="https://i0.wp.com/fandfnews.com/wp-content/uploads/2025/07/1w.jpg?w=1871&ssl=1"
+                  src="/news-homeboy-setfree.jpg"
                   alt="Historic Meeting: Homeboy Industries & Set Free Ministries"
                   fill
                   className="rounded-md object-cover"
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={false}
                 />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">
@@ -312,7 +330,7 @@ export default function SetFreeChurch() {
             <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
               <div className="relative w-full h-48 mb-4">
                 <Image
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/SoftWhiteUnderbelly.svg/1920px-SoftWhiteUnderbelly.svg.png"
+                  src="/soft-white-underbelly.png"
                   alt="Soft White Underbelly Phil Aguilar Interview"
                   fill
                   className="rounded-md object-cover"
@@ -339,7 +357,7 @@ export default function SetFreeChurch() {
             <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
               <div className="relative w-full h-48 mb-4">
                 <Image
-                  src="https://img.youtube.com/vi/KYbuUC6tGUY/maxresdefault.jpg"
+                  src="/setfree-anaheim-ministry.jpg"
                   alt="Set Free Anaheim Ministry Video"
                   fill
                   className="rounded-md object-cover"
@@ -495,7 +513,7 @@ export default function SetFreeChurch() {
 
       {/* Footer */}
       <footer className="bg-black border-t border-red-900/30 py-8">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 text-center relative">
           <div className="flex justify-center mb-4">
             <Image
               src="/SETFREELOGOWHITE.png"
@@ -509,6 +527,16 @@ export default function SetFreeChurch() {
           <p className="text-gray-500 text-sm">
             © 2025 Set Free Digital Disciples. All rights reserved. | Saving souls with some edge.
           </p>
+          <div className="flex items-center gap-2 absolute right-4 bottom-4">
+            <span className="text-gray-500 text-xs">Site by</span>
+            <Image
+              src="/SetFreeDigitalDisciplesCyber.png"
+              alt="Set Free Digital Disciples"
+              width={180}
+              height={50}
+              className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+            />
+          </div>
         </div>
       </footer>
     </div>
