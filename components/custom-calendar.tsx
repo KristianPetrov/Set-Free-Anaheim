@@ -35,7 +35,9 @@ interface GoogleEvent {
 }
 const addresses = {
  "Main Sanctuary" :"1171 N West St, Anaheim, CA 92801, USA" ,
-  "Lift Off Recovery":"1567 W Embassy St, Anaheim, CA 92802, USA" ,}
+  "Lift Off Recovery":"1567 W Embassy St, Anaheim, CA 92802, USA" ,
+"The Magic House":"301 S Archer St, Anaheim, CA  92804, USA"
+}
 const weeklyEvents: Event[] = [
   {
     id: "sunday-service",
@@ -84,7 +86,7 @@ const weeklyEvents: Event[] = [
   {
     id: "womens-bible-study",
     title: "WOMEN'S BIBLE STUDY",
-    address:addresses["Main Sanctuary"],
+    address:addresses["The Magic House"],
     time: "7:00 PM",
     description: "Are you a lady? GOOD! That's the only requirement to come on over to hear Saint Sandra teach the Bible to a big group of women! It's a great time to find friends and to be vulnerable.",
     image: "/womens-saints.jpg",

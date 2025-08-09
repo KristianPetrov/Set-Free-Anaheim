@@ -69,7 +69,7 @@ export default function SetFreeChurch() {
         <div className="absolute top-24 right-6 z-20">
           <Link
             href="/donate"
-            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 neon-box"
           >
             DONATE NOW
           </Link>
@@ -101,7 +101,7 @@ export default function SetFreeChurch() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="#contact">
-              <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 text-lg">
+              <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 text-lg neon-box">
                 GET SET FREE
               </Button>
             </Link>
@@ -193,7 +193,7 @@ export default function SetFreeChurch() {
       {/* Events Section */}
       <section id="events" className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-red-500">WHERE WE AT</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-red-500 neon-text">WHERE WE AT</h2>
           <div className="grid md:grid-cols-3 gap-8 items-stretch">
             <Card className="bg-gray-900 border-red-900/30 h-full hover:shadow-[0_0_30px_rgba(239,68,68,0.35)] hover:border-red-500/60 transition">
               <CardContent className="p-6 flex flex-col h-full">
@@ -208,12 +208,12 @@ export default function SetFreeChurch() {
                     sizes="(max-width: 768px) 100px, 150px"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">SUNDAY SERVICE</h3>
+                <h3 className="text-xl font-bold text-white mb-2 neon-text">SUNDAY SERVICE</h3>
                 <p className="text-gray-300 mb-4">
                   Roll through for raw worship and real talk—no polish, no pretense, just Jesus changing lives. Bring your fam, your questions, and your mess—there’s room for you. We pray hard, praise loud, and keep it 100 with real testimonies and breakthrough. Holy but hood—come as you are and leave different.
                 </p>
                 <div className="mt-auto pt-4">
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 text-black font-extrabold tracking-wide uppercase shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)]">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 text-black font-extrabold tracking-wide uppercase shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)] neon-box">
                     <Calendar className="w-4 h-4" />
                     Every Sunday 10AM
                   </span>
@@ -234,12 +234,12 @@ export default function SetFreeChurch() {
                     sizes="(max-width: 768px) 100px, 150px"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">SUNDAY NIGHT RECOVERY</h3>
+                <h3 className="text-xl font-bold text-white mb-2 neon-text">SUNDAY NIGHT RECOVERY</h3>
                 <p className="text-gray-300 mb-4">
                   Come as you are every Sunday night to Magic House for a powerful time of healing, hope, and real community. We’ve got good music, free hot dogs, and most importantly—unconditional love through Christ. No judgment, just Jesus. Let’s recover together.
                 </p>
                 <div className="mt-auto pt-4">
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 text-black font-extrabold tracking-wide uppercase shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)]">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 text-black font-extrabold tracking-wide uppercase shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)] neon-box">
                     <Calendar className="w-4 h-4" />
                     Every Sunday 7PM
                   </span>
@@ -260,12 +260,12 @@ export default function SetFreeChurch() {
                     sizes="(max-width: 768px) 100px, 150px"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Wellbriety</h3>
+                <h3 className="text-xl font-bold text-white mb-2 neon-text">Wellbriety</h3>
                 <p className="text-gray-300 mb-4">
                   Step into a healing circle rooted in Native tradition—honoring story, culture, and sobriety with love and respect. We build from the inside out with tools that work, community that holds you down, and space to speak your truth. No shame here—just growth, strength, and hope for the week. Come as you are and walk out steadier.
                 </p>
                 <div className="mt-auto pt-4">
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 via-red-500 to-yellow-500 text-black font-extrabold tracking-wide uppercase shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)]">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 via-red-500 to-yellow-500 text-black font-extrabold tracking-wide uppercase shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)] neon-box">
                     <Calendar className="w-4 h-4" />
                     Every Monday 7PM
                   </span>
@@ -278,7 +278,7 @@ export default function SetFreeChurch() {
       {/* Calendar Section */}
       <section id="calendar" className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-8 text-red-500">EVENTS CALENDAR</h2>
+          <h2 className="text-4xl font-bold text-center mb-8 text-red-500 neon-text">EVENTS CALENDAR</h2>
           <div className="flex justify-center">
             <CustomCalendar />
           </div>
@@ -288,7 +288,7 @@ export default function SetFreeChurch() {
       {/* Video Section */}
       <section id="video" className="py-20 bg-black">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-12 text-red-500">WATCH OUR STORIES</h2>
+          <h2 className="text-4xl font-bold mb-12 text-red-500 neon-text">WATCH OUR STORIES</h2>
           <VideoCarousel />
         </div>
       </section>
@@ -296,7 +296,7 @@ export default function SetFreeChurch() {
       {/* News Section */}
       <section id="news" className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-red-500">IN THE NEWS</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-red-500 neon-text">IN THE NEWS</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {/* Article 1 */}
             <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
@@ -388,7 +388,7 @@ export default function SetFreeChurch() {
       {/* Testimonies Section */}
       <section id="testimonies" className="py-20 bg-gradient-to-r from-gray-900 to-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-red-500">REAL STORIES</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-red-500 neon-text">REAL STORIES</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="bg-black/50 border-red-900/30">
               <CardContent className="p-8">
@@ -416,7 +416,7 @@ export default function SetFreeChurch() {
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-red-900/10">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8 text-red-500">READY TO GET SET FREE?</h2>
+          <h2 className="text-4xl font-bold mb-8 text-red-500 neon-text">READY TO GET SET FREE?</h2>
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
             Don't wait. Your breakthrough is one step away. Come as you are - Jesus is waiting with open arms and
             unconditional love.
@@ -527,7 +527,7 @@ export default function SetFreeChurch() {
           <p className="text-gray-500 text-sm">
             © 2025 Set Free Digital Disciples. All rights reserved. | Saving souls with some edge.
           </p>
-          <div className="flex items-center gap-2 absolute right-4 bottom-4">
+          <div className="w-full flex items-center gap-2 justify-end mt-6 md:mt-0 md:absolute md:right-4 md:bottom-4">
             <span className="text-gray-500 text-xs">Site by</span>
             <Image
               src="/SetFreeDigitalDisciplesCyber.png"
