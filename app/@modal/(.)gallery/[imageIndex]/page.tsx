@@ -17,18 +17,15 @@ export default function ImageModal({ params }: ImageModalProps) {
   const [currentIndex, setCurrentIndex] = useState(parseInt(params.imageIndex))
   const [isClosing, setIsClosing] = useState(false)
 
-    const handleClose = () => {
+  const handleClose = () => {
     if (isClosing) return
     setIsClosing(true)
 
-    // Try multiple approaches to ensure modal closes and returns to about section
+    // Prefer history back to close intercepting modal; fallback to home anchor
     try {
-      // Method 1: Use window.location to force a full page refresh to about section
-      window.location.href = '/#about'
-    } catch (error) {
-      // Method 2: Fallback to router navigation with refresh to about section
+      router.back()
+    } catch (_e) {
       router.push('/#about')
-      router.refresh()
     }
   }
 
@@ -77,28 +74,28 @@ export default function ImageModal({ params }: ImageModalProps) {
       {/* Close button */}
       <button
         onClick={handleClose}
-        className="absolute top-4 right-4 z-60 text-white hover:text-red-400 transition-colors"
+        className="absolute top-4 right-4 z-[60] text-white hover:text-red-400 transition-colors touch-manipulation"
         aria-label="Close gallery"
       >
-        <X className="w-8 h-8" />
+        <X className="w-8 h-8 pointer-events-none" />
       </button>
 
       {/* Previous button */}
       <button
         onClick={handlePrevious}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-60 text-white hover:text-red-400 transition-colors"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-[60] text-white hover:text-red-400 transition-colors touch-manipulation"
         aria-label="Previous image"
       >
-        <ChevronLeft className="w-12 h-12" />
+        <ChevronLeft className="w-12 h-12 pointer-events-none" />
       </button>
 
       {/* Next button */}
       <button
         onClick={handleNext}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-60 text-white hover:text-red-400 transition-colors"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-[60] text-white hover:text-red-400 transition-colors touch-manipulation"
         aria-label="Next image"
       >
-        <ChevronRight className="w-12 h-12" />
+        <ChevronRight className="w-12 h-12 pointer-events-none" />
       </button>
 
       {/* Main image container */}
@@ -125,9 +122,9 @@ export default function ImageModal({ params }: ImageModalProps) {
 
       {/* Click overlay to close */}
       <div
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0"
         onClick={handleClose}
-        aria-label="Close gallery"
+        aria-label="Close gallery overlay"
       />
     </div>
   )
