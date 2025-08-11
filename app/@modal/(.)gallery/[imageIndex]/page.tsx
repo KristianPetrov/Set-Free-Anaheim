@@ -1,20 +1,16 @@
 "use client"
 
-import { useRouter } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { galleryImages as carouselImages } from '@/lib/gallery-images'
 
-interface ImageModalProps {
-  params: {
-    imageIndex: string
-  }
-}
-
-export default function ImageModal({ params }: ImageModalProps) {
+export default function ImageModal() {
   const router = useRouter()
-  const [currentIndex, setCurrentIndex] = useState(parseInt(params.imageIndex))
+  const { imageIndex } = useParams<{ imageIndex: string }>()
+  const initialIndex = Number.isFinite(parseInt(String(imageIndex))) ? parseInt(String(imageIndex)) : 0
+  const [currentIndex, setCurrentIndex] = useState(initialIndex)
   const [isClosing, setIsClosing] = useState(false)
 
   const handleClose = () => {

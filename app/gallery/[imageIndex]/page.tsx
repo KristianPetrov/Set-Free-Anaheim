@@ -1,21 +1,17 @@
 "use client"
 
-import { useRouter } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { X, ChevronLeft, ChevronRight, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { galleryImages as carouselImages } from '@/lib/gallery-images'
 
-interface GalleryPageProps {
-  params: {
-    imageIndex: string
-  }
-}
-
-export default function GalleryPage({ params }: GalleryPageProps) {
+export default function GalleryPage() {
   const router = useRouter()
-  const [currentIndex, setCurrentIndex] = useState(parseInt(params.imageIndex))
+  const { imageIndex } = useParams<{ imageIndex: string }>()
+  const initialIndex = Number.isFinite(parseInt(String(imageIndex))) ? parseInt(String(imageIndex)) : 0
+  const [currentIndex, setCurrentIndex] = useState(initialIndex)
 
   const handlePrevious = () => {
     const newIndex = currentIndex > 0 ? currentIndex - 1 : carouselImages.length - 1
