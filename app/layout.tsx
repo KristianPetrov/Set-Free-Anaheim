@@ -62,11 +62,11 @@ export const metadata: Metadata = {
       "Bold, Christ-centered outreach in Anaheim. Real talk, real love, real transformation. Join us for worship, street outreach, and community events.",
     images: [
       {
-        url: "/Set-Free.jpg",
+        url: "/set-free-og.png",
         width: 1200,
         height: 630,
-        alt: "Set Free Anaheim - Urban Church and Outreach Ministry",
-        type: "image/jpeg",
+        alt: "Set Free Anaheim - Urban Church and Outreach",
+        type: "image/png",
       },
     ],
   },
@@ -79,8 +79,8 @@ export const metadata: Metadata = {
       "Bold, Christ-centered outreach in Anaheim. Real talk, real love, real transformation.",
     images: [
       {
-        url: "/Set-Free.jpg",
-        alt: "Set Free Anaheim Ministry",
+        url: "/set-free-og.png",
+        alt: "Set Free Anaheim",
       }
     ],
   },
@@ -132,7 +132,7 @@ export default function RootLayout({
               "description": "Bold, Christ-centered church and outreach in Anaheim, California. Real talk, real love, real transformation.",
               "url": "https://setfreeanaheim.org",
               "logo": "https://setfreeanaheim.org/SETFREELOGOWHITE.png",
-              "image": "https://setfreeanaheim.org/Set-Free.jpg",
+              "image": "https://setfreeanaheim.org/set-free-og.png",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Anaheim",
