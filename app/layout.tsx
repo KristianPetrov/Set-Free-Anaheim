@@ -30,11 +30,17 @@ export const metadata: Metadata = {
     "Magic House",
     "Wellbriety",
     "Orange County Church",
-    "California Ministry"
+    "California Ministry",
+    "Set Free Digital Disciples",
+    "SetFreeDigitalDisciples"
   ],
-  authors: [{ name: "Set Free Anaheim" }],
-  creator: "Set Free Anaheim",
+  authors: [
+    { name: "Set Free Anaheim" },
+    { name: "Set Free Digital Disciples", url: "https://www.setfreedigitaldisciples.com" },
+  ],
+  creator: "Set Free Digital Disciples",
   publisher: "Set Free Anaheim",
+  generator: "Set Free Digital Disciples",
   robots: {
     index: true,
     follow: true,
@@ -112,6 +118,9 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://i0.wp.com" />
         <link rel="dns-prefetch" href="https://upload.wikimedia.org" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="author" href="https://www.setfreedigitaldisciples.com" />
+        <meta name="author" content="Set Free Digital Disciples" />
+        <meta property="og:see_also" content="https://www.setfreedigitaldisciples.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -141,6 +150,11 @@ export default function RootLayout({
                 "https://www.facebook.com/setfreeanaheim",
                 "https://www.youtube.com/@setfreeanaheim"
               ],
+              "creator": {
+                "@type": "Organization",
+                "name": "Set Free Digital Disciples",
+                "url": "https://www.setfreedigitaldisciples.com"
+              },
               "event": [
                 {
                   "@type": "Event",
@@ -176,6 +190,18 @@ export default function RootLayout({
                   }
                 }
               ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Set Free Digital Disciples",
+              "url": "https://www.setfreedigitaldisciples.com",
+              "logo": "https://setfreeanaheim.org/SetFreeDigitalDisciplesCyber.png"
             })
           }}
         />
