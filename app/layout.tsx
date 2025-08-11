@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://setfreeanaheim.org",
+    url: "https://magichousesetfree.com",
     siteName: "Set Free Anaheim",
     title: "Set Free Anaheim | Urban Church & Outreach",
     description:
@@ -95,9 +95,9 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/manifest.json",
-  metadataBase: new URL("https://setfreeanaheim.org"),
+  metadataBase: new URL("https://magichousesetfree.com"),
   alternates: {
-    canonical: "https://setfreeanaheim.org",
+    canonical: "https://magichousesetfree.com",
   },
   category: "religion",
   classification: "Church and Religious Organization",
@@ -130,9 +130,9 @@ export default function RootLayout({
               "name": "Set Free Anaheim",
               "alternateName": "Magic House",
               "description": "Bold, Christ-centered church and outreach in Anaheim, California. Real talk, real love, real transformation.",
-              "url": "https://setfreeanaheim.org",
-              "logo": "https://setfreeanaheim.org/SETFREELOGOWHITE.png",
-              "image": "https://setfreeanaheim.org/set-free-og.png",
+              "url": "https://magichousesetfree.com",
+              "logo": "https://magichousesetfree.com/SETFREELOGOWHITE.png",
+              "image": "https://magichousesetfree.com/set-free-og.png",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Anaheim",
@@ -201,7 +201,7 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Set Free Digital Disciples",
               "url": "https://www.setfreedigitaldisciples.com",
-              "logo": "https://setfreeanaheim.org/SetFreeDigitalDisciplesCyber.png"
+              "logo": "https://magichousesetfree.com/SetFreeDigitalDisciplesCyber.png"
             })
           }}
         />
