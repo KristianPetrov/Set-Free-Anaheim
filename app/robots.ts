@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 
 export default function robots (): MetadataRoute.Robots
 {
-    const baseUrl = 'https://magichousesetfree.com'
+    const baseUrl = 'https://setfreeanaheim.com'
     return {
         rules: {
             userAgent: '*',

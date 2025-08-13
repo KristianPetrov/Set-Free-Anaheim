@@ -3,7 +3,7 @@ import { galleryImages } from '@/lib/gallery-images'
 
 export default function sitemap (): MetadataRoute.Sitemap
 {
-    const baseUrl = 'https://magichousesetfree.com'
+    const baseUrl = 'https://setfreeanaheim.com'
     const now = new Date()
     const staticEntries: MetadataRoute.Sitemap = [
         {

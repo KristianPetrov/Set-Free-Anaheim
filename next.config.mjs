@@ -20,6 +20,32 @@ const nextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'magichousesetfree.com',
+          },
+        ],
+        destination: 'https://setfreeanaheim.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.magichousesetfree.com',
+          },
+        ],
+        destination: 'https://setfreeanaheim.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {
