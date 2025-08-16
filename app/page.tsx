@@ -442,7 +442,7 @@ export default function SetFreeChurch() {
 
           {/* Prayer CTA */}
           <div className="mx-auto mb-12 flex flex-col items-center gap-6">
-            <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 animate-slow-glow">
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 animate-slow-glow">
               <div className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-red-600/25 blur-3xl opacity-70 animate-candle" />
               <Image
                 src="/tristin-upper-room-logo.png"

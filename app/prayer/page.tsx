@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
+import { DonationAmounts, DonationMethods } from '@/components/donation-buttons'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const schema = z.object({
@@ -104,8 +105,9 @@ export default function PrayerPage() {
           <Card className="bg-black/70 border-red-700/50 ring-1 ring-red-500/40 shadow-[0_0_45px_rgba(239,68,68,0.35)] backdrop-blur-sm">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="relative w-20 h-20 md:w-24 md:h-24">
-                  <Image src="/tristin-upper-room-logo.png" alt="Tristin's Upper Room" fill className="object-contain" />
+                <div className="relative w-20 h-20 md:w-24 md:h-24 animate-slow-glow">
+                  <div className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-red-600/25 blur-2xl opacity-70 animate-candle" />
+                  <Image src="/tristin-prayer-wall.png" alt="Tristin's Prayer Wall" fill className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]" />
                 </div>
                 <div>
                   <CardTitle className="text-xl md:text-2xl text-white">Prayer Wall</CardTitle>
@@ -141,8 +143,9 @@ export default function PrayerPage() {
           <Card className="bg-gray-900 border-red-900/50">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="relative w-20 h-20">
-                  <Image src="/tristin-upper-room-logo.png" alt="Tristin's Upper Room" fill className="object-contain" />
+                <div className="relative w-20 h-20 animate-slow-glow">
+                  <div className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-red-600/25 blur-2xl opacity-70 animate-candle" />
+                  <Image src="/written-prayer-note.png" alt="Written Prayer Note" fill className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]" />
                 </div>
                 <div>
                   <CardTitle className="text-2xl text-red-500">Tristin's Upper Room — Prayer Wall</CardTitle>
@@ -170,19 +173,8 @@ export default function PrayerPage() {
                 </label>
                 <div className="pt-3">
                   <p className="text-gray-300 text-sm mb-2">Optional love offering:</p>
-                  <div className="grid grid-cols-3 gap-3">
-                    {[10, 25, 50].map((amt) => (
-                      <Button
-                        key={amt}
-                        variant="outline"
-                        onClick={(e) => { e.preventDefault(); setSelectedAmount(amt) }}
-                        className={`font-bold ${selectedAmount === amt ? 'border-yellow-500 text-yellow-400 bg-yellow-500/10' : ''}`}
-                      >
-                        {`$${amt}`}
-                      </Button>
-                    ))}
-                  </div>
-                  {donationLinks()}
+                  <DonationAmounts selectedAmount={selectedAmount} onSelect={(amt) => setSelectedAmount(amt)} amounts={[25,50,100]} />
+                  <DonationMethods amount={selectedAmount} />
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
                   <Button type="submit" disabled={submitting} className="bg-red-600 hover:bg-red-700 text-white font-bold">{submitting ? 'Submitting...' : 'Submit Prayer & Donate (optional)'}</Button>
