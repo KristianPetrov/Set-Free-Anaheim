@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@/components/ui/button'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { DonationAmounts, DonationMethods } from '@/components/donation-buttons'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -171,13 +172,17 @@ export default function PrayerPage() {
                   <input type="checkbox" defaultChecked {...register('isPublic')} className="h-4 w-4" />
                   Show on the public wall
                 </label>
-                <div className="pt-3">
-                  <p className="text-gray-300 text-sm mb-2">Optional love offering:</p>
-                  <DonationAmounts selectedAmount={selectedAmount} onSelect={(amt) => setSelectedAmount(amt)} amounts={[25,50,100]} />
-                  <DonationMethods amount={selectedAmount} />
-                </div>
+                <Accordion type="single" collapsible className="pt-3">
+                  <AccordionItem value="donate">
+                    <AccordionTrigger className="text-gray-200">Optional love offering</AccordionTrigger>
+                    <AccordionContent>
+                      <DonationAmounts selectedAmount={selectedAmount} onSelect={(amt) => setSelectedAmount(amt)} amounts={[25,50,100]} />
+                      <DonationMethods amount={selectedAmount} />
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
                 <div className="flex flex-wrap items-center gap-3">
-                  <Button type="submit" disabled={submitting} className="bg-red-600 hover:bg-red-700 text-white font-bold">{submitting ? 'Submitting...' : 'Submit Prayer & Donate (optional)'}</Button>
+                  <Button type="submit" disabled={submitting} className="bg-red-600 hover:bg-red-700 text-white font-bold">{submitting ? 'Submitting...' : (selectedAmount && selectedAmount > 0 ? 'Submit Prayer & Donate' : 'Submit Prayer')}</Button>
                 </div>
               </form>
             </CardContent>
