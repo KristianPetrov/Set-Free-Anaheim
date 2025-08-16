@@ -18,6 +18,12 @@ export default function sitemap (): MetadataRoute.Sitemap
             changeFrequency: 'monthly',
             priority: 0.8,
         },
+        {
+            url: `${baseUrl}/prayer`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
     ]
 
     const galleryEntries: MetadataRoute.Sitemap = galleryImages.map((_, index) => ({

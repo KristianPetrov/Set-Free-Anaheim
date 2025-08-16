@@ -2,12 +2,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Calendar, MapPin, Phone, Instagram, Facebook, Youtube, Mail } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
 import dynamic from 'next/dynamic'
 import Navbar from "@/components/navbar"
 import HeroCarousel from "@/components/hero-carousel"
 
 import CustomCalendar from "@/components/custom-calendar"
+import Link from "next/link"
 
 const VideoCarousel = dynamic(() => import('@/components/video-carousel'), {
   loading: () => (
@@ -99,6 +99,24 @@ export default function SetFreeChurch() {
             that <span className="text-yellow-400 font-bold">unconditional Christ love</span>
             {" "}when they least expect it.
           </p>
+          {/* Prayer Box CTA */}
+          <div className="mx-auto mb-10">
+            <Link href="/prayer" className="group inline-flex items-center gap-4 border border-red-900/50 bg-gray-900 rounded-xl px-5 py-4 hover:border-red-500 hover:shadow-[0_0_30px_rgba(239,68,68,0.35)] transition">
+              <div className="relative w-16 h-16 shrink-0">
+                <Image
+                  src="/tristin-upper-room-logo.png"
+                  alt="Tristan's Upper Room Prayer"
+                  fill
+                  className="object-contain drop-shadow-[0_0_6px_rgba(239,68,68,0.5)]"
+                />
+              </div>
+              <div className="text-left">
+                <div className="text-white font-extrabold text-xl leading-tight group-hover:text-red-400 transition-colors">Tristan's Upper Room</div>
+                <div className="text-gray-300 text-sm max-w-[40ch]">Send your prayer. Optional love offering keeps the prayer fire burning.</div>
+              </div>
+              <span className="ml-auto text-black font-bold bg-yellow-400 px-3 py-1 rounded group-hover:bg-yellow-300">PRAY</span>
+            </Link>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="#contact">
               <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 text-lg neon-box">
