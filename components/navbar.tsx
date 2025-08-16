@@ -41,9 +41,6 @@ export default function Navbar({ className }: NavbarProps) {
       <div className="container mx-auto px-4 py-4 flex items-center justify-end">
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6">
-          <Link href="/prayer" className="text-gray-300 hover:text-red-500 transition-colors">
-            Prayer
-          </Link>
           <Link href="#about" className="text-gray-300 hover:text-red-500 transition-colors">
             About
           </Link>
@@ -77,13 +74,6 @@ export default function Navbar({ className }: NavbarProps) {
         mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
       }`}>
         <nav className="px-4 pb-4 space-y-4 bg-black/95 border-t border-red-900/30">
-          <Link
-            href="/prayer"
-            className="block text-gray-300 hover:text-red-500 transition-colors py-2"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Prayer
-          </Link>
           <Link
             href="#about"
             className="block text-gray-300 hover:text-red-500 transition-colors py-2"
