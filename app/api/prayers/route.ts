@@ -33,6 +33,12 @@ async function ensurePrayersTable ()
       created_at TEXT NOT NULL
     );
   `)
+  // Best-effort schema upgrade for older tables missing donation_amount
+  try {
+    await client.execute(`ALTER TABLE prayers ADD COLUMN donation_amount INTEGER`)
+  } catch (_) {
+    // ignore if column already exists
+  }
 }
 
 export async function GET ()
@@ -106,7 +112,7 @@ export async function POST (req: NextRequest)
 
     return NextResponse.json({ ok: true, prayer }, { status: 201 })
   } catch (err) {
-    return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
+    return NextResponse.json({ error: 'Server error creating prayer' }, { status: 500 })
   }
 }
 

@@ -105,13 +105,13 @@ export default function SetFreeChurch() {
               <div className="relative w-16 h-16 shrink-0">
                 <Image
                   src="/tristin-upper-room-logo.png"
-                  alt="Tristan's Upper Room Prayer"
+                  alt="Tristin's Upper Room Prayer"
                   fill
                   className="object-contain drop-shadow-[0_0_6px_rgba(239,68,68,0.5)]"
                 />
               </div>
               <div className="text-left">
-                <div className="text-white font-extrabold text-xl leading-tight group-hover:text-red-400 transition-colors">Tristan's Upper Room</div>
+                <div className="text-white font-extrabold text-xl leading-tight group-hover:text-red-400 transition-colors">Tristin's Upper Room</div>
                 <div className="text-gray-300 text-sm max-w-[40ch]">Send your prayer. Optional love offering keeps the prayer fire burning.</div>
               </div>
               <span className="ml-auto text-black font-bold bg-yellow-400 px-3 py-1 rounded group-hover:bg-yellow-300">PRAY</span>
@@ -439,6 +439,29 @@ export default function SetFreeChurch() {
             Don't wait. Your breakthrough is one step away. Come as you are - Jesus is waiting with open arms and
             unconditional love.
           </p>
+
+          {/* Prayer CTA */}
+          <div className="mx-auto mb-12 flex flex-col items-center gap-6">
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 animate-slow-glow">
+              <div className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-red-600/25 blur-3xl opacity-70 animate-candle" />
+              <Image
+                src="/tristin-upper-room-logo.png"
+                alt="Tristin's Upper Room"
+                fill
+                className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]"
+                priority={false}
+              />
+            </div>
+            <div className="text-center">
+              <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2">Tristin's Upper Room — Prayer Wall</h3>
+              <p className="text-gray-300 max-w-xl mx-auto">Send your prayer now. Well lift it up together. Add a love offering if youd like.</p>
+            </div>
+            <Link href="/prayer">
+              <Button className="bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 text-black font-extrabold uppercase tracking-wide px-8 py-4 text-lg rounded-xl shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 transition-all hover:scale-105">
+                Submit a Prayer
+              </Button>
+            </Link>
+          </div>
 
           <div className="grid md:grid-cols-5 gap-6 mb-12">
             <div className="flex flex-col items-center">

@@ -88,22 +88,24 @@ export default function PrayerPage() {
 
       <main className="container mx-auto px-4 py-12">
         <div className="flex justify-center mb-10">
-          <Image
-            src="/tristin-upper-room-logo.png"
-            alt="Tristan's Upper Room Large Logo"
-            width={480}
-            height={480}
-            className="object-contain w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] md:w-[480px] md:h-[480px]"
-            priority
-          />
+          <div className="relative w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] md:w-[480px] md:h-[480px] animate-slow-glow">
+            <div className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-red-600/25 blur-3xl opacity-70 animate-candle" />
+            <Image
+              src="/tristin-upper-room-logo.png"
+              alt="Tristin's Upper Room Large Logo"
+              fill
+              className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]"
+              priority
+            />
+          </div>
         </div>
         <div className="grid lg:grid-cols-2 gap-10">
           {/* Prayer Wall FIRST */}
           <Card className="bg-black/70 border-red-700/50 ring-1 ring-red-500/40 shadow-[0_0_45px_rgba(239,68,68,0.35)] backdrop-blur-sm">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="relative w-16 h-16 md:w-20 md:h-20">
-                  <Image src="/tristin-upper-room-logo.png" alt="Tristan's Upper Room" fill className="object-contain" />
+                <div className="relative w-20 h-20 md:w-24 md:h-24">
+                  <Image src="/tristin-upper-room-logo.png" alt="Tristin's Upper Room" fill className="object-contain" />
                 </div>
                 <div>
                   <CardTitle className="text-xl md:text-2xl text-white">Prayer Wall</CardTitle>
@@ -139,11 +141,11 @@ export default function PrayerPage() {
           <Card className="bg-gray-900 border-red-900/50">
             <CardHeader>
               <div className="flex items-center gap-4">
-                <div className="relative w-14 h-14">
-                  <Image src="/tristin-upper-room-logo.png" alt="Tristan's Upper Room" fill className="object-contain" />
+                <div className="relative w-20 h-20">
+                  <Image src="/tristin-upper-room-logo.png" alt="Tristin's Upper Room" fill className="object-contain" />
                 </div>
                 <div>
-                  <CardTitle className="text-2xl text-red-500">Tristan's Upper Room — Prayer Wall</CardTitle>
+                  <CardTitle className="text-2xl text-red-500">Tristin's Upper Room — Prayer Wall</CardTitle>
                   <p className="text-gray-300 text-sm">Send your prayer. We’ll take it up together and cover it in Jesus’ name.</p>
                 </div>
               </div>
