@@ -38,7 +38,9 @@ export const metadata: Metadata = {
   ],
   authors: [
     { name: "Set Free Anaheim" },
-    { name: "Set Free Digital Disciples", url: "https://www.setfreedigitaldisciples.com" },
+    { name: "Set Free Digital Disciples",
+      url: "https://www.setfreedigitaldisciples.com"
+    },
   ],
   creator: "Set Free Digital Disciples",
   publisher: "Set Free Anaheim",
