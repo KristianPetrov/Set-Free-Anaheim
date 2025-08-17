@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function News() {
   return (
@@ -24,14 +25,14 @@ export default function News() {
             <p className="text-gray-300 mb-4 text-sm">
               Father Gregory Boyle and Pastor Phil Aguilar unite for a new chapter in faith-based outreach, combining hope, healing, and practical care for those in need.
             </p>
-            <a
+            <Link
               href="https://fandfnews.com/historic-meeting-between-homeboy-industries-and-set-free-ministries-marks-a-new-chapter-in-faith-based-outreach/"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-auto inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition"
             >
               Read Article
-            </a>
+            </Link>
           </div>
 
           <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
@@ -51,14 +52,14 @@ export default function News() {
             <p className="text-gray-300 mb-4 text-sm">
               Watch the in-depth interview with Pastor Phil Aguilar on the Soft White Underbelly channel, exploring his journey and the impact of Set Free Ministries.
             </p>
-            <a
+            <Link
               href="https://g.co/kgs/QNocXqx"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-auto inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition"
             >
               Watch Interview
-            </a>
+            </Link>
           </div>
 
           <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
@@ -78,14 +79,14 @@ export default function News() {
             <p className="text-gray-300 mb-4 text-sm">
               Watch this powerful video showcasing the heart and mission of Set Free Anaheim ministry, featuring real stories and testimonies from our community.
             </p>
-            <a
+            <Link
               href="https://youtu.be/KYbuUC6tGUY"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-auto inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition"
             >
               Watch Video
-            </a>
+            </Link>
           </div>
         </div>
       </div>

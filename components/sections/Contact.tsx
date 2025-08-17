@@ -37,7 +37,7 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-5 gap-6 mb-12">
           <div className="flex flex-col items-center">
-            <a
+            <Link
               href="tel:714-400-4573"
               className="group flex flex-col items-center"
             >
@@ -48,11 +48,11 @@ export default function Contact() {
                 <br />
                 Ready to help
               </p>
-            </a>
+            </Link>
           </div>
 
           <div className="flex flex-col items-center">
-            <a
+            <Link
               href="mailto:setfreephil@aol.com"
               className="group flex flex-col items-center"
             >
@@ -63,11 +63,11 @@ export default function Contact() {
                 <br />
                 Direct contact
               </p>
-            </a>
+            </Link>
           </div>
 
           <div className="flex flex-col items-center">
-            <a
+            <Link
               href="https://www.instagram.com/setfreeanaheim"
               target="_blank"
               rel="noopener noreferrer"
@@ -80,11 +80,11 @@ export default function Contact() {
                 <br />
                 ministry updates
               </p>
-            </a>
+            </Link>
           </div>
 
           <div className="flex flex-col items-center">
-            <a
+            <Link
               href="https://www.facebook.com/setfreeanaheim"
               target="_blank"
               rel="noopener noreferrer"
@@ -97,11 +97,11 @@ export default function Contact() {
                 <br />
                 community online
               </p>
-            </a>
+            </Link>
           </div>
 
           <div className="flex flex-col items-center">
-            <a
+            <Link
               href="https://www.youtube.com/@setfreeanaheim"
               target="_blank"
               rel="noopener noreferrer"
@@ -114,7 +114,7 @@ export default function Contact() {
                 <br />
                 ministry content
               </p>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 import { format, startOfWeek, addDays, isSameDay } from "date-fns"
 import { Calendar, Clock, MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import Link from "next/link"
 
 import Image from "next/image"
 
@@ -237,14 +238,14 @@ export default function CustomCalendar() {
                     </div>
                                         <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
                       <MapPin className="w-4 h-4 flex-shrink-0" />
-                      <a
+                      <Link
                         href={`https://maps.google.com/?q=${encodeURIComponent(event.address)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-red-400 transition-colors underline"
                       >
                         {event.address}
-                      </a>
+                      </Link>
                     </div>
                     <p className="text-base text-gray-300 leading-relaxed">
                       {event.description}

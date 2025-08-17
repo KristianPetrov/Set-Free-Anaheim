@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function FooterSection() {
   return (
@@ -18,19 +19,19 @@ export default function FooterSection() {
           © 2025 Set Free Digital Disciples. All rights reserved. | Saving souls with some edge.
         </p>
         <div className="w-full flex items-center gap-2 justify-between mt-6 md:mt-0 md:absolute md:left-4 md:bottom-4 md:justify-start">
-          <a
+          <Link
             href="https://www.setfreedigitaldisciples.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 text-xs underline-offset-2 hover:underline md:hidden"
           >
             Site by Set Free Digital Disciples
-          </a>
+          </Link>
         </div>
 
         <div className="w-full flex items-center gap-2 justify-end mt-2 md:mt-0 md:absolute md:right-4 md:bottom-4">
           <span className="text-gray-500 text-xs">Site by</span>
-          <a
+          <Link
             href="https://www.setfreedigitaldisciples.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -45,7 +46,7 @@ export default function FooterSection() {
               height={50}
               className="object-contain opacity-80 hover:opacity-100 transition-opacity"
             />
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
