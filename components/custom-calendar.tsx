@@ -3,8 +3,10 @@ import { format, startOfWeek, addDays, isSameDay } from "date-fns"
 import { Calendar, Clock, MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
-
 import Image from "next/image"
+import { cn } from "@/lib/utils"
+import type { ClassValue } from "clsx"
+
 
 interface Event {
   address: string
@@ -16,6 +18,10 @@ interface Event {
   dayOfWeek: number // 0 = Sunday, 1 = Monday, etc.
   location?: string
   recurring: boolean
+  descriptionClass?: ClassValue
+  className?: ClassValue
+  titleClass?: ClassValue
+  cardClass?: ClassValue
 }
 
 interface EventWithDate extends Event {
@@ -54,13 +60,16 @@ const weeklyEvents: Event[] = [
   {
     id: "sunday-night-recovery",
     address: addresses["Lift Off Recovery"],
-    title: "SUNDAY NIGHT RECOVERY",
+    title: "PAUSED -SUNDAY NIGHT RECOVERY",
     time: "7:00 PM",
-    description: "One of the biggest and best recovery meetings in Southern California, where we get to share stories, talents and encourage one another with love and hope.",
-    image: "/phil-sunday-setfree-hat.jpg",
+    description: "🚨 Heads up Fam 🚨\nSet Free Sunday Night Recovery is on pause for now. 💔\nStay tuned — we’ll be back soon, stronger & freer than ever. 🙌💯",
+    image: "/lift-off-on-fire.jpeg",
     dayOfWeek: 0, // Sunday
     location: "Main Sanctuary",
-    recurring: true
+    recurring: true,
+    descriptionClass: "font-bold text-yellow-300 leading-relaxed",
+    titleClass: "text-yellow-300",
+    cardClass: "border-yellow-500/40 hover:border-yellow-400/60"
   },
   {
     id: "wellbreity",
@@ -212,7 +221,13 @@ export default function CustomCalendar() {
         <h4 className="text-xl font-bold text-red-500 mb-4">UPCOMING THIS WEEK</h4>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {getNext7DaysEvents().map((event) => (
-            <Card key={event.id} className="bg-black/50 border-red-900/30 hover:border-red-500/50 transition-all duration-300 group">
+            <Card
+              key={event.id}
+              className={cn(
+                "bg-black/50 border-red-900/30 hover:border-red-500/50 transition-all duration-300 group",
+                event.cardClass
+              )}
+            >
               <CardContent className="p-6">
                 <div className="flex gap-6">
                   <div className="relative w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
@@ -225,7 +240,7 @@ export default function CustomCalendar() {
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
                   </div>
                   <div className="flex-1">
-                    <h5 className="font-bold text-red-400 text-lg mb-2 group-hover:text-red-300 transition-colors">
+                    <h5 className={cn("font-bold text-red-400 text-lg mb-2 group-hover:text-red-300 transition-colors", event.titleClass)}>
                       {event.title}
                     </h5>
                     <div className="flex items-center gap-2 text-base text-gray-400 mb-2">
@@ -247,7 +262,7 @@ export default function CustomCalendar() {
                         {event.address}
                       </Link>
                     </div>
-                    <p className="text-base text-gray-300 leading-relaxed">
+                    <p className={cn("text-base text-gray-300 leading-relaxed", event.descriptionClass)}>
                       {event.description}
                     </p>
                   </div>

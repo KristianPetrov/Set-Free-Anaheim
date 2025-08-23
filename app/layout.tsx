@@ -174,7 +174,7 @@ export default function RootLayout({
                 {
                   "@type": "Event",
                   "name": "Sunday Night Recovery",
-                  "description": "Come as you are every Sunday night to Magic House for a powerful time of healing, hope, and real community.",
+                  "description": "🚨 Heads up Fam 🚨\nSet Free Sunday Night Recovery is on pause for now. 💔\nStay tuned — we’ll be back soon, stronger & freer than ever. 🙌💯",
                   "startDate": "2025-01-01T19:00:00-08:00",
                   "eventSchedule": {
                     "@type": "Schedule",

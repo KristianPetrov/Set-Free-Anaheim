@@ -38,18 +38,20 @@ export default function Events() {
             <CardContent className="p-6 flex flex-col h-full">
               <div className="mb-4 flex justify-center">
                 <Image
-                  src="/phil-sunday-setfree-hat.jpg"
+                  src="/lift-off-on-fire.jpeg"
                   alt="Holy Disciples Sunday Night Recovery icon"
-                  width={150}
-                  height={150}
+                  width={250}
+                  height={250}
                   className="object-contain"
                   loading="lazy"
-                  sizes="(max-width: 768px) 100px, 150px"
+                  sizes="(max-width: 768px) 150px, 250px"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2 neon-text">SUNDAY NIGHT RECOVERY</h3>
-              <p className="text-gray-300 mb-4">
-                Come as you are every Sunday night to Magic House for a powerful time of healing, hope, and real community. We’ve got good music, free hot dogs, and most importantly—unconditional love through Christ. No judgment, just Jesus. Let’s recover together.
+              <h3 className="text-xl font-bold text-yellow-300 mb-2 neon-text">SUNDAY NIGHT RECOVERY - ON HOLD</h3>
+              <p className="text-yellow-300 text-lg font-bold mb-4 text-start">
+                🚨 Heads up Fam 🚨<br />
+                Set Free Sunday Night Recovery is on pause for now. 💔<br />
+                Stay tuned — we’ll be back soon, stronger &amp; freer than ever. 🙌💯
               </p>
               <div className="mt-auto pt-4">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 text-black font-extrabold tracking-wide uppercase shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 drop-shadow-[0_0_12px_rgba(239,68,68,0.6)] neon-box">
