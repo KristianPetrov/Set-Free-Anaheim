@@ -74,7 +74,7 @@ const weeklyEvents: Event[] = [
   {
     id: "wellbreity",
     title: "WELLBREITY",
-    address: addresses["Lift Off Recovery"],
+    address: addresses["Main Sanctuary"],
     time: "7:00 PM",
     description: "Wellness meeting based in native tradition and using culture as a form of prevention.",
     image: "/sunday-toya-christmas.jpg",
