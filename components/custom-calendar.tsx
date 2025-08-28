@@ -185,23 +185,42 @@ export default function CustomCalendar() {
 
       // Get events for the next 7 days
   const getNext7DaysEvents = (): EventWithDate[] => {
-    const today = new Date()
+    const PST_TZ = 'America/Los_Angeles'
     const next7Days: EventWithDate[] = []
 
-    // Generate the next 7 days
+    const weekdayMap: Record<string, number> = {
+      Sun: 0,
+      Mon: 1,
+      Tue: 2,
+      Wed: 3,
+      Thu: 4,
+      Fri: 5,
+      Sat: 6,
+    }
+
     for (let i = 0; i < 7; i++) {
-      const date = new Date(today)
-      date.setDate(today.getDate() + i)
-      const dayOfWeek = date.getDay()
+      const timestamp = Date.now() + i * 24 * 60 * 60 * 1000
+      const baseDate = new Date(timestamp)
 
-      // Find events for this day
-      const eventsForDay = weeklyEvents.filter(event => event.dayOfWeek === dayOfWeek)
+      const weekdayShort = baseDate.toLocaleString('en-US', { timeZone: PST_TZ, weekday: 'short' })
+      const dayOfWeek = weekdayMap[weekdayShort]
 
-      eventsForDay.forEach(event => {
+      const labelLong = baseDate.toLocaleDateString('en-US', {
+        timeZone: PST_TZ,
+        weekday: 'long',
+        month: 'short',
+        day: 'numeric',
+      })
+
+      const pstWallTime = new Date(baseDate.toLocaleString('en-US', { timeZone: PST_TZ }))
+
+      const eventsForDay = weeklyEvents.filter((event) => event.dayOfWeek === dayOfWeek)
+
+      eventsForDay.forEach((event) => {
         next7Days.push({
           ...event,
-          date: date,
-          dateLabel: i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : format(date, 'EEEE, MMM d')
+          date: pstWallTime,
+          dateLabel: i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : labelLong,
         })
       })
     }
@@ -270,6 +289,7 @@ export default function CustomCalendar() {
                     <div className={cn("flex items-center gap-2 text-base text-gray-400 mb-3", event.timeClass)}>
                       <Clock className="w-5 h-5" />
                       <span className="font-medium">{event.time}</span>
+                      <span className="ml-2 text-xs text-gray-500">(PST)</span>
                     </div>
                     <div className={cn("flex items-center gap-2 text-sm text-gray-400 mb-3", event.addressClass)}>
                       <MapPin className="w-4 h-4 flex-shrink-0" />
