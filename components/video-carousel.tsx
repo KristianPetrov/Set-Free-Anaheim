@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import YouTube from "react-youtube"
 
 interface VideoStory {
   id: string
@@ -59,17 +60,19 @@ export default function VideoCarousel() {
       {/* Main Video Player */}
       <div className="relative">
         <div className="aspect-video rounded-lg overflow-hidden shadow-2xl border-4 border-red-900/30 bg-black">
-          <iframe
-            key={currentVideo.embedId} // Force re-render when video changes
-            width="100%"
-            height="100%"
-            src={`https://www.youtube.com/embed/${currentVideo.embedId}?autoplay=0&rel=0`}
-            title={currentVideo.title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
+          <YouTube
+            videoId={currentVideo.embedId}
+            opts={{
+              width: "100%",
+              height: "100%",
+              playerVars: {
+                autoplay: 0,
+                rel: 0,
+                modestbranding: 1,
+              },
+            }}
             className="w-full h-full"
-          ></iframe>
+          />
         </div>
 
         {/* Navigation Arrows */}

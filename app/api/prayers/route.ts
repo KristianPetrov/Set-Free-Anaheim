@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { desc, eq } from 'drizzle-orm'
 import { client, db } from '@/lib/db'
 import { prayers } from '@/lib/schema'
+import {track} from "@vercel/analytics"
 
 export const runtime = 'edge'
 export const dynamic = 'force-dynamic'
@@ -80,6 +81,7 @@ export async function POST (req: NextRequest)
     const donationAmount = Number.isFinite(body?.donationAmount) ? Number(body.donationAmount) : undefined
 
     if (!text) {
+      track('prayer_text_required')
       return NextResponse.json({ error: 'Prayer text is required' }, { status: 400 })
     }
 
@@ -108,10 +110,19 @@ export async function POST (req: NextRequest)
       isPublic: Boolean(isPublic),
       donationAmount,
       createdAt,
-    }
+    } 
+
+    track('prayer_created', {
+      name,
+      email,
+      text,
+      isPublic,
+      donationAmount: donationAmount ?? 0,
+    })
 
     return NextResponse.json({ ok: true, prayer }, { status: 201 })
   } catch (err) {
+    track('server_error_creating_prayer')
     return NextResponse.json({ error: 'Server error creating prayer' }, { status: 500 })
   }
 }

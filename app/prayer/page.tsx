@@ -32,6 +32,7 @@ export default function PrayerPage() {
   const [prayers, setPrayers] = useState<Prayer[]>([])
   const [submitting, setSubmitting] = useState(false)
   const [selectedAmount, setSelectedAmount] = useState<number | undefined>(undefined)
+  const [donationMethodClicked, setDonationMethodClicked] = useState<null | 'paypal' | 'venmo' | 'cashapp' | 'zelle'>(null)
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -48,10 +49,11 @@ export default function PrayerPage() {
   async function onSubmit(values: FormValues) {
     setSubmitting(true)
     try {
+      const donationAmountToSend = donationMethodClicked ? selectedAmount : undefined
       const res = await fetch('/api/prayers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...values, donationAmount: selectedAmount }),
+        body: JSON.stringify({ ...values, donationAmount: donationAmountToSend }),
       })
       if (!res.ok) throw new Error('Failed')
       const data = await res.json()
@@ -60,6 +62,7 @@ export default function PrayerPage() {
       }
       reset({ name: '', email: '', text: '', isPublic: true })
       setSelectedAmount(undefined)
+      setDonationMethodClicked(null)
     } catch (_) {
       // no-op
     } finally {
@@ -177,7 +180,10 @@ export default function PrayerPage() {
                     <AccordionTrigger className="text-gray-200">Optional love offering</AccordionTrigger>
                     <AccordionContent>
                       <DonationAmounts selectedAmount={selectedAmount} onSelect={(amt) => setSelectedAmount(amt)} amounts={[25,50,100]} />
-                      <DonationMethods amount={selectedAmount} />
+                      <DonationMethods amount={selectedAmount} onMethodClick={(m) => setDonationMethodClicked(m)} />
+                      {selectedAmount && selectedAmount > 0 && !donationMethodClicked ? (
+                        <p className="mt-2 text-yellow-300 text-sm">Select a payment method to confirm your donation.</p>
+                      ) : null}
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>

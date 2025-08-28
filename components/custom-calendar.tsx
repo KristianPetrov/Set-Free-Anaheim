@@ -22,6 +22,8 @@ interface Event {
   className?: ClassValue
   titleClass?: ClassValue
   cardClass?: ClassValue
+  timeClass?: ClassValue
+  addressClass?: ClassValue
 }
 
 interface EventWithDate extends Event {
@@ -40,11 +42,16 @@ interface GoogleEvent {
   url?: string
   creator?: string
 }
-const addresses = {
- "Main Sanctuary" :"1171 N West St, Anaheim, CA 92801, USA" ,
-  "Lift Off Recovery":"1567 W Embassy St, Anaheim, CA 92802, USA" ,
-"The Magic House":"301 S Archer St, Anaheim, CA  92804, USA"
+type Addresses = {
+  "Main Sanctuary" :"1171 N West St, Anaheim, CA 92801, USA",
+  "Lift Off Recovery":"1567 W Embassy St, Anaheim, CA 92802, USA",
+  "The Magic House":"301 S Archer St, Anaheim, CA  92804, USA"
 }
+const addresses: Addresses = {
+ "Main Sanctuary" :"1171 N West St, Anaheim, CA 92801, USA",
+  "Lift Off Recovery":"1567 W Embassy St, Anaheim, CA 92802, USA",
+"The Magic House":"301 S Archer St, Anaheim, CA  92804, USA"
+} as const
 const weeklyEvents: Event[] = [
   {
     id: "sunday-service",
@@ -56,6 +63,19 @@ const weeklyEvents: Event[] = [
     dayOfWeek: 0, // Sunday
     location: "Main Sanctuary",
     recurring: true
+  },
+  {
+    id: "angela-kent-meditation",
+    title: "Every Other Friday: Deep Guided Meditation with Angela & Kent",
+    address: addresses["Main Sanctuary"],
+    time: "7:00 PM",
+    description: "Step out of the noise and into God’s peace. Angela & Kent—freshly married and filled with fire—guide a deep, Christ-centered meditation to realign your breath, your body, and your spirit. Pull up with a yoga mat, get comfy, and let the Presence do the heavy lifting.",
+    image: "/Angela-Kent-Meditation-Event.jpg",
+    dayOfWeek: 5, // Friday
+    location: "Main Sanctuary",
+    recurring: true,
+    cardClass: "border-yellow-500/40 hover:border-yellow-400/60",
+
   },
   {
     id: "sunday-night-recovery",
@@ -247,11 +267,11 @@ export default function CustomCalendar() {
                       <Calendar className="w-5 h-5" />
                       <span>{event.dateLabel}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-base text-gray-400 mb-3">
+                    <div className={cn("flex items-center gap-2 text-base text-gray-400 mb-3", event.timeClass)}>
                       <Clock className="w-5 h-5" />
                       <span className="font-medium">{event.time}</span>
                     </div>
-                                        <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
+                    <div className={cn("flex items-center gap-2 text-sm text-gray-400 mb-3", event.addressClass)}>
                       <MapPin className="w-4 h-4 flex-shrink-0" />
                       <Link
                         href={`https://maps.google.com/?q=${encodeURIComponent(event.address)}`}

@@ -2,6 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
+import { track } from '@vercel/analytics'
+
+const trackDonation = (amount: number) => {
+  track('donation_amount', { amount })
+}
 
 type DonationAmountsProps = {
   selectedAmount?: number
@@ -84,25 +89,30 @@ export function DonationAmounts({ selectedAmount, onSelect, amounts = [25, 50, 1
 
 type DonationMethodsProps = {
   amount?: number
+  onMethodClick?: (method: 'paypal' | 'venmo' | 'cashapp' | 'zelle') => void
 }
 
-export function DonationMethods({ amount }: DonationMethodsProps) {
+export function DonationMethods({ amount, onMethodClick }: DonationMethodsProps) {
   const hasAmount = Boolean(amount && amount > 0)
 
   const handlePayPal = () => {
+    onMethodClick?.('paypal')
     const url = `https://www.paypal.com/paypalme/setfreephil/${amount || ''}`
     window.open(url, '_blank')
   }
   const handleVenmo = () => {
+    onMethodClick?.('venmo')
     const url = `https://venmo.com/u/sandra-aguilar-73?txn=pay${amount ? `&amount=${amount}` : ''}&note=Love%20Offering%20-%20Prayer`
     window.open(url, '_blank')
   }
   const handleCashApp = () => {
+    onMethodClick?.('cashapp')
     const url = `https://cash.app/$Setfreephil/${amount || ''}`
     window.open(url, '_blank')
   }
   const handleZelle = async () => {
     try {
+      onMethodClick?.('zelle')
       await navigator.clipboard.writeText('714-329-1003')
       alert(`Zelle Details Copied!\n\nPhone: 714-329-1003${amount ? `\nAmount: $${amount}` : ''}`)
     } catch {
