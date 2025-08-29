@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Navbar from "@/components/navbar"
 import FooterSection from "@/components/sections/FooterSection"
+import ThriftGallery from "@/components/thrift-gallery"
 import { UnifrakturCook } from "next/font/google"
 import { Button } from "@/components/ui/button"
 import DonationModal from "@/components/donation-modal"
@@ -17,7 +18,7 @@ export default function ThriftShopPage() {
     <div className="min-h-screen bg-black text-white">
       <Navbar />
       {/* Hero */}
-      <section className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden">
+      <section className="relative w-full min-h-[72vh] md:min-h-[75vh] pt-24 md:pt-28 lg:pt-32 pb-[calc(env(safe-area-inset-bottom)+24px)] sm:pb-8">
         <Image
           src="/thirft-shop-come-in.jpg"
           alt="Set Free Thrift Shop storefront"
@@ -28,7 +29,8 @@ export default function ThriftShopPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="text-center px-6">
-            <div className="relative w-80 h-80 md:w-96 md:h-96 mx-auto mb-6">
+            <div className="relative w-64 h-64 md:w-96 md:h-96 mx-auto mb-6 animate-slow-glow">
+              <div className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-red-600/25 blur-3xl opacity-70 animate-candle" />
               <Image
                 src="/thrift-shop-logo.png"
                 alt="Set Free Thrift Shop Logo"
@@ -41,16 +43,16 @@ export default function ThriftShopPage() {
               <div className="pointer-events-none absolute -inset-3 -z-10 rounded-lg bg-red-600/25 blur-2xl opacity-80 animate-candle" />
               <p className={`${oldEnglish.className} text-2xl md:text-3xl tracking-tight text-white px-4 py-2`}>Open to the public — all proceeds fuel the mission</p>
             </div>
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="mt-4 md:mt-6 flex flex-row flex-wrap items-center justify-center gap-2">
               <Button
                 onClick={() => setDonateOpen(true)}
-                className="bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 text-black font-extrabold uppercase tracking-wide px-8 py-4 text-lg rounded-xl shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 transition-transform hover:scale-105"
+                className="bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 text-black font-extrabold uppercase tracking-wide px-4 py-2 text-sm md:px-8 md:py-4 md:text-lg rounded-lg md:rounded-xl shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 transition-transform hover:scale-105"
               >
                 Donate Now
               </Button>
               <Link
                 href="#about-thrift"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-red-600 text-red-400 hover:bg-red-600 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center px-4 py-2 text-sm md:px-6 md:py-3 md:text-base rounded-lg md:rounded-xl border border-red-600 text-red-400 hover:bg-red-600 hover:text-white transition-colors"
               >
                 About the Shop
               </Link>
@@ -67,13 +69,13 @@ export default function ThriftShopPage() {
             <div className="grid md:grid-cols-2 gap-6 items-start">
               <div>
                 <div className="relative mb-4 pl-2">
-                  <div className="pointer-events-none absolute -inset-6 -z-10 rounded-xl bg-red-500/35 blur-[40px] opacity-90 animate-candle" />
+                  <div className="pointer-events-none absolute -inset-8 z-0 rounded-2xl bg-red-600/35 blur-3xl opacity-95 animate-candle" />
                   <Image
                     src="/holy-hood.png"
                     alt="Holy But Hood"
                     width={360}
                     height={100}
-                    className="mb-4"
+                    className="mb-4 relative z-10"
                   />
                 </div>
                 <h2 className={`${oldEnglish.className} text-2xl font-bold text-red-500 mb-4`}>About the Thrift Shop</h2>
@@ -144,26 +146,7 @@ export default function ThriftShopPage() {
 
       {/* Gallery */}
       <section className="container mx-auto px-4 pb-16">
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <div className="relative w-full h-64 rounded-lg overflow-hidden border border-red-900/40">
-            <Image src="/thirft-shop-come-in.jpg" alt="Thrift shop storefront" fill className="object-cover" />
-          </div>
-          <div className="relative w-full h-64 rounded-lg overflow-hidden border border-red-900/40">
-            <Image src="/thrift-shop-inside.jpg" alt="Clothes rack inside thrift shop" fill className="object-cover" />
-          </div>
-          <div className="relative w-full h-64 rounded-lg overflow-hidden border border-red-900/40">
-            <Image src="/thrift-shop-front-desk.jpg" alt="Front desk inside thrift shop" fill className="object-cover" />
-          </div>
-          <div className="relative w-full h-64 rounded-lg overflow-hidden border border-red-900/40">
-            <Image src="/thrift-store-tree.jpg" alt="Thrift store decorated tree" fill className="object-cover" />
-          </div>
-          <div className="relative w-full h-64 rounded-lg overflow-hidden border border-red-900/40">
-            <Image src="/thrift-store-couch.jpg" alt="Thrift store couch display" fill className="object-cover" />
-          </div>
-          <div className="relative w-full h-64 rounded-lg overflow-hidden border border-red-900/40">
-            <Image src="/thrift-store-couch-side.jpg" alt="Side view of thrift store couch" fill className="object-cover" />
-          </div>
-        </div>
+        <ThriftGallery />
         <div className="text-center mt-8">
           <Link href="/" className="text-gray-400 hover:text-red-400 underline underline-offset-4">Back to Home</Link>
         </div>
