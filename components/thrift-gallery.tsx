@@ -9,9 +9,9 @@ const images = [
   { src: "/thirft-shop-come-in.jpg", alt: "Thrift shop storefront" },
   { src: "/thrift-shop-inside.jpg", alt: "Clothes rack inside thrift shop" },
   { src: "/thrift-shop-front-desk.jpg", alt: "Front desk inside thrift shop" },
-  { src: "/thrift-store-tree.jpg", alt: "Thrift store decorated tree" },
-  { src: "/thrift-store-couch.jpg", alt: "Thrift store couch display" },
-  { src: "/thrift-store-couch-side.jpg", alt: "Side view of thrift store couch" },
+  { src: "/thrift-shop-tree.jpg", alt: "Thrift store decorated tree" },
+  { src: "/thrift-shop-couch.jpg", alt: "Thrift store couch display" },
+  { src: "/thrift-shop-couch-side.jpg", alt: "Side view of thrift store couch" },
 ]
 
 export default function ThriftGallery() {
