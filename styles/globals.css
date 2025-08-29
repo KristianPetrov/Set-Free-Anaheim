@@ -10,6 +10,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .text-neon-strong {
+    text-shadow:
+      0 0 6px rgba(239,68,68,0.75),
+      0 0 14px rgba(239,68,68,0.65),
+      0 0 22px rgba(239,68,68,0.5);
+  }
 }
 
 @layer base {
