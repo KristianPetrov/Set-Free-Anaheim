@@ -67,7 +67,7 @@ export default function ThriftShopPage() {
 
       {/* Gallery */}
       <section className="container mx-auto px-4 pb-16">
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
           <div className="relative w-full h-64 rounded-lg overflow-hidden border border-red-900/40">
             <Image src="/thirft-shop-come-in.jpg" alt="Thrift shop storefront" fill className="object-cover" />
           </div>
@@ -76,6 +76,15 @@ export default function ThriftShopPage() {
           </div>
           <div className="relative w-full h-64 rounded-lg overflow-hidden border border-red-900/40">
             <Image src="/thrift-shop-front-desk.jpg" alt="Front desk inside thrift shop" fill className="object-cover" />
+          </div>
+          <div className="relative w-full h-64 rounded-lg overflow-hidden border border-red-900/40">
+            <Image src="/thrift-store-tree.jpg" alt="Thrift store decorated tree" fill className="object-cover" />
+          </div>
+          <div className="relative w-full h-64 rounded-lg overflow-hidden border border-red-900/40">
+            <Image src="/thrift-store-couch.jpg" alt="Thrift store couch display" fill className="object-cover" />
+          </div>
+          <div className="relative w-full h-64 rounded-lg overflow-hidden border border-red-900/40">
+            <Image src="/thrift-store-couch-side.jpg" alt="Side view of thrift store couch" fill className="object-cover" />
           </div>
         </div>
         <div className="text-center mt-8">
