@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Facebook, Instagram } from "lucide-react"
 
 export default function FooterSection() {
   return (
@@ -18,6 +19,31 @@ export default function FooterSection() {
         <p className="text-gray-500 text-sm">
           © 2025 Set Free Digital Disciples. All rights reserved. | Saving souls with some edge.
         </p>
+        <div className="mt-2">
+          <Link href="/thrift-shop" className="text-gray-300 hover:text-red-400 underline underline-offset-4">
+            Visit the Thrift Shop
+          </Link>
+        </div>
+        <div className="mt-4 flex items-center justify-center gap-4">
+          <Link
+            href="https://www.facebook.com/profile.php?id=61579041676384"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Set Free Digital Disciples on Facebook"
+            className="text-gray-400 hover:text-red-400 transition-colors"
+          >
+            <Facebook className="w-5 h-5" />
+          </Link>
+          <Link
+            href="https://www.instagram.com/kristianpetrov/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Kristian Petrov on Instagram"
+            className="text-gray-400 hover:text-red-400 transition-colors"
+          >
+            <Instagram className="w-5 h-5" />
+          </Link>
+        </div>
         <div className="w-full flex items-center gap-2 justify-between mt-6 md:mt-0 md:absolute md:left-4 md:bottom-4 md:justify-start">
           <Link
             href="https://www.setfreedigitaldisciples.com"
