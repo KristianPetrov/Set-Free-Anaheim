@@ -41,16 +41,16 @@ export default function Navbar({ className }: NavbarProps) {
       <div className="container mx-auto px-4 py-4 flex items-center justify-end">
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6">
-          <Link href="#about" className="text-gray-300 hover:text-red-500 transition-colors">
+          <Link href="/#about" className="text-gray-300 hover:text-red-500 transition-colors">
             About
           </Link>
-          <Link href="#events" className="text-gray-300 hover:text-red-500 transition-colors">
+          <Link href="/#events" className="text-gray-300 hover:text-red-500 transition-colors">
             Events
           </Link>
-          <Link href="#testimonies" className="text-gray-300 hover:text-red-500 transition-colors">
+          <Link href="/#testimonies" className="text-gray-300 hover:text-red-500 transition-colors">
             Stories
           </Link>
-          <Link href="#contact" className="text-gray-300 hover:text-red-500 transition-colors">
+          <Link href="/#contact" className="text-gray-300 hover:text-red-500 transition-colors">
             Connect
           </Link>
           <Link href="/thrift-shop" className="text-gray-300 hover:text-red-500 transition-colors">
@@ -78,28 +78,28 @@ export default function Navbar({ className }: NavbarProps) {
       }`}>
         <nav className="px-4 pb-4 space-y-4 bg-black/95 border-t border-red-900/30">
           <Link
-            href="#about"
+            href="/#about"
             className="block text-gray-300 hover:text-red-500 transition-colors py-2"
             onClick={() => setMobileMenuOpen(false)}
           >
             About
           </Link>
           <Link
-            href="#events"
+            href="/#events"
             className="block text-gray-300 hover:text-red-500 transition-colors py-2"
             onClick={() => setMobileMenuOpen(false)}
           >
             Events
           </Link>
           <Link
-            href="#testimonies"
+            href="/#testimonies"
             className="block text-gray-300 hover:text-red-500 transition-colors py-2"
             onClick={() => setMobileMenuOpen(false)}
           >
             Stories
           </Link>
           <Link
-            href="#contact"
+            href="/#contact"
             className="block text-gray-300 hover:text-red-500 transition-colors py-2"
             onClick={() => setMobileMenuOpen(false)}
           >
