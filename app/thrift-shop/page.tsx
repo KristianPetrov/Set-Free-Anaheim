@@ -83,13 +83,13 @@ export default function ThriftShopPage() {
               <div>
                 <h3 className="text-xl font-bold text-red-500 mb-3">Hours</h3>
                 <div className="grid grid-cols-2 gap-y-2 text-gray-300">
-                  <span>Monday</span><span className="text-right">10:00 AM – 8:00 PM</span>
-                  <span>Tuesday</span><span className="text-right">10:00 AM – 8:00 PM</span>
-                  <span>Wednesday</span><span className="text-right">10:00 AM – 8:00 PM</span>
-                  <span>Thursday</span><span className="text-right">10:00 AM – 8:00 PM</span>
-                  <span>Friday</span><span className="text-right">10:00 AM – 8:00 PM</span>
-                  <span>Saturday</span><span className="text-right">10:00 AM – 8:00 PM</span>
-                  <span>Sunday</span><span className="text-right">10:00 AM – 8:00 PM</span>
+                  <span>Monday</span><span className="text-right">10:00 AM – 6:00 PM</span>
+                  <span>Tuesday</span><span className="text-right">10:00 AM – 6:00 PM</span>
+                  <span>Wednesday</span><span className="text-right">10:00 AM – 6:00 PM</span>
+                  <span>Thursday</span><span className="text-right">10:00 AM – 6:00 PM</span>
+                  <span>Friday</span><span className="text-right">10:00 AM – 6:00 PM</span>
+                  <span>Saturday</span><span className="text-right">10:00 AM – 6:00 PM</span>
+                  <span>Sunday</span><span className="text-right">12:00 PM – 6:00 PM</span>
                 </div>
                 <p className="text-xs text-gray-500 mt-3">All times in PST</p>
               </div>
