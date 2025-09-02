@@ -1,5 +1,5 @@
 
-import { format, startOfWeek, addDays, isSameDay } from "date-fns"
+import { format, startOfWeek, addDays, isSameDay, startOfDay } from "date-fns"
 import { Calendar, Clock, MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
@@ -18,6 +18,10 @@ interface Event {
   dayOfWeek: number // 0 = Sunday, 1 = Monday, etc.
   location?: string
   recurring: boolean
+  // If true, event occurs every other week anchored to the given Friday date
+  everyOtherWeek?: boolean
+  // Anchor date (YYYY-MM-DD) representing a Friday on which the event occurs
+  anchorDate?: string
   descriptionClass?: ClassValue
   className?: ClassValue
   titleClass?: ClassValue
@@ -74,6 +78,10 @@ const weeklyEvents: Event[] = [
     dayOfWeek: 5, // Friday
     location: "Main Sanctuary",
     recurring: true,
+    // Set an anchor Friday that is a real occurrence so biweekly parity is correct
+    // Update this date as needed to match the real schedule
+    everyOtherWeek: true,
+    anchorDate: "2025-09-12",
     cardClass: "border-yellow-500/40 hover:border-yellow-400/60",
 
   },
@@ -214,7 +222,26 @@ export default function CustomCalendar() {
 
       const pstWallTime = new Date(baseDate.toLocaleString('en-US', { timeZone: PST_TZ }))
 
-      const eventsForDay = weeklyEvents.filter((event) => event.dayOfWeek === dayOfWeek)
+      const eventsForDay = weeklyEvents.filter((event) => {
+        if (event.dayOfWeek !== dayOfWeek) return false
+
+        // Handle biweekly events using an anchor Friday
+        if (event.everyOtherWeek) {
+          if (!event.anchorDate) return false
+          const candidate = startOfDay(pstWallTime)
+          // Interpret anchor date in PST to avoid server timezone drift
+          const anchorInPst = new Date(
+            new Date(`${event.anchorDate}T00:00:00`).toLocaleString('en-US', { timeZone: PST_TZ })
+          )
+          const anchor = startOfDay(anchorInPst)
+          const diffMs = candidate.getTime() - anchor.getTime()
+          const weeksBetween = Math.trunc(diffMs / (7 * 24 * 60 * 60 * 1000))
+          // Occurs on anchor week and every other week thereafter
+          return Math.abs(weeksBetween) % 2 === 0
+        }
+
+        return true
+      })
 
       eventsForDay.forEach((event) => {
         next7Days.push({
