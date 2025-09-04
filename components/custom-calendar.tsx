@@ -129,8 +129,19 @@ const weeklyEvents: Event[] = [
     time: "7:00 PM",
     description: "Are you a lady? GOOD! That's the only requirement to come on over to hear Saint Sandra teach the Bible to a big group of women! It's a great time to find friends and to be vulnerable.",
     image: "/womens-saints.jpg",
-    dayOfWeek: 3, // Tuesday
+    dayOfWeek: 3, // Wednesday
     location: "Fellowship Hall",
+    recurring: true
+  },
+  {
+    id: "mens-bible-study-pastor-anthony",
+    title: "MEN’S BIBLE STUDY WITH PASTOR ANTHONY",
+    address: addresses["Main Sanctuary"],
+    time: "7:00 PM",
+    description: "Step into the holy-hood every Wednesday night as Pastor Anthony breaks down God’s Word with real-life truth, raw honesty, and brotherhood that sharpens iron. Come hungry for the Word, leave armed with wisdom, and roll with a crew that’s set free to live bold for Jesus.",
+    image: "/bible-nerd.jpg",
+    dayOfWeek: 3, // Wednesday
+    location: "Main Sanctuary",
     recurring: true
   },
   {
