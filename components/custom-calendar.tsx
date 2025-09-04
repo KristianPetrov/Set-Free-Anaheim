@@ -1,3 +1,4 @@
+"use client"
 
 import { format, startOfWeek, addDays, isSameDay, startOfDay } from "date-fns"
 import { DateTime } from 'luxon'
