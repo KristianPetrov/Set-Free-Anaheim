@@ -1,4 +1,5 @@
 import { google } from 'googleapis';
+import { DateTime } from 'luxon';
 
 const CALENDAR_ID = 'chiefsthemagichouse@gmail.com';
 const API_KEY = process.env.GOOGLE_CALENDAR_API_KEY;
@@ -77,32 +78,36 @@ export class GoogleCalendarService
 
     async getEventsForWeek (startDate: Date): Promise<ProcessedEvent[]>
     {
-        const endDate = new Date(startDate);
-        endDate.setDate(startDate.getDate() + 7);
+        const start = DateTime.fromJSDate(startDate, { zone: 'America/Los_Angeles' }).startOf('day');
+        const end = start.plus({ days: 7 }).endOf('day');
 
-        return this.getEvents(startDate, endDate);
+        return this.getEvents(start.toJSDate(), end.toJSDate());
     }
 
     async getEventsForMonth (year: number, month: number): Promise<ProcessedEvent[]>
     {
-        const startDate = new Date(year, month, 1);
-        const endDate = new Date(year, month + 1, 0);
-        endDate.setHours(23, 59, 59, 999);
+        const start = DateTime.fromObject({ year, month: month + 1, day: 1 }, { zone: 'America/Los_Angeles' }).startOf('day');
+        const end = start.endOf('month');
 
-        return this.getEvents(startDate, endDate);
+        return this.getEvents(start.toJSDate(), end.toJSDate());
     }
 
     private processEvent (event: GoogleCalendarEvent): ProcessedEvent | null
     {
         if (!event.start || !event.end || !event.id) return null;
 
-        const startDate = event.start.dateTime
-            ? new Date(event.start.dateTime)
-            : new Date((event.start.date || '') + 'T00:00:00');
+        // Determine the event's timezone if provided, else default to LA timezone
+        const eventTimeZone = event.start?.timeZone || event.end?.timeZone || 'America/Los_Angeles';
 
-        const endDate = event.end.dateTime
-            ? new Date(event.end.dateTime)
-            : new Date((event.end.date || '') + 'T23:59:59');
+        // Use Luxon for robust timezone-safe parsing
+        // For all-day events, Google Calendar uses an exclusive end date. Adjust by -1 day.
+        const startDateTime = event.start.dateTime
+            ? DateTime.fromISO(event.start.dateTime, { setZone: true }).setZone('America/Los_Angeles')
+            : DateTime.fromISO(event.start.date || '', { zone: eventTimeZone }).setZone('America/Los_Angeles').startOf('day');
+
+        const endDateTime = event.end.dateTime
+            ? DateTime.fromISO(event.end.dateTime, { setZone: true }).setZone('America/Los_Angeles')
+            : DateTime.fromISO(event.end.date || '', { zone: eventTimeZone }).setZone('America/Los_Angeles').minus({ days: 1 }).endOf('day');
 
         const isAllDay = !event.start.dateTime;
 
@@ -110,8 +115,8 @@ export class GoogleCalendarService
             id: event.id,
             title: event.summary || 'Untitled Event',
             description: event.description || undefined,
-            start: startDate,
-            end: endDate,
+            start: startDateTime.toJSDate(),
+            end: endDateTime.toJSDate(),
             location: event.location || undefined,
             isAllDay,
             url: event.htmlLink || undefined,

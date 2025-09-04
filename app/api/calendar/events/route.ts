@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { googleCalendarService } from '@/lib/google-calendar';
+import { DateTime } from 'luxon';
 
 export async function GET (request: NextRequest)
 {
@@ -9,27 +10,27 @@ export async function GET (request: NextRequest)
         const view = searchParams.get('view') || 'week';
         const dateParam = searchParams.get('date');
 
-        let startDate = new Date();
-        if (dateParam) {
-            startDate = new Date(dateParam);
-        }
+        const base = dateParam
+            ? DateTime.fromISO(dateParam, { setZone: true }).setZone('America/Los_Angeles')
+            : DateTime.now().setZone('America/Los_Angeles');
 
         let events;
 
         if (view === 'week') {
-            // Get start of week (Sunday)
-            const startOfWeek = new Date(startDate);
-            startOfWeek.setDate(startDate.getDate() - startDate.getDay());
-            events = await googleCalendarService.getEventsForWeek(startOfWeek);
+            // Start of week anchored to Sunday in America/Los_Angeles
+            const weekday = base.weekday; // 1 (Mon) .. 7 (Sun)
+            const daysFromSunday = weekday % 7; // Sun -> 0, Mon -> 1, ...
+            const startOfWeek = base.startOf('day').minus({ days: daysFromSunday });
+            events = await googleCalendarService.getEventsForWeek(startOfWeek.toJSDate());
         } else if (view === 'month') {
-            const year = startDate.getFullYear();
-            const month = startDate.getMonth();
-            events = await googleCalendarService.getEventsForMonth(year, month);
+            const year = base.year;
+            const monthIndex = base.month - 1; // service expects JS-like month index
+            events = await googleCalendarService.getEventsForMonth(year, monthIndex);
         } else {
-            // Default to next 30 days
-            const endDate = new Date(startDate);
-            endDate.setDate(startDate.getDate() + 30);
-            events = await googleCalendarService.getEvents(startDate, endDate);
+            // Default to next 30 days, LA-anchored day boundaries
+            const start = base.startOf('day');
+            const end = start.plus({ days: 30 }).endOf('day');
+            events = await googleCalendarService.getEvents(start.toJSDate(), end.toJSDate());
         }
         console.log(JSON.stringify(events))
         return NextResponse.json({

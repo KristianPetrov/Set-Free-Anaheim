@@ -1,5 +1,6 @@
 
 import { format, startOfWeek, addDays, isSameDay, startOfDay } from "date-fns"
+import { DateTime } from 'luxon'
 import { Calendar, Clock, MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
@@ -193,50 +194,23 @@ export default function CustomCalendar() {
 
       // Get events for the next 7 days
   const getNext7DaysEvents = (): EventWithDate[] => {
-    const PST_TZ = 'America/Los_Angeles'
+    const TZ = 'America/Los_Angeles'
     const next7Days: EventWithDate[] = []
 
-    const weekdayMap: Record<string, number> = {
-      Sun: 0,
-      Mon: 1,
-      Tue: 2,
-      Wed: 3,
-      Thu: 4,
-      Fri: 5,
-      Sat: 6,
-    }
-
     for (let i = 0; i < 7; i++) {
-      const timestamp = Date.now() + i * 24 * 60 * 60 * 1000
-      const baseDate = new Date(timestamp)
-
-      const weekdayShort = baseDate.toLocaleString('en-US', { timeZone: PST_TZ, weekday: 'short' })
-      const dayOfWeek = weekdayMap[weekdayShort]
-
-      const labelLong = baseDate.toLocaleDateString('en-US', {
-        timeZone: PST_TZ,
-        weekday: 'long',
-        month: 'short',
-        day: 'numeric',
-      })
-
-      const pstWallTime = new Date(baseDate.toLocaleString('en-US', { timeZone: PST_TZ }))
+      const dt = DateTime.now().setZone(TZ).startOf('day').plus({ days: i })
+      const dayOfWeek = dt.weekday % 7 // Sun=0 .. Sat=6
+      const labelLong = dt.toFormat('EEEE, LLL d')
 
       const eventsForDay = weeklyEvents.filter((event) => {
         if (event.dayOfWeek !== dayOfWeek) return false
 
-        // Handle biweekly events using an anchor Friday
         if (event.everyOtherWeek) {
           if (!event.anchorDate) return false
-          const candidate = startOfDay(pstWallTime)
-          // Interpret anchor date in PST to avoid server timezone drift
-          const anchorInPst = new Date(
-            new Date(`${event.anchorDate}T00:00:00`).toLocaleString('en-US', { timeZone: PST_TZ })
-          )
-          const anchor = startOfDay(anchorInPst)
-          const diffMs = candidate.getTime() - anchor.getTime()
-          const weeksBetween = Math.trunc(diffMs / (7 * 24 * 60 * 60 * 1000))
-          // Occurs on anchor week and every other week thereafter
+          const candidate = dt
+          const anchor = DateTime.fromISO(event.anchorDate, { zone: TZ }).startOf('day')
+          const daysBetween = candidate.diff(anchor, 'days').as('days')
+          const weeksBetween = Math.trunc(daysBetween / 7)
           return Math.abs(weeksBetween) % 2 === 0
         }
 
@@ -246,7 +220,7 @@ export default function CustomCalendar() {
       eventsForDay.forEach((event) => {
         next7Days.push({
           ...event,
-          date: pstWallTime,
+          date: dt.toJSDate(),
           dateLabel: i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : labelLong,
         })
       })
