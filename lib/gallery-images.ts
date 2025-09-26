@@ -6,6 +6,7 @@ export interface GalleryImage
 }
 
 export const galleryImages: GalleryImage[] = [
+    { src: "/pastor-phil-set-free-anaheim-baptism.jpg", alt: "Pastor Phil Set Free Anaheim Baptism", title: "Pastor Phil Baptism - Anaheim" },
     { src: "/phil-love-this-guy.JPG", alt: "Phil Love This Guy", title: "Phil - Love This Guy" },
     { src: "/i-am-redemption.jpg", alt: "I Am Redemption", title: "I Am Redemption" },
     { src: "/risky-speaking-truth.jpg", alt: "Risky Speaking Truth", title: "Risky Speaking Truth" },
