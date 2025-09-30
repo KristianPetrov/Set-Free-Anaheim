@@ -88,20 +88,6 @@ const weeklyEvents: Event[] = [
 
   },
   {
-    id: "sunday-night-recovery",
-    address: addresses["Lift Off Recovery"],
-    title: "PAUSED -SUNDAY NIGHT RECOVERY",
-    time: "7:00 PM",
-    description: "🚨 Heads up Fam 🚨\nSet Free Sunday Night Recovery is on pause for now. 💔\nStay tuned — we’ll be back soon, stronger & freer than ever. 🙌💯",
-    image: "/lift-off-on-fire.jpeg",
-    dayOfWeek: 0, // Sunday
-    location: "Main Sanctuary",
-    recurring: true,
-    descriptionClass: "font-bold text-yellow-300 leading-relaxed",
-    titleClass: "text-yellow-300",
-    cardClass: "border-yellow-500/40 hover:border-yellow-400/60"
-  },
-  {
     id: "wellbreity",
     title: "WELLBREITY",
     address: addresses["Main Sanctuary"],
