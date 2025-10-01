@@ -30,7 +30,16 @@ export default function ThriftGallery() {
               <div className="relative w-full h-72 rounded-lg border border-red-900/40 p-3">
                 <div className="pointer-events-none absolute inset-0 z-0 rounded-xl bg-red-600/30 blur-3xl opacity-90 animate-candle" />
                 <div className="relative z-10 w-full h-full rounded-md overflow-hidden">
-                  <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    quality={60}
+                    priority={idx === 0}
+                    loading={idx === 0 ? "eager" : "lazy"}
+                  />
                 </div>
               </div>
             </CarouselItem>
