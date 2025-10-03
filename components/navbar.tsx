@@ -56,6 +56,9 @@ export default function Navbar({ className }: NavbarProps) {
           <Link href="/thrift-shop" className="text-gray-300 hover:text-red-500 transition-colors">
             Thrift Shop
           </Link>
+          <Link href="/thrift-shop/store" className="text-gray-300 hover:text-red-500 transition-colors">
+            Shop Online
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -111,6 +114,13 @@ export default function Navbar({ className }: NavbarProps) {
             onClick={() => setMobileMenuOpen(false)}
           >
             Thrift Shop
+          </Link>
+          <Link
+            href="/thrift-shop/store"
+            className="block text-gray-300 hover:text-red-500 transition-colors py-2"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Shop Online
           </Link>
         </nav>
       </div>
