@@ -9,6 +9,10 @@ import ThriftGallery from "@/components/thrift-gallery"
 import { UnifrakturCook } from "next/font/google"
 import { Button } from "@/components/ui/button"
 import DonationModal from "@/components/donation-modal"
+import { products } from "@/lib/store/products"
+import ProductCard from "@/components/store/ProductCard"
+import { CartProvider } from "@/components/store/cart-context"
+import CartSummary from "@/components/store/CartSummary"
 
 const oldEnglish = UnifrakturCook({ subsets: ["latin"], weight: "700" })
 
@@ -56,8 +60,36 @@ export default function ThriftShopPage() {
               >
                 About the Shop
               </Link>
+              <Link
+                href="#shop-online"
+                className="inline-flex items-center justify-center px-4 py-2 text-sm md:px-6 md:py-3 md:text-base rounded-lg md:rounded-xl border border-yellow-400 text-yellow-300 hover:bg-yellow-400 hover:text-black transition-colors"
+              >
+                Shop Online
+              </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Online Store */}
+      <section id="shop-online" className="container mx-auto px-4 py-12 md:py-16">
+        <div className="relative max-w-6xl mx-auto">
+          <div className="mb-6 text-center">
+            <h2 className={`${oldEnglish.className} text-2xl font-bold text-yellow-300 mb-2`}>Shop Online</h2>
+            <p className="text-gray-300">Grab official Set Free tees, hoodies, and sweaters.</p>
+          </div>
+          <CartProvider>
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:col-span-3 gap-6">
+                {products.map((p) => (
+                  <ProductCard key={p.id} product={p} />
+                ))}
+              </div>
+              <div className="lg:col-span-1">
+                <CartSummary />
+              </div>
+            </div>
+          </CartProvider>
         </div>
       </section>
 
