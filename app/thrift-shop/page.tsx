@@ -10,8 +10,8 @@ import { UnifrakturCook } from "next/font/google"
 import { Button } from "@/components/ui/button"
 import DonationModal from "@/components/donation-modal"
 import { products } from "@/lib/store/products"
-import ProductCard from "@/components/store/ProductCard"
 import { CartProvider } from "@/components/store/cart-context"
+import ProductCard from "@/components/store/ProductCard"
 import CartSummary from "@/components/store/CartSummary"
 
 const oldEnglish = UnifrakturCook({ subsets: ["latin"], weight: "700" })
@@ -62,34 +62,12 @@ export default function ThriftShopPage() {
               </Link>
               <Link
                 href="#shop-online"
-                className="inline-flex items-center justify-center px-4 py-2 text-sm md:px-6 md:py-3 md:text-base rounded-lg md:rounded-xl border border-yellow-400 text-yellow-300 hover:bg-yellow-400 hover:text-black transition-colors"
+                className="inline-flex items-center justify-center px-4 py-2 text-sm md:px-6 md:py-3 md:text-base rounded-lg md:rounded-xl border border-red-600 text-red-400 hover:bg-red-600 hover:text-white transition-colors"
               >
                 Shop Online
               </Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Online Store */}
-      <section id="shop-online" className="container mx-auto px-4 py-12 md:py-16">
-        <div className="relative max-w-6xl mx-auto">
-          <div className="mb-6 text-center">
-            <h2 className={`${oldEnglish.className} text-2xl font-bold text-yellow-300 mb-2`}>Shop Online</h2>
-            <p className="text-gray-300">Grab official Set Free tees, hoodies, and sweaters.</p>
-          </div>
-          <CartProvider>
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:col-span-3 gap-6">
-                {products.map((p) => (
-                  <ProductCard key={p.id} product={p} />
-                ))}
-              </div>
-              <div className="lg:col-span-1">
-                <CartSummary />
-              </div>
-            </div>
-          </CartProvider>
         </div>
       </section>
 
@@ -140,6 +118,30 @@ export default function ThriftShopPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Shop Online */}
+      <section id="shop-online" className="container mx-auto px-4 py-12 md:py-16">
+        <div className="relative max-w-5xl mx-auto rounded-2xl border border-red-900/40 ring-1 ring-red-500/30 bg-black/60 overflow-hidden">
+          <div className="pointer-events-none absolute -inset-8 -z-10 rounded-3xl bg-red-600/25 blur-3xl opacity-70 animate-candle" />
+          <div className="p-6 md:p-10">
+            <h3 className="text-xl font-bold text-red-500 mb-4">Shop Online</h3>
+            <CartProvider>
+              <div className="grid gap-6 lg:grid-cols-4">
+                <div className="lg:col-span-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {products.map((p) => (
+                      <ProductCard key={p.id} product={p} />
+                    ))}
+                  </div>
+                </div>
+                <div className="lg:col-span-1">
+                  <CartSummary />
+                </div>
+              </div>
+            </CartProvider>
           </div>
         </div>
       </section>
