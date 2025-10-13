@@ -18,7 +18,7 @@
             "type": "image/x-icon"
         },
         {
-            "src": "/SETFREELOGOWHITE.png",
+            "src": "/logos/SETFREELOGOWHITE.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
@@ -26,7 +26,7 @@
     ],
     "screenshots": [
         {
-            "src": "/Set-Free.jpg",
+            "src": "/gallery/Set-Free.jpg",
             "sizes": "1200x630",
             "type": "image/jpeg",
             "platform": "wide"

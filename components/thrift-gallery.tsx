@@ -6,17 +6,17 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import Autoplay from "embla-carousel-autoplay"
 
 const images = [
-  { src: "/thirft-shop-liz-shopping.jpg", alt: "Shopping at thrift shop" },
-  { src: "/thrift-shop-liz-debbie.jpg", alt: "Liz and Debbie at thrift shop" },
-  { src: "/thrift-shop-liz-shoes.jpg", alt: "Thrift shop shoe section" },
-  { src: "/thrift-shop-purse-rack.jpg", alt: "Purse rack at thrift shop" },
-  { src: "/thrift-store-clothes-racks.jpg", alt: "Clothes racks in thrift store" },
-  { src: "/thirft-shop-come-in.jpg", alt: "Thrift shop storefront" },
-  { src: "/thrift-shop-inside.jpg", alt: "Clothes rack inside thrift shop" },
-  { src: "/thrift-shop-front-desk.jpg", alt: "Front desk inside thrift shop" },
-  { src: "/thrift-shop-tree.jpg", alt: "Thrift store decorated tree" },
-  { src: "/thrift-shop-couch.jpg", alt: "Thrift store couch display" },
-  { src: "/thrift-shop-couch-side.jpg", alt: "Side view of thrift store couch" },
+  { src: "/thrift/thirft-shop-liz-shopping.jpg", alt: "Shopping at thrift shop" },
+  { src: "/thrift/thrift-shop-liz-debbie.jpg", alt: "Liz and Debbie at thrift shop" },
+  { src: "/thrift/thrift-shop-liz-shoes.jpg", alt: "Thrift shop shoe section" },
+  { src: "/thrift/thrift-shop-purse-rack.jpg", alt: "Purse rack at thrift shop" },
+  { src: "/thrift/thrift-store-clothes-racks.jpg", alt: "Clothes racks in thrift store" },
+  { src: "/thrift/thirft-shop-come-in.jpg", alt: "Thrift shop storefront" },
+  { src: "/thrift/thrift-shop-inside.jpg", alt: "Clothes rack inside thrift shop" },
+  { src: "/thrift/thrift-shop-front-desk.jpg", alt: "Front desk inside thrift shop" },
+  { src: "/thrift/thrift-shop-tree.jpg", alt: "Thrift store decorated tree" },
+  { src: "/thrift/thrift-shop-couch.jpg", alt: "Thrift store couch display" },
+  { src: "/thrift/thrift-shop-couch-side.jpg", alt: "Side view of thrift store couch" },
 ]
 
 export default function ThriftGallery() {

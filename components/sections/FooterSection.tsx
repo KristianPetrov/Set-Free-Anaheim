@@ -8,7 +8,7 @@ export default function FooterSection() {
       <div className="container mx-auto px-4 text-center relative">
         <div className="flex justify-center mb-4">
           <Image
-            src="/SETFREELOGOWHITE.png"
+            src="/logos/SETFREELOGOWHITE.png"
             alt="Set Free Anaheim Logo"
             width={200}
             height={100}
@@ -66,7 +66,7 @@ export default function FooterSection() {
             className="inline-flex"
           >
             <Image
-              src="/SetFreeDigitalDisciplesCyber.png"
+              src="/logos/SetFreeDigitalDisciplesCyber.png"
               alt="Set Free Digital Disciples"
               width={180}
               height={50}

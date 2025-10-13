@@ -24,20 +24,35 @@ export default function ProductCard({ product }: { product: Product }) {
     <Card className="bg-gray-900 border-red-900/30 hover:border-red-500/50 transition">
       <CardContent className="p-4">
         <div className="relative w-full aspect-[4/5] mb-3 overflow-hidden rounded-md">
+          {/* Default/front image */}
           <Image
             src={product.image}
             alt={product.name}
             fill
-            className="object-contain"
+            className={`object-contain transition-opacity duration-200 ${product.hoverImage ? 'hover:opacity-0' : ''}`}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
             quality={70}
             loading="lazy"
           />
+          {product.hoverImage && (
+            <Image
+              src={product.hoverImage}
+              alt={`${product.name} back`}
+              fill
+              className="object-contain opacity-0 hover:opacity-100 absolute inset-0 transition-opacity duration-200"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              quality={70}
+              loading="lazy"
+            />
+          )}
         </div>
         <div className="flex items-start justify-between gap-3 mb-2">
           <div>
             <h3 className="font-bold text-white text-base">{product.name}</h3>
-            <p className="text-xs text-gray-400">{product.category.toUpperCase()}</p>
+            <p className="text-xs text-gray-400">
+              {product.category.toUpperCase()}
+              {product.brand ? ` • ${product.brand}` : ""}
+            </p>
           </div>
           <div className="text-red-400 font-semibold">{formatPrice(product.priceCents)}</div>
         </div>

@@ -6,7 +6,7 @@ export const runtime = 'nodejs'
 
 export async function GET (_req: NextRequest)
 {
-    const filePath = path.join(process.cwd(), 'public', 'set-free-og.png')
+    const filePath = path.join(process.cwd(), 'public', 'meta', 'set-free-og.png')
     const image = await readFile(filePath)
     return new Response(image, {
         headers: {

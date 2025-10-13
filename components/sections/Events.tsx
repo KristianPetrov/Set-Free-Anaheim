@@ -12,7 +12,7 @@ export default function Events() {
             <CardContent className="p-6 flex flex-col h-full">
               <div className="mb-4 flex justify-center">
                 <Image
-                  src="/phil-holding-blocks.jpeg"
+                  src="/gallery/phil-holding-blocks.jpeg"
                   alt="Set Free Church Sunday Service icon"
                   width={150}
                   height={150}
@@ -38,7 +38,7 @@ export default function Events() {
             <CardContent className="p-6 flex flex-col h-full">
               <div className="mb-4 flex justify-center">
                 <Image
-                  src="/lift-off-on-fire.jpeg"
+                  src="/gallery/lift-off-on-fire.jpeg"
                   alt="Holy Disciples Sunday Night Recovery icon"
                   width={250}
                   height={250}
@@ -66,7 +66,7 @@ export default function Events() {
             <CardContent className="p-6 flex flex-col h-full">
               <div className="mb-4 flex justify-center">
                 <Image
-                  src="/sunday-toya-oklahoma.jpg"
+                  src="/gallery/sunday-toya-oklahoma.jpg"
                   alt="Wellbriety wellness meeting icon"
                   width={150}
                   height={150}

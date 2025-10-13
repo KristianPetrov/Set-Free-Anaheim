@@ -65,7 +65,7 @@ const weeklyEvents: Event[] = [
     title: "SUNDAY SERVICE",
     time: "10:00 AM",
     description: "Time to do church! Set Free style! We'll be talking about Jesus in a way that you may have never heard before. Fully accepting and challenging. Join us for music, testimonies and learning!",
-    image: "/phil-holding-blocks.jpeg",
+    image: "/gallery/phil-holding-blocks.jpeg",
     dayOfWeek: 0, // Sunday
     location: "Main Sanctuary",
     recurring: true
@@ -76,7 +76,7 @@ const weeklyEvents: Event[] = [
     address: addresses["Main Sanctuary"],
     time: "7:00 PM",
     description: "Step out of the noise and into God’s peace. Angela & Kent—freshly married and filled with fire—guide a deep, Christ-centered meditation to realign your breath, your body, and your spirit. Pull up with a yoga mat, get comfy, and let the Presence do the heavy lifting.",
-    image: "/Angela-Kent-Meditation-Event.jpg",
+    image: "/gallery/Angela-Kent-Meditation-Event.jpg",
     dayOfWeek: 5, // Friday
     location: "Main Sanctuary",
     recurring: true,
@@ -93,7 +93,7 @@ const weeklyEvents: Event[] = [
     address: addresses["Main Sanctuary"],
     time: "7:00 PM",
     description: "Wellness meeting based in native tradition and using culture as a form of prevention.",
-    image: "/sunday-toya-christmas.jpg",
+    image: "/gallery/sunday-toya-christmas.jpg",
     dayOfWeek: 1, // Monday
     location: "Youth Room",
     recurring: true
@@ -104,7 +104,7 @@ const weeklyEvents: Event[] = [
     address: addresses["Main Sanctuary"],
     time: "7:00 PM",
     description: "This is a Bible study that encourages interaction and everyone's thoughts and perspectives on Bible scripture to get a better understanding of God's word.",
-    image: "/soldier-phil.jpg",
+    image: "/gallery/soldier-phil.jpg",
     dayOfWeek: 2, // Tuesday
     location: "Community",
     recurring: true
@@ -115,7 +115,7 @@ const weeklyEvents: Event[] = [
     address:addresses["The Magic House"],
     time: "7:00 PM",
     description: "Are you a lady? GOOD! That's the only requirement to come on over to hear Saint Sandra teach the Bible to a big group of women! It's a great time to find friends and to be vulnerable.",
-    image: "/womens-saints.jpg",
+    image: "/gallery/womens-saints.jpg",
     dayOfWeek: 3, // Wednesday
     location: "Fellowship Hall",
     recurring: true
@@ -126,7 +126,7 @@ const weeklyEvents: Event[] = [
     address: addresses["Main Sanctuary"],
     time: "7:00 PM",
     description: "Step into the holy-hood every Wednesday night as Pastor Anthony breaks down God’s Word with real-life truth, raw honesty, and brotherhood that sharpens iron. Come hungry for the Word, leave armed with wisdom, and roll with a crew that’s set free to live bold for Jesus.",
-    image: "/bible-nerd-hood.png",
+    image: "/graphics/bible-nerd-hood.png",
     dayOfWeek: 3, // Wednesday
     location: "Main Sanctuary",
     recurring: true
@@ -137,7 +137,7 @@ const weeklyEvents: Event[] = [
     time: "7:00 PM",
     address: addresses["Main Sanctuary"],
     description: "Want a classroom style bible study? Come on over to SFU Class where you will be taught something new as we navigate through subjects in the bible as a church. Bring your notebook and pencils. We're gunna dive deep!",
-    image: "/bible-nerd.jpg",
+    image: "/gallery/bible-nerd.jpg",
     dayOfWeek: 4, // Thursday
     location: "Prayer Room",
     recurring: true

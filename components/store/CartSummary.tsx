@@ -51,9 +51,9 @@ export default function CartSummary() {
         ) : (
           <div className="space-y-3">
             {items.map((i) => (
-              <div key={`${i.productId}-${i.size}`} className="flex items-center justify-between gap-3">
-                <div className="text-sm">
-                  <div className="text-gray-200 font-medium leading-tight">{i.name}</div>
+              <div key={`${i.productId}-${i.size}`} className="flex items-center justify-between gap-3 overflow-hidden">
+                <div className="text-sm min-w-0">
+                  <div className="text-gray-200 font-medium leading-tight truncate">{i.name}</div>
                   <div className="text-gray-400 text-xs">Size {i.size} • {formatPrice(i.priceCents)}</div>
                   <div className="flex items-center gap-2 mt-1">
                     <Button
@@ -80,7 +80,7 @@ export default function CartSummary() {
                     </Button>
                   </div>
                 </div>
-                <div className="text-sm text-gray-300">{formatPrice(i.priceCents * i.quantity)}</div>
+                <div className="text-sm text-gray-300 shrink-0 whitespace-nowrap">{formatPrice(i.priceCents * i.quantity)}</div>
               </div>
             ))}
           </div>

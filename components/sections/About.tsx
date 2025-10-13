@@ -9,7 +9,7 @@ export default function About() {
           <div>
             <div className="mb-6 pl-6">
               <Image
-                src="/holy-hood.png"
+                src="/graphics/holy-hood.png"
                 alt="Holy But Hood"
                 width={400}
                 height={100}
@@ -40,7 +40,7 @@ export default function About() {
               <div className="text-center">
                 <div className="mx-auto mb-2 h-44 flex items-center justify-center">
                   <Image
-                    src="/holy-disciples.png"
+                    src="/graphics/holy-disciples.png"
                     alt="Holy Disciples representing real community at Set Free Anaheim"
                     width={175}
                     height={175}
@@ -55,7 +55,7 @@ export default function About() {
               <div className="text-center">
                 <div className="mx-auto mb-2 h-44 flex items-center justify-center">
                   <Image
-                    src="/unconditional-love.png"
+                    src="/graphics/unconditional-love.png"
                     alt="Unconditional Love symbol at Set Free Anaheim"
                     width={175}
                     height={175}

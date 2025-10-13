@@ -135,7 +135,7 @@ export default function RootLayout({
               "alternateName": "Magic House",
               "description": "Bold, Christ-centered church and outreach in Anaheim, California. Real talk, real love, real transformation.",
               "url": "https://setfreeanaheim.com",
-              "logo": "https://setfreeanaheim.com/SETFREELOGOWHITE.png",
+              "logo": "https://setfreeanaheim.com/logos/SETFREELOGOWHITE.png",
               "image": "https://setfreeanaheim.com/opengraph-image",
               "address": {
                 "@type": "PostalAddress",
@@ -205,7 +205,7 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Set Free Digital Disciples",
               "url": "https://www.setfreedigitaldisciples.com",
-              "logo": "https://setfreeanaheim.com/SetFreeDigitalDisciplesCyber.png"
+              "logo": "https://setfreeanaheim.com/logos/SetFreeDigitalDisciplesCyber.png"
             })
           }}
         />

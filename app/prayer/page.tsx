@@ -87,7 +87,7 @@ export default function PrayerPage() {
       <header className="border-b border-red-900/30 bg-black/90 backdrop-blur-sm py-4">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <Link href="/" className="text-gray-300 hover:text-red-500 transition-colors">Back to Home</Link>
-          <Image src="/SETFREELOGOWHITE.png" alt="Set Free Anaheim Logo" width={150} height={75} className="object-contain" />
+          <Image src="/logos/SETFREELOGOWHITE.png" alt="Set Free Anaheim Logo" width={150} height={75} className="object-contain" />
         </div>
       </header>
 
@@ -96,7 +96,7 @@ export default function PrayerPage() {
           <div className="relative w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] md:w-[480px] md:h-[480px] animate-slow-glow">
             <div className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-red-600/25 blur-3xl opacity-70 animate-candle" />
             <Image
-              src="/tristin-upper-room-logo.png"
+              src="/logos/tristin-upper-room-logo.png"
               alt="Tristin's Upper Room Large Logo"
               fill
               className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]"
@@ -111,7 +111,7 @@ export default function PrayerPage() {
               <div className="flex items-center gap-4">
                 <div className="relative w-20 h-20 md:w-24 md:h-24 animate-slow-glow">
                   <div className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-red-600/25 blur-2xl opacity-70 animate-candle" />
-                  <Image src="/tristin-prayer-wall.png" alt="Tristin's Prayer Wall" fill className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]" />
+                  <Image src="/prayer/tristin-prayer-wall.png" alt="Tristin's Prayer Wall" fill className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]" />
                 </div>
                 <div>
                   <CardTitle className="text-xl md:text-2xl text-white">Prayer Wall</CardTitle>
@@ -149,7 +149,7 @@ export default function PrayerPage() {
               <div className="flex items-center gap-4">
                 <div className="relative w-20 h-20 animate-slow-glow">
                   <div className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-red-600/25 blur-2xl opacity-70 animate-candle" />
-                  <Image src="/written-prayer-note.png" alt="Written Prayer Note" fill className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]" />
+                  <Image src="/prayer/written-prayer-note.png" alt="Written Prayer Note" fill className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]" />
                 </div>
                 <div>
                   <CardTitle className="text-2xl text-red-500">Tristin's Upper Room — Prayer Wall</CardTitle>

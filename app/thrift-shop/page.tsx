@@ -9,10 +9,7 @@ import ThriftGallery from "@/components/thrift-gallery"
 import { UnifrakturCook } from "next/font/google"
 import { Button } from "@/components/ui/button"
 import DonationModal from "@/components/donation-modal"
-import { products } from "@/lib/store/products"
-import { CartProvider } from "@/components/store/cart-context"
-import ProductCard from "@/components/store/ProductCard"
-import CartSummary from "@/components/store/CartSummary"
+
 
 const oldEnglish = UnifrakturCook({ subsets: ["latin"], weight: "700" })
 
@@ -24,7 +21,7 @@ export default function ThriftShopPage() {
       {/* Hero */}
       <section className="relative w-full min-h-[72vh] md:min-h-[75vh] pt-24 md:pt-28 lg:pt-32 pb-[calc(env(safe-area-inset-bottom)+24px)] sm:pb-8">
         <Image
-          src="/thirft-shop-come-in.jpg"
+          src="/thrift/thirft-shop-come-in.jpg"
           alt="Set Free Thrift Shop storefront"
           fill
           priority
@@ -36,7 +33,7 @@ export default function ThriftShopPage() {
             <div className="relative w-64 h-64 md:w-96 md:h-96 mx-auto mb-6 animate-slow-glow">
               <div className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-red-600/25 blur-3xl opacity-70 animate-candle" />
               <Image
-                src="/thrift-shop-logo.png"
+                src="/thrift/thrift-shop-logo.png"
                 alt="Set Free Thrift Shop Logo"
                 fill
                 className="object-contain drop-shadow-[0_0_24px_rgba(239,68,68,0.5)]"
@@ -61,10 +58,10 @@ export default function ThriftShopPage() {
                 About the Shop
               </Link>
               <Link
-                href="#shop-online"
+                href="/store"
                 className="inline-flex items-center justify-center px-4 py-2 text-sm md:px-6 md:py-3 md:text-base rounded-lg md:rounded-xl border border-red-600 text-red-400 hover:bg-red-600 hover:text-white transition-colors"
               >
-                Shop Online
+                Set Free Store
               </Link>
             </div>
           </div>
@@ -81,7 +78,7 @@ export default function ThriftShopPage() {
                 <div className="relative mb-4 pl-2">
                   <div className="pointer-events-none absolute -inset-8 z-0 rounded-2xl bg-red-600/35 blur-3xl opacity-95 animate-candle" />
                   <Image
-                    src="/holy-hood.png"
+                    src="/graphics/holy-hood.png"
                     alt="Holy But Hood"
                     width={360}
                     height={100}
@@ -122,29 +119,7 @@ export default function ThriftShopPage() {
         </div>
       </section>
 
-      {/* Shop Online */}
-      <section id="shop-online" className="container mx-auto px-4 py-12 md:py-16">
-        <div className="relative max-w-5xl mx-auto rounded-2xl border border-red-900/40 ring-1 ring-red-500/30 bg-black/60 overflow-hidden">
-          <div className="pointer-events-none absolute -inset-8 -z-10 rounded-3xl bg-red-600/25 blur-3xl opacity-70 animate-candle" />
-          <div className="p-6 md:p-10">
-            <h3 className="text-xl font-bold text-red-500 mb-4">Shop Online</h3>
-            <CartProvider>
-              <div className="grid gap-6 lg:grid-cols-4">
-                <div className="lg:col-span-3">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {products.map((p) => (
-                      <ProductCard key={p.id} product={p} />
-                    ))}
-                  </div>
-                </div>
-                <div className="lg:col-span-1">
-                  <CartSummary />
-                </div>
-              </div>
-            </CartProvider>
-          </div>
-        </div>
-      </section>
+
 
       {/* Location */}
       <section className="container mx-auto px-4 py-10">
@@ -191,7 +166,7 @@ export default function ThriftShopPage() {
         onClose={() => setDonateOpen(false)}
         title="Support the Thrift Shop"
         subtitle="Every dollar fuels the mission — thanks for standing with us"
-        logoSrc="/thrift-shop-logo.png"
+        logoSrc="/thrift/thrift-shop-logo.png"
         venmoNote="Donation to Set Free Thrift Shop"
       />
     </div>

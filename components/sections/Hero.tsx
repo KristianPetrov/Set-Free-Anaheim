@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-red-900/20 overflow-hidden">
       <div className="absolute inset-0 md:hidden">
         <Image
-          src="/godfather.JPG"
+          src="/gallery/godfather.JPG"
           alt="Set Free Anaheim Hero Background"
           fill
           className="object-contain"
@@ -17,7 +17,7 @@ export default function Hero() {
 
       <div className="absolute inset-0 hidden md:block">
         <Image
-          src="/gods-father.png"
+          src="/graphics/gods-father.png"
           alt="Set Free Anaheim Hero Background"
           fill
           className="object-contain"
@@ -30,7 +30,7 @@ export default function Hero() {
 
       <div className="absolute top-24 left-6 z-20">
         <Image
-          src="/SETFREELOGOWHITE.png"
+          src="/logos/SETFREELOGOWHITE.png"
           alt="Set Free Anaheim Logo"
           width={180}
           height={90}
@@ -55,7 +55,7 @@ export default function Hero() {
         aria-label="Scroll down to about section"
       >
         <Image
-          src="/cross-arrow.png"
+          src="/graphics/cross-arrow.png"
           alt="Scroll down to about section"
           width={40}
           height={40}

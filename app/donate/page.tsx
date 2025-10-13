@@ -73,7 +73,7 @@ export default function DonatePage() {
             Back to Home
           </Link>
           <Image
-            src="/SETFREELOGOWHITE.png"
+            src="/logos/SETFREELOGOWHITE.png"
             alt="Set Free Anaheim Logo"
             width={150}
             height={75}

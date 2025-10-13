@@ -10,7 +10,7 @@ export default function News() {
           <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
             <div className="relative w-full h-48 mb-4">
               <Image
-                src="/news-homeboy-setfree.jpg"
+                src="/news/news-homeboy-setfree.jpg"
                 alt="Historic Meeting: Homeboy Industries & Set Free Ministries"
                 fill
                 className="rounded-md object-cover"
@@ -38,7 +38,7 @@ export default function News() {
           <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
             <div className="relative w-full h-48 mb-4">
               <Image
-                src="/soft-white-underbelly.png"
+                src="/news/soft-white-underbelly.png"
                 alt="Soft White Underbelly Phil Aguilar Interview"
                 fill
                 className="rounded-md object-cover"
@@ -65,7 +65,7 @@ export default function News() {
           <div className="bg-black/70 border border-red-900/30 rounded-lg shadow-lg p-6 flex flex-col">
             <div className="relative w-full h-48 mb-4">
               <Image
-                src="/setfree-anaheim-ministry.jpg"
+                src="/news/setfree-anaheim-ministry.jpg"
                 alt="Set Free Anaheim Ministry Video"
                 fill
                 className="rounded-md object-cover"

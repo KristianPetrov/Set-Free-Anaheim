@@ -17,7 +17,7 @@ export default function Contact() {
           <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 animate-slow-glow">
             <div className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-red-600/25 blur-3xl opacity-70 animate-candle" />
             <Image
-              src="/tristin-upper-room-logo.png"
+              src="/logos/tristin-upper-room-logo.png"
               alt="Tristin's Upper Room"
               fill
               className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]"
