@@ -23,13 +23,13 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Card className="bg-gray-900 border-red-900/30 hover:border-red-500/50 transition">
       <CardContent className="p-4">
-        <div className="relative w-full aspect-[4/5] mb-3 overflow-hidden rounded-md">
+        <div className="relative w-full aspect-[4/5] mb-3 overflow-hidden rounded-md bg-black/60 group">
           {/* Default/front image */}
           <Image
             src={product.image}
             alt={product.name}
             fill
-            className={`object-contain transition-opacity duration-200 ${product.hoverImage ? 'hover:opacity-0' : ''}`}
+            className={`absolute inset-0 object-contain transition-opacity duration-200 ${product.hoverImage ? 'group-hover:opacity-0' : ''}`}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
             quality={70}
             loading="lazy"
@@ -39,7 +39,7 @@ export default function ProductCard({ product }: { product: Product }) {
               src={product.hoverImage}
               alt={`${product.name} back`}
               fill
-              className="object-contain opacity-0 hover:opacity-100 absolute inset-0 transition-opacity duration-200"
+              className="absolute inset-0 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
               quality={70}
               loading="lazy"
