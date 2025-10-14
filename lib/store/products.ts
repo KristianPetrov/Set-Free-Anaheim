@@ -31,6 +31,44 @@ export const products: Product[] = [
         availableSizes: ["M", "L", "XL", "2XL"],
         defaultSize: "L"
     },
+    {
+        id: "set-free-tribe-magic-house-tee",
+        slug: "set-free-tribe-magic-house-tee",
+        name: "Set Free Tribe Magic House Tee",
+        description: "Front: \"Magic House — We'll Leave The Light On\" • Back: \"Set Free Tribe - Native Skull\".",
+        category: "shirt",
+        priceCents: 3000,
+        image: "/store/magic-house-tshirt-med-front.png",
+        hoverImage: "/store/set-free-tribe-mh-tshirt-back.png",
+        brand: "Magic House Apparel",
+        availableSizes: ["M", "L", "XL", "2XL"],
+        defaultSize: "L"
+    },
+    {
+        id: "saved-and-dangerous-crew-mh-tee",
+        slug: "saved-and-dangerous-crew-mh-tee",
+        name: "Saved and Dangerous Crew - Magic House Tee",
+        description: "Front: \"Magic House — We'll Leave The Light On\" with \"Saved and Dangerous Crew\".",
+        category: "shirt",
+        priceCents: 3000,
+        image: "/store/saved-and-dangerous-crew-mh-tshirt.png",
+        brand: "Magic House Apparel",
+        availableSizes: ["M", "L", "XL", "2XL"],
+        defaultSize: "L"
+    },
+    {
+        id: "save-me-from-myself-mh-tee",
+        slug: "save-me-from-myself-mh-tee",
+        name: "Save Me From Myself - Magic House Tee",
+        description: "Front: \"Magic House — We'll Leave The Light On\" • Back: \"Save Me From Myself\" praying hands.",
+        category: "shirt",
+        priceCents: 3000,
+        image: "/store/magic-house-tshirt-med-front.png",
+        hoverImage: "/store/save-me-from-myself-magic-house-tshirt.png",
+        brand: "Magic House Apparel",
+        availableSizes: ["M", "L", "XL", "2XL"],
+        defaultSize: "L"
+    },
     // {
     //     id: "set-free-gold-black-tee",
     //     slug: "set-free-gold-black-tee",
