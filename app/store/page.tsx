@@ -23,6 +23,16 @@ export default function StorePage() {
             className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]"
             priority={false}
           />
+          {/* 25% OFF Badge */}
+          <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 md:-top-8 md:-right-8 w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rotate-12 drop-shadow-[0_0_16px_rgba(239,68,68,0.5)]">
+            <Image
+              src="/store/25-off-sitewide.png"
+              alt="25% OFF Storewide"
+              fill
+              className="object-contain"
+              priority={false}
+            />
+          </div>
         </div>
       </div>
       <section className="container mx-auto px-4 pt-6 pb-12 md:pt-8 md:pb-16">
