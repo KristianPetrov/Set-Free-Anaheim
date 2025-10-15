@@ -10,8 +10,9 @@ function formatPrice(cents: number): string {
 }
 
 export default function CartSummary() {
-  const { items, subtotalCents, removeItem, setQuantity, clear } = useCart()
+  const { items, subtotalCents, removeItem, setQuantity, clear, appliedPromo, applyPromo, removePromo } = useCart()
   const [isLoading, setIsLoading] = useState(false)
+  const [promoInput, setPromoInput] = useState("")
   const isEmpty = items.length === 0
 
   const totalLabel = useMemo(() => formatPrice(subtotalCents), [subtotalCents])
@@ -29,6 +30,7 @@ export default function CartSummary() {
             size: i.size,
             quantity: i.quantity,
           })),
+          promoCode: appliedPromo ?? undefined,
         }),
       })
       const data = await res.json()
@@ -85,6 +87,32 @@ export default function CartSummary() {
             ))}
           </div>
         )}
+
+        {/* Promo code */}
+        <div className="pt-2">
+          {appliedPromo ? (
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-green-400">Promo applied: {appliedPromo} (10% off)</span>
+              <button className="text-red-400 text-xs underline" onClick={removePromo}>Remove</button>
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <input
+                value={promoInput}
+                onChange={(e) => setPromoInput(e.target.value)}
+                placeholder="Promo code"
+                className="flex-1 px-2 py-1 text-sm bg-black/40 border border-red-900/40 text-gray-100 rounded"
+              />
+              <button
+                className="px-3 py-1 text-sm bg-red-600 text-white rounded disabled:opacity-50"
+                disabled={!promoInput.trim() || isEmpty}
+                onClick={() => { applyPromo(promoInput); setPromoInput("") }}
+              >
+                Apply
+              </button>
+            </div>
+          )}
+        </div>
 
         <div className="flex items-center justify-between pt-2 border-t border-red-900/30">
           <span className="text-gray-400 text-sm">Subtotal</span>

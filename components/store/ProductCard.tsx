@@ -20,6 +20,9 @@ export default function ProductCard({ product }: { product: Product }) {
     addItem(product, size, 1)
   }
 
+  const hasSale = typeof product.salePercent === 'number' && product.salePercent > 0
+  const salePriceCents = hasSale ? Math.round(product.priceCents * (1 - (product.salePercent as number) / 100)) : product.priceCents
+
   return (
     <Card className="bg-gray-900 border-red-900/30 hover:border-red-500/50 transition">
       <CardContent className="p-4">
@@ -54,7 +57,17 @@ export default function ProductCard({ product }: { product: Product }) {
               {product.brand ? ` • ${product.brand}` : ""}
             </p>
           </div>
-          <div className="text-red-400 font-semibold">{formatPrice(product.priceCents)}</div>
+          <div className="text-right">
+            {hasSale ? (
+              <div className="flex flex-col items-end">
+                <div className="text-gray-400 text-xs line-through">{formatPrice(product.priceCents)}</div>
+                <div className="text-yellow-300 font-bold">{formatPrice(salePriceCents)}</div>
+                <span className="mt-0.5 inline-block text-[10px] font-bold text-black bg-yellow-400 rounded px-1.5 py-0.5">-{product.salePercent}%</span>
+              </div>
+            ) : (
+              <div className="text-red-400 font-semibold">{formatPrice(product.priceCents)}</div>
+            )}
+          </div>
         </div>
         <p className="text-sm text-gray-300 mb-3">{product.description}</p>
         <div className="flex items-center gap-3">

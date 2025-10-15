@@ -14,6 +14,7 @@ export async function POST (req: NextRequest)
 
     const body = await req.json()
     const items = Array.isArray(body?.items) ? body.items : []
+    const promoCode: string | undefined = typeof body?.promoCode === 'string' ? body.promoCode : undefined
     if (items.length === 0) {
       return NextResponse.json({ error: "No items to checkout" }, { status: 400 })
     }
@@ -28,10 +29,14 @@ export async function POST (req: NextRequest)
       const size = i.size ? String(i.size) : undefined
       const name = size ? `${product.name} (Size ${size})` : product.name
       const imageUrl = new URL(product.image, origin).toString()
+      const salePercent = typeof product.salePercent === 'number' ? product.salePercent : 0
+      const baseUnit = product.priceCents
+      const afterSale = salePercent > 0 ? Math.round(baseUnit * (1 - salePercent / 100)) : baseUnit
+      const afterPromo = promoCode ? Math.round(afterSale * 0.9) : afterSale
       return {
         price_data: {
           currency: "usd",
-          unit_amount: product.priceCents,
+          unit_amount: afterPromo,
           product_data: {
             name,
             images: [imageUrl],

@@ -10,6 +10,8 @@ export interface Product
     description: string
     category: ProductCategory
     priceCents: number
+    // Optional sale percentage off (e.g., 20 means 20% off)
+    salePercent?: number
     image: string
     hoverImage?: string
     brand?: string
@@ -25,6 +27,7 @@ export const products: Product[] = [
         description: "Front: Magic House Apparel • Back: Set Free Anaheim.",
         category: "shirt",
         priceCents: 3000,
+        salePercent: 15,
         image: "/store/magic-house-apparel-shirt-front.png",
         hoverImage: "/store/magic-house-apparel-shirt-back.png",
         brand: "Magic House Apparel",
@@ -38,6 +41,7 @@ export const products: Product[] = [
         description: "Front: \"Magic House — We'll Leave The Light On\" • Back: \"Set Free Tribe - Native Skull\".",
         category: "shirt",
         priceCents: 3000,
+        salePercent: 20,
         image: "/store/magic-house-tshirt-med-front.png",
         hoverImage: "/store/set-free-tribe-mh-tshirt-back.png",
         brand: "Magic House Apparel",
@@ -51,6 +55,7 @@ export const products: Product[] = [
         description: "Front: \"Magic House — We'll Leave The Light On\" with \"Saved and Dangerous Crew\".",
         category: "shirt",
         priceCents: 3000,
+        salePercent: 10,
         image: "/store/saved-and-dangerous-crew-mh-tshirt.png",
         brand: "Magic House Apparel",
         availableSizes: ["M", "L", "XL", "2XL"],
@@ -63,6 +68,7 @@ export const products: Product[] = [
         description: "Front: \"Magic House — We'll Leave The Light On\" • Back: \"Save Me From Myself\" praying hands.",
         category: "shirt",
         priceCents: 3000,
+        salePercent: 20,
         image: "/store/magic-house-tshirt-med-front.png",
         hoverImage: "/store/save-me-from-myself-magic-house-tshirt.png",
         brand: "Magic House Apparel",
