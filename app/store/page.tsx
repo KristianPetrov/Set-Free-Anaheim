@@ -24,6 +24,20 @@ export default function StorePage() {
             priority={false}
           />
         </div>
+        {/* Sticky 25% OFF Badge near header */}
+        <div className="sticky top-24 z-30 pointer-events-none">
+          <div className="container px-0 mx-auto flex justify-end">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rotate-12 drop-shadow-[0_0_16px_rgba(239,68,68,0.5)]">
+              <Image
+                src="/store/25-off-sitewide.png"
+                alt="25% OFF Storewide"
+                fill
+                className="object-contain"
+                priority={false}
+              />
+            </div>
+          </div>
+        </div>
       </div>
       <section className="container mx-auto px-4 pt-6 pb-12 md:pt-8 md:pb-16">
         <div className="relative max-w-5xl mx-auto rounded-2xl border border-red-900/40 ring-1 ring-red-500/30 bg-black/60 overflow-hidden">
@@ -34,22 +48,10 @@ export default function StorePage() {
             <CartProvider>
               <div className="grid gap-6 lg:grid-cols-4">
                 <div className="lg:col-span-3">
-                  <div className="relative">
-                    {/* 25% OFF Badge inside product grid */}
-                    <div className="pointer-events-none absolute -top-2 -right-2 sm:-top-3 sm:-right-3 md:-top-4 md:-right-4 w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rotate-12 drop-shadow-[0_0_16px_rgba(239,68,68,0.5)]">
-                      <Image
-                        src="/store/25-off-sitewide.png"
-                        alt="25% OFF Storewide"
-                        fill
-                        className="object-contain"
-                        priority={false}
-                      />
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {products.map((p) => (
-                        <ProductCard key={p.id} product={p} />
-                      ))}
-                    </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {products.map((p) => (
+                      <ProductCard key={p.id} product={p} />
+                    ))}
                   </div>
                 </div>
                 <div className="lg:col-span-1">
