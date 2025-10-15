@@ -96,15 +96,15 @@ export default function CartSummary() {
               <button className="text-red-400 text-xs underline" onClick={removePromo}>Remove</button>
             </div>
           ) : (
-            <div className="flex gap-2">
+            <div className="grid grid-cols-[1fr_auto] gap-2 w-full">
               <input
                 value={promoInput}
                 onChange={(e) => setPromoInput(e.target.value)}
                 placeholder="Promo code"
-                className="flex-1 px-2 py-1 text-sm bg-black/40 border border-red-900/40 text-gray-100 rounded"
+                className="min-w-0 w-full px-2 py-1 text-sm bg-black/40 border border-red-900/40 text-gray-100 rounded"
               />
               <button
-                className="px-3 py-1 text-sm bg-red-600 text-white rounded disabled:opacity-50"
+                className="px-3 py-1 text-sm bg-red-600 text-white rounded disabled:opacity-50 whitespace-nowrap"
                 disabled={!promoInput.trim() || isEmpty}
                 onClick={() => { applyPromo(promoInput); setPromoInput("") }}
               >
