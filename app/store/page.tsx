@@ -24,7 +24,7 @@ export default function StorePage() {
             priority={false}
           />
           {/* 25% OFF Badge over logo */}
-          <div className="pointer-events-none absolute -top-3 -right-3 sm:-top-4 sm:-right-4 md:-top-6 md:-right-6 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rotate-12 z-10">
+          <div className="pointer-events-none absolute -top-6 -right-6 sm:-top-8 sm:-right-8 md:-top-10 md:-right-10 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rotate-12 z-10">
             <Image
               src="/store/25-off-sitewide.png"
               alt="25% OFF Storewide"
