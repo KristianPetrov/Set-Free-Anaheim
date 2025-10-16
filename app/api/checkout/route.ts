@@ -52,6 +52,31 @@ export async function POST (req: NextRequest)
       success_url: `${origin}/store?success=true&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/store?canceled=true`,
       shipping_address_collection: { allowed_countries: ["US"] },
+      shipping_options: [
+        // Flat-rate shipping options; replace with real amounts or live rates as needed
+        {
+          shipping_rate_data: {
+            type: "fixed_amount",
+            fixed_amount: { amount: 899, currency: "usd" },
+            display_name: "USPS Ground Advantage (3-5 biz days)",
+            delivery_estimate: {
+              minimum: { unit: "business_day", value: 3 },
+              maximum: { unit: "business_day", value: 5 },
+            },
+          },
+        },
+        {
+          shipping_rate_data: {
+            type: "fixed_amount",
+            fixed_amount: { amount: 1599, currency: "usd" },
+            display_name: "UPS Ground (1-3 biz days)",
+            delivery_estimate: {
+              minimum: { unit: "business_day", value: 1 },
+              maximum: { unit: "business_day", value: 3 },
+            },
+          },
+        },
+      ],
       billing_address_collection: "auto",
       phone_number_collection: { enabled: true },
       automatic_tax: { enabled: false },
