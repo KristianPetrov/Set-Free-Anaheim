@@ -15,6 +15,7 @@ export async function POST (req: NextRequest)
     const body = await req.json()
     const items = Array.isArray(body?.items) ? body.items : []
     const promoCode: string | undefined = typeof body?.promoCode === 'string' ? body.promoCode : undefined
+    const shippingCentsBody: number | undefined = typeof body?.shippingCents === 'number' ? body.shippingCents : undefined
     if (items.length === 0) {
       return NextResponse.json({ error: "No items to checkout" }, { status: 400 })
     }
@@ -52,7 +53,7 @@ export async function POST (req: NextRequest)
       success_url: `${origin}/store?success=true&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/store?canceled=true`,
       shipping_address_collection: { allowed_countries: ["US"] },
-      shipping_options: [
+      shipping_options: shippingCentsBody ? [] : [
         // Flat-rate shipping options; replace with real amounts or live rates as needed
         {
           shipping_rate_data: {
@@ -80,6 +81,18 @@ export async function POST (req: NextRequest)
       billing_address_collection: "auto",
       phone_number_collection: { enabled: true },
       automatic_tax: { enabled: false },
+      // If client provided a calculated shipping amount, create a custom shipping rate and pre-attach
+      ...(shippingCentsBody ? {
+        shipping_options: [
+          {
+            shipping_rate_data: {
+              type: "fixed_amount",
+              fixed_amount: { amount: shippingCentsBody, currency: "usd" },
+              display_name: "UPS (calculated)",
+            }
+          }
+        ]
+      } : {}),
     })
 
     return NextResponse.json({ url: session.url })

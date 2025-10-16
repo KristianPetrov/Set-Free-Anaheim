@@ -25,6 +25,8 @@ interface CartContextValue
   appliedPromo?: string | null
   applyPromo: (code: string) => void
   removePromo: () => void
+  shippingCents: number
+  setShippingCents: (cents: number) => void
 }
 
 const CartContext = createContext<CartContextValue | null>(null)
@@ -35,6 +37,7 @@ export function CartProvider({ children }: { children: React.ReactNode })
 {
   const [items, setItems] = useState<CartItem[]>([])
   const [appliedPromo, setAppliedPromo] = useState<string | null>(null)
+  const [shippingCents, setShippingCents] = useState<number>(0)
 
   // load from localStorage
   useEffect(() => {
@@ -48,6 +51,7 @@ export function CartProvider({ children }: { children: React.ReactNode })
         } else if (parsed && typeof parsed === 'object') {
           if (Array.isArray(parsed.items)) setItems(parsed.items)
           if (typeof parsed.appliedPromo === 'string' || parsed.appliedPromo === null) setAppliedPromo(parsed.appliedPromo)
+          if (typeof parsed.shippingCents === 'number') setShippingCents(parsed.shippingCents)
         }
       }
     } catch {}
@@ -57,10 +61,10 @@ export function CartProvider({ children }: { children: React.ReactNode })
   useEffect(() => {
     try {
       if (typeof window !== "undefined") {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ items, appliedPromo }))
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ items, appliedPromo, shippingCents }))
       }
     } catch {}
-  }, [items, appliedPromo])
+  }, [items, appliedPromo, shippingCents])
 
   const addItem = useCallback((product: Product, size: ProductSize, qty: number = 1) => {
     const salePercent = typeof product.salePercent === 'number' ? product.salePercent : 0
@@ -118,7 +122,7 @@ export function CartProvider({ children }: { children: React.ReactNode })
     // Note: For simplicity we are not restoring pre-promo prices here.
   }, [])
 
-  const value = useMemo<CartContextValue>(() => ({ items, addItem, removeItem, setQuantity, clear, subtotalCents, appliedPromo, applyPromo, removePromo }), [items, addItem, removeItem, setQuantity, clear, subtotalCents, appliedPromo, applyPromo, removePromo])
+  const value = useMemo<CartContextValue>(() => ({ items, addItem, removeItem, setQuantity, clear, subtotalCents, appliedPromo, applyPromo, removePromo, shippingCents, setShippingCents }), [items, addItem, removeItem, setQuantity, clear, subtotalCents, appliedPromo, applyPromo, removePromo, shippingCents])
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
