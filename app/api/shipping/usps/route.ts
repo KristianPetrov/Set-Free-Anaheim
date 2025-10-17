@@ -29,7 +29,7 @@ export async function POST (req: NextRequest)
 
         const body = await req.json()
         const destPostal: string = String(body?.destination?.postalCode || "").trim()
-        const originPostal: string = String(process.env.UPS_ORIGIN_POSTAL || "92801")
+        const originPostal: string = String(process.env.USPS_ORIGIN_POSTAL || "92801")
         if (!destPostal) {
             return NextResponse.json({ error: "Destination postalCode is required" }, { status: 400 })
         }
