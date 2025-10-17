@@ -54,7 +54,6 @@ export async function POST (req: NextRequest)
       cancel_url: `${origin}/store?canceled=true`,
       shipping_address_collection: { allowed_countries: ["US"] },
       shipping_options: shippingCentsBody ? [] : [
-        // Flat-rate shipping options; replace with real amounts or live rates as needed
         {
           shipping_rate_data: {
             type: "fixed_amount",
@@ -63,17 +62,6 @@ export async function POST (req: NextRequest)
             delivery_estimate: {
               minimum: { unit: "business_day", value: 3 },
               maximum: { unit: "business_day", value: 5 },
-            },
-          },
-        },
-        {
-          shipping_rate_data: {
-            type: "fixed_amount",
-            fixed_amount: { amount: 1599, currency: "usd" },
-            display_name: "UPS Ground (1-3 biz days)",
-            delivery_estimate: {
-              minimum: { unit: "business_day", value: 1 },
-              maximum: { unit: "business_day", value: 3 },
             },
           },
         },
@@ -88,7 +76,7 @@ export async function POST (req: NextRequest)
             shipping_rate_data: {
               type: "fixed_amount",
               fixed_amount: { amount: shippingCentsBody, currency: "usd" },
-              display_name: "UPS (calculated)",
+              display_name: "USPS (calculated)",
             }
           }
         ]

@@ -125,39 +125,31 @@ export default function CartSummary() {
             <span className="text-gray-400 text-sm">Shipping</span>
             <span className="text-gray-200 font-medium">{formatPrice(shippingCents)}</span>
           </div>
-          <div className="grid grid-cols-2 gap-2">
-            <button
-              className="w-full text-xs bg-black/40 border border-red-900/40 text-gray-200 rounded px-2 py-2 hover:bg-black/60"
-              onClick={async () => {
-                try {
-                  const res = await fetch('/api/shipping/ups', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ destination: { postalCode: '' }, items: items.map(i => ({ productId: i.productId, quantity: i.quantity })) })
-                  })
-                  const data = await res.json()
-                  if (data?.rates?.length) setShippingCents(data.rates[0].amountCents)
-                } catch {}
-              }}
-            >
-              UPS Rates
-            </button>
-            <button
-              className="w-full text-xs bg-black/40 border border-red-900/40 text-gray-200 rounded px-2 py-2 hover:bg-black/60"
-              onClick={async () => {
-                try {
-                  const res = await fetch('/api/shipping/usps', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ destination: { postalCode: '' }, items: items.map(i => ({ productId: i.productId, quantity: i.quantity })) })
-                  })
-                  const data = await res.json()
-                  if (data?.rates?.length) setShippingCents(data.rates[0].amountCents)
-                } catch {}
-              }}
-            >
-              USPS Rates
-            </button>
+          <div className="space-y-2">
+            <div className="flex gap-2">
+              <input
+                id="uspsZip"
+                placeholder="ZIP code"
+                className="flex-1 px-2 py-1 text-sm bg-black/40 border border-red-900/40 text-gray-100 rounded"
+              />
+              <button
+                className="px-3 py-1 text-sm bg-red-600 text-white rounded disabled:opacity-50 whitespace-nowrap"
+                onClick={async () => {
+                  const zip = (document.getElementById('uspsZip') as HTMLInputElement | null)?.value || ''
+                  try {
+                    const res = await fetch('/api/shipping/usps', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ destination: { postalCode: zip }, items: items.map(i => ({ productId: i.productId, quantity: i.quantity })) })
+                    })
+                    const data = await res.json()
+                    if (data?.rates?.length) setShippingCents(data.rates[0].amountCents)
+                  } catch {}
+                }}
+              >
+                Get USPS Rates
+              </button>
+            </div>
           </div>
         </div>
         <div className="flex gap-2">
