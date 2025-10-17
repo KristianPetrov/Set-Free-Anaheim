@@ -13,6 +13,9 @@ export default function CartSummary() {
   const { items, subtotalCents, removeItem, setQuantity, clear, appliedPromo, applyPromo, removePromo, shippingCents, setShippingCents } = useCart()
   const [isLoading, setIsLoading] = useState(false)
   const [promoInput, setPromoInput] = useState("")
+  const [zip, setZip] = useState("")
+  const [uspsRates, setUspsRates] = useState<Array<{ serviceName: string; amountCents: number }>>([])
+  const [selectedRateIndex, setSelectedRateIndex] = useState<number | null>(null)
   const isEmpty = items.length === 0
 
   const totalLabel = useMemo(() => formatPrice(subtotalCents), [subtotalCents])
@@ -128,28 +131,56 @@ export default function CartSummary() {
           <div className="space-y-2">
             <div className="flex gap-2">
               <input
-                id="uspsZip"
+                value={zip}
+                onChange={(e) => setZip(e.target.value)}
                 placeholder="ZIP code"
                 className="flex-1 px-2 py-1 text-sm bg-black/40 border border-red-900/40 text-gray-100 rounded"
+                inputMode="numeric"
+                maxLength={10}
               />
               <button
                 className="px-3 py-1 text-sm bg-red-600 text-white rounded disabled:opacity-50 whitespace-nowrap"
+                disabled={!zip.trim() || isEmpty}
                 onClick={async () => {
-                  const zip = (document.getElementById('uspsZip') as HTMLInputElement | null)?.value || ''
                   try {
                     const res = await fetch('/api/shipping/usps', {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ destination: { postalCode: zip }, items: items.map(i => ({ productId: i.productId, quantity: i.quantity })) })
+                      body: JSON.stringify({ destination: { postalCode: zip.trim() }, items: items.map(i => ({ productId: i.productId, quantity: i.quantity })) })
                     })
                     const data = await res.json()
-                    if (data?.rates?.length) setShippingCents(data.rates[0].amountCents)
+                    if (data?.rates?.length) {
+                      setUspsRates(data.rates)
+                      setSelectedRateIndex(0)
+                      setShippingCents(data.rates[0].amountCents)
+                    }
                   } catch {}
                 }}
               >
                 Get USPS Rates
               </button>
             </div>
+            {uspsRates.length > 0 && (
+              <div className="mt-2 space-y-1">
+                <div className="text-xs text-gray-400">Select a USPS service</div>
+                <div className="max-h-40 overflow-auto space-y-1">
+                  {uspsRates.map((r, idx) => (
+                    <label key={`${r.serviceName}-${idx}`} className="flex items-center justify-between gap-3 bg-black/30 border border-red-900/30 rounded px-2 py-1 cursor-pointer">
+                      <span className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="usps-service"
+                          checked={selectedRateIndex === idx}
+                          onChange={() => { setSelectedRateIndex(idx); setShippingCents(r.amountCents) }}
+                        />
+                        <span className="text-xs text-gray-200">{r.serviceName}</span>
+                      </span>
+                      <span className="text-xs text-gray-100 font-medium">{formatPrice(r.amountCents)}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <div className="flex gap-2">

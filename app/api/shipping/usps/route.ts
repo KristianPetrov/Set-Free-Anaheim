@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 
-async function getUspsAccessToken(clientId: string, clientSecret: string): Promise<string>
+async function getUspsAccessToken (clientId: string, clientSecret: string): Promise<string>
 {
     const tokenUrl = process.env.USPS_OAUTH_TOKEN_URL || "https://api.usps.com/oauth2/v1/token"
     const res = await fetch(tokenUrl, {
