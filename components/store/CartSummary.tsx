@@ -125,25 +125,40 @@ export default function CartSummary() {
             <span className="text-gray-400 text-sm">Shipping</span>
             <span className="text-gray-200 font-medium">{formatPrice(shippingCents)}</span>
           </div>
-          <button
-            className="w-full text-xs bg-black/40 border border-red-900/40 text-gray-200 rounded px-2 py-2 hover:bg-black/60"
-            onClick={async () => {
-              try {
-                const res = await fetch('/api/shipping/ups', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ destination: { postalCode: '' }, items: items.map(i => ({ productId: i.productId, quantity: i.quantity })) })
-                })
-                const data = await res.json()
-                if (data?.rates?.length) {
-                  // pick cheapest for now; you can add a modal for choice later
-                  setShippingCents(data.rates[0].amountCents)
-                }
-              } catch {}
-            }}
-          >
-            Calculate UPS Shipping
-          </button>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              className="w-full text-xs bg-black/40 border border-red-900/40 text-gray-200 rounded px-2 py-2 hover:bg-black/60"
+              onClick={async () => {
+                try {
+                  const res = await fetch('/api/shipping/ups', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ destination: { postalCode: '' }, items: items.map(i => ({ productId: i.productId, quantity: i.quantity })) })
+                  })
+                  const data = await res.json()
+                  if (data?.rates?.length) setShippingCents(data.rates[0].amountCents)
+                } catch {}
+              }}
+            >
+              UPS Rates
+            </button>
+            <button
+              className="w-full text-xs bg-black/40 border border-red-900/40 text-gray-200 rounded px-2 py-2 hover:bg-black/60"
+              onClick={async () => {
+                try {
+                  const res = await fetch('/api/shipping/usps', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ destination: { postalCode: '' }, items: items.map(i => ({ productId: i.productId, quantity: i.quantity })) })
+                  })
+                  const data = await res.json()
+                  if (data?.rates?.length) setShippingCents(data.rates[0].amountCents)
+                } catch {}
+              }}
+            >
+              USPS Rates
+            </button>
+          </div>
         </div>
         <div className="flex gap-2">
           <Button
