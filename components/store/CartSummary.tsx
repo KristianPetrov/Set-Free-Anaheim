@@ -129,12 +129,12 @@ export default function CartSummary() {
             <span className="text-gray-200 font-medium">{formatPrice(shippingCents)}</span>
           </div>
           <div className="space-y-2">
-            <div className="flex gap-2">
+            <div className="grid grid-cols-[1fr_auto] gap-2 w-full">
               <input
                 value={zip}
                 onChange={(e) => setZip(e.target.value)}
                 placeholder="ZIP code"
-                className="flex-1 px-2 py-1 text-sm bg-black/40 border border-red-900/40 text-gray-100 rounded"
+                className="min-w-0 w-full px-2 py-1 text-sm bg-black/40 border border-red-900/40 text-gray-100 rounded"
                 inputMode="numeric"
                 maxLength={10}
               />
