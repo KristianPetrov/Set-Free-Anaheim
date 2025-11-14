@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useCallback, useEffect, useState } from "react"
+import { Suspense, useCallback, useEffect, useState } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
@@ -233,7 +233,21 @@ function StoreCartSummaryBar({ onCheckout }: { onCheckout: () => void }) {
   )
 }
 
-export default function StorePage() {
+function StorePageFallback() {
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <Navbar />
+      <div className="container mx-auto px-4 pt-28 md:pt-32 pb-12">
+        <div className="max-w-2xl mx-auto text-center text-sm text-gray-400">
+          Loading store experience…
+        </div>
+      </div>
+      <FooterSection />
+    </div>
+  )
+}
+
+function StorePageContent() {
   const params = useSearchParams()
   const [successOpen, setSuccessOpen] = useState(false)
   const [tab, setTab] = useState<"store" | "fulfillment" | "checkout">("store")
@@ -317,6 +331,14 @@ export default function StorePage() {
       </CartProvider>
       <FooterSection />
     </div>
+  )
+}
+
+export default function StorePage() {
+  return (
+    <Suspense fallback={<StorePageFallback />}>
+      <StorePageContent />
+    </Suspense>
   )
 }
 
