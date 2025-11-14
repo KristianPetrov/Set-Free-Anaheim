@@ -103,7 +103,7 @@ const weeklyEvents: Event[] = [
     title: "WORSHIP NIGHT",
     address: addresses["Main Sanctuary"],
     time: "7:00 PM",
-    description: "Join us every Tuesday night for live worship, where music, prayer, and authentic community come together to create a powerful, Spirit-filled encounter with God.",
+    description: "Join Pastor Phil and experience intimate, live worship every Tuesday—an atmosphere filled with music, prayer, and presence of the Holy Spirit.",
     image: "/gallery/soldier-phil.jpg",
     dayOfWeek: 2, // Tuesday
     location: "Community",
