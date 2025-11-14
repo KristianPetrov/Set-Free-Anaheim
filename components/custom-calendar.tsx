@@ -99,11 +99,11 @@ const weeklyEvents: Event[] = [
     recurring: true
   },
   {
-    id: "power-study",
-    title: "POWER STUDY",
+    id: "worship-night",
+    title: "WORSHIP NIGHT",
     address: addresses["Main Sanctuary"],
     time: "7:00 PM",
-    description: "This is a Bible study that encourages interaction and everyone's thoughts and perspectives on Bible scripture to get a better understanding of God's word.",
+    description: "Join us every Tuesday night for live worship, where music, prayer, and authentic community come together to create a powerful, Spirit-filled encounter with God.",
     image: "/gallery/soldier-phil.jpg",
     dayOfWeek: 2, // Tuesday
     location: "Community",

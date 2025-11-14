@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+
   typescript: {
     ignoreBuildErrors: true,
+  },
+
+  turbopack: {
+    root: process.cwd(),
   },
   async headers() {
     return [
@@ -47,6 +49,7 @@ const nextConfig = {
     ]
   },
   images: {
+    qualities:[25,50,60, 70,75, 80, 90,100],
     remotePatterns: [
       {
         protocol: 'https',
@@ -80,6 +83,7 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   experimental: {
+    mcpServer:true,
     optimizePackageImports: ['@/components/ui', 'lucide-react'],
   },
   compiler: {

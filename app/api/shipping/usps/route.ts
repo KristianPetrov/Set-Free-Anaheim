@@ -1,22 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-
-async function getUspsAccessToken (clientId: string, clientSecret: string): Promise<string>
-{
-    const tokenUrl = process.env.USPS_OAUTH_TOKEN_URL || "https://api.usps.com/oauth2/v1/token"
-    const res = await fetch(tokenUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-            grant_type: "client_credentials",
-            client_id: clientId,
-            client_secret: clientSecret,
-            scope: "prices.read",
-        }),
-    })
-    const data = await res.json()
-    if (!res.ok || !data?.access_token) throw new Error("USPS OAuth failed")
-    return String(data.access_token)
-}
+import { UspsClient } from "@/lib/shipping/usps"
 
 export async function POST (req: NextRequest)
 {
@@ -34,44 +17,52 @@ export async function POST (req: NextRequest)
             return NextResponse.json({ error: "Destination postalCode is required" }, { status: 400 })
         }
 
-        // Estimate weight: 0.7 lb per item, minimum 1 lb
+        // Simple weight heuristic (t‑shirts): 0.7 lb per item
         const totalQty = Array.isArray(body?.items) ? body.items.reduce((s: number, i: any) => s + Math.max(1, Number(i?.quantity) || 1), 0) : 1
-        const pounds = Math.max(1, Math.floor(totalQty * 0.7))
-        const ounces = Math.round(((totalQty * 0.7) - pounds) * 16)
+        const estWeightOz = Math.max(1, Math.round(totalQty * 0.7 * 16))
 
-        const token = await getUspsAccessToken(clientId, clientSecret)
-
-        const pricesEndpoint = process.env.USPS_PRICES_URL || "https://api.usps.com/prices/v1/domestic"
-        const payload = {
-            mailClass: "ALL",
-            originZIPCode: originPostal,
-            destinationZIPCode: destPostal,
-            weight: { unitOfMeasurement: "OZ", value: Math.max(1, pounds * 16 + ounces) },
-            dimensions: { length: 12, width: 9, height: 2, unitOfMeasurement: "IN" },
-            machinable: true,
-            shape: "PARCEL",
-        }
-
-        const resPrices = await fetch(pricesEndpoint, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-            body: JSON.stringify(payload),
+        const client = new UspsClient({
+            uspsLabelsUrl: process.env.USPS_LABELS_URL || "https://api.usps.com",
+            oauthTokenUrl: process.env.USPS_OAUTH_TOKEN_URL || "https://api.usps.com/oauth2/v1/token",
+            domesticPricesUrl: process.env.USPS_PRICES_URL || "https://api.usps.com",
+            clientId,
+            clientSecret,
         })
-        const data = await resPrices.json()
-        if (!resPrices.ok) {
-            return NextResponse.json({ error: "USPS prices error", details: data }, { status: 500 })
-        }
 
-        const options = Array.isArray(data?.prices) ? data.prices : []
-        const rates = options.map((o: any) => ({
+        const prices = await client.getRates({
+            fromZip: originPostal,
+            toZip: destPostal,
+            weightOz: estWeightOz,
+            lengthIn: 12,
+            widthIn: 9,
+            heightIn: 2,
+            processingCategory: "Parcel",
+            priceType: "Retail",
+        })
+        console.log(["USPS raw prices:", JSON.stringify(prices)])
+        const rates = prices.map((p) => ({
             carrier: "USPS",
-            serviceName: String(o?.serviceName || "USPS Service"),
-            amountCents: Math.round(Number(o?.price || 0) * 100),
-            currency: String(o?.currency || "USD"),
-        })).filter((r: any) => r.amountCents > 0)
-            .sort((a: any, b: any) => a.amountCents - b.amountCents)
+            serviceName: p.productName,
+            amountCents: Math.round(p.rate * 100),
+            currency: p.currency || "USD",
+        }))
+        // Server-side filter: prefer common services, then take top 3 by existing order
+        const WANT_ORDER = [
+            'GROUND ADVANTAGE',
+            'PRIORITY MAIL EXPRESS',
+            'PRIORITY MAIL',
+        ]
+        const normalized = rates.map((r) => ({ ...r, _name: String(r.serviceName || '').toUpperCase() }))
+        const picked: typeof normalized = []
+        for (const key of WANT_ORDER) {
+            const found = normalized.find((r) => r._name.includes(key))
+            if (found && !picked.includes(found)) picked.push(found)
+        }
+        const top3src = (picked.length ? picked : normalized)
+        const top3 = top3src.slice(0, 3).map(({ _name, ...rest }) => rest)
+        console.log(["USPS filtered top3:", JSON.stringify(top3)])
 
-        return NextResponse.json({ success: true, rates })
+        return NextResponse.json({ success: true, rates: top3 })
     } catch (e) {
         return NextResponse.json({ error: "Error fetching USPS rates" }, { status: 500 })
     }

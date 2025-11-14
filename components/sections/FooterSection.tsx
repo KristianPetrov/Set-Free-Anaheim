@@ -12,7 +12,7 @@ export default function FooterSection() {
             alt="Set Free Anaheim Logo"
             width={200}
             height={100}
-            className="object-contain"
+            className="object-contain h-auto"
           />
         </div>
         <p className="text-gray-400 mb-4">"So if the Son sets you free, you will be free indeed." - John 8:36</p>
@@ -70,7 +70,7 @@ export default function FooterSection() {
               alt="Set Free Digital Disciples"
               width={180}
               height={50}
-              className="object-contain opacity-80 hover:opacity-100 transition-opacity"
+              className="object-contain h-auto opacity-80 hover:opacity-100 transition-opacity"
             />
           </Link>
         </div>
