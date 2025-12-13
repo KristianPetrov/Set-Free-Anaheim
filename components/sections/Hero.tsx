@@ -28,6 +28,24 @@ export default function Hero() {
 
       <div className="absolute inset-0 bg-black/30 z-10"></div>
 
+      <Link
+        href="/store"
+        className="absolute bottom-8 left-6 z-10 flex flex-col items-center transition-all duration-300 transform hover:scale-105 group"
+      >
+        <Image
+          src="/store/set-free-apparel-bloody-drip.png"
+          alt="Set Free Apparel"
+          width={200}
+          height={80}
+          className="drop-shadow-[0_4px_8px_rgba(0,0,0,0.7)] cursor-pointer"
+          priority
+          sizes="(max-width: 768px) 150px, 200px"
+        />
+        <div className="bg-red-600 group-hover:bg-red-700 text-white font-bold py-2 px-5 rounded-lg shadow-lg transition-all duration-300 neon-box text-sm -mt-8 relative -z-30">
+          SHOP NOW
+        </div>
+      </Link>
+
       <div className="absolute top-24 left-6 z-20">
         <Image
           src="/logos/SETFREELOGOWHITE.png"
@@ -49,7 +67,7 @@ export default function Hero() {
         </Link>
       </div>
 
-      <Link
+      {/* <Link
         href="#about"
         className="absolute z-20 bottom-8 left-1/2 -translate-x-1/2 animate-bounce block hover:scale-110 transition-transform duration-3000"
         aria-label="Scroll down to about section"
@@ -61,7 +79,7 @@ export default function Hero() {
           height={40}
           className="opacity-90 hover:opacity-100 transition-opacity cursor-pointer drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]"
         />
-      </Link>
+      </Link> */}
     </section>
   )
 }
