@@ -31,7 +31,7 @@ export const products: Product[] = [
         hoverImage: "/store/magic-house-tshirt-med-front.png",
         image: "/store/set-free-tribe-mh-tshirt-back.png",
         brand: "Magic House Apparel",
-        availableSizes: ["M", "L", "XL", "2XL"],
+        availableSizes: ["M", "L", "2XL"],
         defaultSize: "L"
     },
     {
@@ -45,7 +45,7 @@ export const products: Product[] = [
         image: "/store/magic-house-set-free-anaheim-blk-tshirt-front.jpg",
         hoverImage: "/store/magic-house-set-free-jesus-drip-blk-tshirt-back.jpg",
         brand: "Magic House Apparel",
-        availableSizes: ["M", "L", "XL", "2XL"],
+        availableSizes: ["M", "L", "2XL"],
         defaultSize: "L"
     },
 
@@ -59,7 +59,7 @@ export const products: Product[] = [
         salePercent: 25,
         image: "/store/set-free-magic-house-saved-and-dangerous-shirt-blk-front.jpg",
         brand: "Magic House Apparel",
-        availableSizes: ["M", "L", "XL", "2XL"],
+        availableSizes: ["M", "L", "2XL"],
         defaultSize: "L"
     },
     {
@@ -73,7 +73,7 @@ export const products: Product[] = [
         image: "/store/save-me-from-myself-magic-house-tshirt.png",
         hoverImage: "/store/save-me-from-myself-magic-house-tshirt.png",
         brand: "Magic House Apparel",
-        availableSizes: ["M", "L", "XL", "2XL"],
+        availableSizes: ["M", "L", "2XL"],
         defaultSize: "L"
     },
     {
@@ -87,7 +87,7 @@ export const products: Product[] = [
         hoverImage: "/store/magic-house-apparel-shirt-front.png",
         image: "/store/magic-house-apparel-shirt-back.png",
         brand: "Magic House Apparel",
-        availableSizes: ["M", "L", "XL", "2XL"],
+        availableSizes: ["M", "L", "2XL"],
         defaultSize: "L"
     },
 ]
