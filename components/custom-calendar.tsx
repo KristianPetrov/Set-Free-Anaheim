@@ -10,7 +10,8 @@ import { cn } from "@/lib/utils"
 import type { ClassValue } from "clsx"
 
 
-interface Event {
+interface Event
+{
   address: string
   id: string
   title: string
@@ -32,12 +33,14 @@ interface Event {
   addressClass?: ClassValue
 }
 
-interface EventWithDate extends Event {
+interface EventWithDate extends Event
+{
   date: Date
   dateLabel: string
 }
 
-interface GoogleEvent {
+interface GoogleEvent
+{
   id: string
   title: string
   description?: string
@@ -49,14 +52,14 @@ interface GoogleEvent {
   creator?: string
 }
 type Addresses = {
-  "Main Sanctuary" :"1171 N West St, Anaheim, CA 92801, USA",
-  "Lift Off Recovery":"1567 W Embassy St, Anaheim, CA 92802, USA",
-  "The Magic House":"301 S Archer St, Anaheim, CA  92804, USA"
+  "Main Sanctuary": "1171 N West St, Anaheim, CA 92801, USA",
+  "Lift Off Recovery": "1567 W Embassy St, Anaheim, CA 92802, USA",
+  "The Magic House": "301 S Archer St, Anaheim, CA  92804, USA"
 }
 const addresses: Addresses = {
- "Main Sanctuary" :"1171 N West St, Anaheim, CA 92801, USA",
-  "Lift Off Recovery":"1567 W Embassy St, Anaheim, CA 92802, USA",
-"The Magic House":"301 S Archer St, Anaheim, CA  92804, USA"
+  "Main Sanctuary": "1171 N West St, Anaheim, CA 92801, USA",
+  "Lift Off Recovery": "1567 W Embassy St, Anaheim, CA 92802, USA",
+  "The Magic House": "301 S Archer St, Anaheim, CA  92804, USA"
 } as const
 const weeklyEvents: Event[] = [
   {
@@ -99,20 +102,20 @@ const weeklyEvents: Event[] = [
     recurring: true
   },
   {
-    id: "worship-night",
-    title: "WORSHIP NIGHT",
+    id: "bible-study-phil-aguilar",
+    title: "BIBLE STUDY WITH PASTOR PHIL AGUILAR",
     address: addresses["Main Sanctuary"],
     time: "7:00 PM",
-    description: "Join Pastor Phil and experience intimate, live worship every Tuesday—an atmosphere filled with music, prayer, and presence of the Holy Spirit.",
+    description: "Join Pastor Phil Aguilar every Tuesday night for Bible study. Come ready to learn, ask questions, and grow together in God’s Word.",
     image: "/gallery/soldier-phil.jpg",
     dayOfWeek: 2, // Tuesday
-    location: "Community",
+    location: "Main Sanctuary",
     recurring: true
   },
   {
     id: "womens-bible-study",
     title: "WOMEN'S BIBLE STUDY",
-    address:addresses["The Magic House"],
+    address: addresses["The Magic House"],
     time: "7:00 PM",
     description: "Are you a lady? GOOD! That's the only requirement to come on over to hear Saint Sandra teach the Bible to a big group of women! It's a great time to find friends and to be vulnerable.",
     image: "/gallery/womens-saints.jpg",
@@ -146,7 +149,8 @@ const weeklyEvents: Event[] = [
 
 ]
 
-export default function CustomCalendar() {
+export default function CustomCalendar ()
+{
   // const [googleEvents, setGoogleEvents] = useState<GoogleEvent[]>([])
   // const [isLoadingEvents, setIsLoadingEvents] = useState(false)
   // const [eventError, setEventError] = useState<string | null>(null)
@@ -190,8 +194,9 @@ export default function CustomCalendar() {
   //   fetchGoogleEvents()
   // }, [])
 
-      // Get events for the next 7 days
-  const getNext7DaysEvents = (): EventWithDate[] => {
+  // Get events for the next 7 days
+  const getNext7DaysEvents = (): EventWithDate[] =>
+  {
     const TZ = 'America/Los_Angeles'
     const next7Days: EventWithDate[] = []
 
@@ -200,7 +205,8 @@ export default function CustomCalendar() {
       const dayOfWeek = dt.weekday % 7 // Sun=0 .. Sat=6
       const labelLong = dt.toFormat('EEEE, LLL d')
 
-      const eventsForDay = weeklyEvents.filter((event) => {
+      const eventsForDay = weeklyEvents.filter((event) =>
+      {
         if (event.dayOfWeek !== dayOfWeek) return false
 
         if (event.everyOtherWeek) {
@@ -215,7 +221,8 @@ export default function CustomCalendar() {
         return true
       })
 
-      eventsForDay.forEach((event) => {
+      eventsForDay.forEach((event) =>
+      {
         next7Days.push({
           ...event,
           date: dt.toJSDate(),
