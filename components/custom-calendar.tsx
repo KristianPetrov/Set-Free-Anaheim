@@ -106,7 +106,8 @@ const weeklyEvents: Event[] = [
     title: "BIBLE STUDY WITH PASTOR PHIL AGUILAR",
     address: addresses["Main Sanctuary"],
     time: "7:00 PM",
-    description: "Join Pastor Phil Aguilar every Tuesday night for Bible study. Come ready to learn, ask questions, and grow together in God’s Word.",
+    description: `Pull up every Tuesday night for an uplifting Bible study with Pastor Phil Aguilar. Expect real conversations, powerful scripture, laughs, prayer, and practical truth you can use in everyday life.
+Come as you are — bring a Bible, bring a friend, and let’s grow together.`,
     image: "/gallery/soldier-phil.jpg",
     dayOfWeek: 2, // Tuesday
     location: "Main Sanctuary",
