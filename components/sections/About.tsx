@@ -7,7 +7,7 @@ export default function About() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="mb-6 pl-6">
+            {/* <div className="mb-6 pl-6">
               <Image
                 src="/graphics/holy-hood.png"
                 alt="Holy But Hood"
@@ -15,11 +15,11 @@ export default function About() {
                 height={100}
                 className="mb-6"
               />
-            </div>
+            </div> */}
             <h2 className="text-2xl font-bold text-red-500 mb-4">The Magic House — Set Free Anaheim</h2>
-            <p className="text-lg text-gray-300 mb-4 leading-relaxed">
+            {/* <p className="text-lg text-gray-300 mb-4 leading-relaxed">
               This is straight Jesus with a switchblade—where the holy meets the hood. We're out here in Anaheim pullin' souls outta the gutter with that raw love of Christ. No suits. No judgment. Just real ones gettin' set free by the blood of Jesus.
-            </p>
+            </p> */}
             <p className="text-lg text-gray-300 mb-4 leading-relaxed">
               Started in '82 right here in the streets of Anaheim, Set Free blew up from one church to a worldwide movement: churches, ranches, recovery homes, even a seminary called Set Free University. But it all started with a handful of broken people who said "Yes" to Jesus and never looked back.
             </p>

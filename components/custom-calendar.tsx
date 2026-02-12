@@ -73,23 +73,23 @@ const weeklyEvents: Event[] = [
     location: "Main Sanctuary",
     recurring: true
   },
-  {
-    id: "angela-kent-meditation",
-    title: "Every Other Friday: Deep Guided Meditation with Angela & Kent",
-    address: addresses["Main Sanctuary"],
-    time: "7:00 PM",
-    description: "Step out of the noise and into God’s peace. Angela & Kent—freshly married and filled with fire—guide a deep, Christ-centered meditation to realign your breath, your body, and your spirit. Pull up with a yoga mat, get comfy, and let the Presence do the heavy lifting.",
-    image: "/gallery/Angela-Kent-Meditation-Event.jpg",
-    dayOfWeek: 5, // Friday
-    location: "Main Sanctuary",
-    recurring: true,
-    // Set an anchor Friday that is a real occurrence so biweekly parity is correct
-    // Update this date as needed to match the real schedule
-    everyOtherWeek: true,
-    anchorDate: "2025-09-12",
-    cardClass: "border-yellow-500/40 hover:border-yellow-400/60",
+  // {
+  //   id: "angela-kent-meditation",
+  //   title: "Every Other Friday: Deep Guided Meditation with Angela & Kent",
+  //   address: addresses["Main Sanctuary"],
+  //   time: "7:00 PM",
+  //   description: "Step out of the noise and into God’s peace. Angela & Kent—freshly married and filled with fire—guide a deep, Christ-centered meditation to realign your breath, your body, and your spirit. Pull up with a yoga mat, get comfy, and let the Presence do the heavy lifting.",
+  //   image: "/gallery/Angela-Kent-Meditation-Event.jpg",
+  //   dayOfWeek: 5, // Friday
+  //   location: "Main Sanctuary",
+  //   recurring: true,
+  //   // Set an anchor Friday that is a real occurrence so biweekly parity is correct
+  //   // Update this date as needed to match the real schedule
+  //   everyOtherWeek: true,
+  //   anchorDate: "2025-09-12",
+  //   cardClass: "border-yellow-500/40 hover:border-yellow-400/60",
 
-  },
+  // },
   {
     id: "wellbreity",
     title: "WELLBREITY",
