@@ -16,7 +16,7 @@ export default function About() {
                 className="mb-6"
               />
             </div> */}
-            <h2 className="text-2xl font-bold text-red-500 mb-4">The Magic House — Set Free Anaheim</h2>
+            <h2 className="text-2xl font-bold text-red-500 mb-4">Set Free Anaheim</h2>
             {/* <p className="text-lg text-gray-300 mb-4 leading-relaxed">
               This is straight Jesus with a switchblade—where the holy meets the hood. We're out here in Anaheim pullin' souls outta the gutter with that raw love of Christ. No suits. No judgment. Just real ones gettin' set free by the blood of Jesus.
             </p> */}
