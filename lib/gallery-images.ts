@@ -27,7 +27,6 @@ export const galleryImages: GalleryImage[] = [{ src: "/gallery/pastor-phil-cool-
 { src: "/gallery/jesus-forever-set-free.JPG", alt: "Jesus Forever Set Free", title: "Jesus Forever Set Free" },
 { src: "/gallery/ufc-fighter-phil.png", alt: "UFC Fighter with Phil", title: "UFC Fighter with Phil" },
 { src: "/gallery/worldshaker-event-phil.png", title: "Worldshaker Society Event", alt: "Worldshaker Society Event" },
-{ src: "/gallery/phil-love-this-guy.JPG", alt: "Phil Love This Guy", title: "Phil - Love This Guy" },
 { src: "/gallery/phil-broken-people.png", alt: "Phil broken people", title: "Phil broken people" },
 { src: "/gallery/dying-breed-phil.png", alt: "Dying Breed shirt Phil", title: "Dying Breed shirt Phil" },
 { src: "/gallery/phil-sandra-with-girls.png", alt: "Sandra and Phil with girls", title: "Sandra and Phil with girls" },
