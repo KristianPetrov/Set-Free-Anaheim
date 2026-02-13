@@ -1,9 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-red-900/20 overflow-hidden">
+    <section className="relative min-h-[78vh] md:min-h-screen bg-gradient-to-br from-black via-gray-900 to-red-900/20 overflow-hidden">
       <div className="absolute inset-0 md:hidden">
         <Image
           src="/gallery/godfather.JPG"
@@ -46,6 +47,18 @@ export default function Hero() {
           className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 neon-box"
         >
           DONATE NOW
+        </Link>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2">
+        <Link href="#events">
+          <Button
+            size="lg"
+            variant="outline"
+            className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 text-lg neon-box"
+          >
+            SUNDAY 10AM
+          </Button>
         </Link>
       </div>
 

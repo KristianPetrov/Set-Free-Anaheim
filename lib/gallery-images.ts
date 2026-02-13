@@ -5,8 +5,29 @@ export interface GalleryImage
     title: string
 }
 
-export const galleryImages: GalleryImage[] = [{ src: "/gallery/pastor-phil-cool-flexin-jesus.jpg", alt: "Pastor Phil Cool Flexin Jesus", title: "Pastor Phil Cool Flexin Jesus" }, { src: "/gallery/phil-sandra-magic.jpg", alt: "Phil Sandra Magic", title: "Phil Sandra Magic" }, { src: "/gallery/phil-on-the-mic.png", alt: "Phil On The Mic", title: "Phil On The Mic" }, { src: "/gallery/white-hat-phil.jpg", alt: "White Hat Phil", title: "White Hat Phil" }, { src: "/gallery/armed-dangerous-phil.jpg", alt: "Armed Dangerous Phil", title: "Armed Dangerous Phil" }, { src: "/gallery/set-free-soldiers-bike.jpeg", alt: "Set Free Soldiers Bike", title: "Set Free Soldiers Bike" }, { src: "/gallery/ryan-ellis-phil", alt: "Ryan Ellis Phil", title: "Ryan Ellis Phil" }, { src: "/gallery/shoe-fits-phil.png", alt: "Shoe Fits Phil", title: "Shoe Fits Phil" }, { src: "/gallery/phil-new-song-church.jpg", alt: "Phil New Song Church", title: "Phil New Song Church" }, { src: "/gallery/phil-love-this-guy.JPG", alt: "Phil Love This Guy", title: "Phil - Love This Guy" }, { src: "/gallery/fieldy-phil.jpg", alt: "Fieldy Phil", title: "Fieldy Phil" }, { src: "/gallery/phil-sandra-wedding.jpg", alt: "Phil Sandra Wedding", title: "Phil Sandra Wedding" }, { src: "/gallery/humbled-chiefism.png", alt: "Chiefism is humbled", title: "Chiefism is humbled" }, { src: "/gallery/old-school-biker-phil.png", alt: "Old School Biker Phil", title: "Old School Biker Phil" }, { src: "/gallery/ufc-fighter-phil.png", alt: "UFC Fighter with Phil", title: "UFC Fighter with Phil" }, { src: "/gallery/phil-love-this-guy.JPG", alt: "Phil Love This Guy", title: "Phil - Love This Guy" }, { src: "/gallery/dying-breed-phil.png", alt: "Dying Breed shirt Phil", title: "Dying Breed shirt Phil" }, { src: "/gallery/phil-sandra-with-girls.png", alt: "Sandra and Phil with girls", title: "Sandra and Phil with girls" }, { src: "/gallery/san-diego-set-free.jpg", alt: "San Diego Set Free", title: "San Diego Set Free" }
-
+export const galleryImages: GalleryImage[] = [{ src: "/gallery/pastor-phil-cool-flexin-jesus.jpg", alt: "Pastor Phil Cool Flexin Jesus", title: "Pastor Phil Cool Flexin Jesus" },
+{ src: "/gallery/phil-sandra-magic.jpg", alt: "Phil Sandra Magic", title: "Phil Sandra Magic" },
+{ src: "/gallery/phil-on-the-mic.png", alt: "Phil On The Mic", title: "Phil On The Mic" },
+{ src: "/gallery/white-hat-phil.jpg", alt: "White Hat Phil", title: "White Hat Phil" },
+{ src: "/gallery/armed-dangerous-phil.jpg", alt: "Armed Dangerous Phil", title: "Armed Dangerous Phil" },
+{ src: "/gallery/set-free-soldiers-bike.jpeg", alt: "Set Free Soldiers Bike", title: "Set Free Soldiers Bike" },
+{ src: "/gallery/ryan-ellis-phil.jpeg", alt: "Ryan Ellis Phil", title: "Ryan Ellis Phil" },
+{ src: "/gallery/shoe-fits-phil.png", alt: "Shoe Fits Phil", title: "Shoe Fits Phil" },
+{ src: "/gallery/sandra-phil-red-tie.png", title: "Sandra with Phil wearing a red tie", alt: "Sandra with Phil wearing a red tie" },
+{ src: "/gallery/phil-new-song-church.jpg", alt: "Phil New Song Church", title: "Phil New Song Church" },
+{ src: "/gallery/chief-posing-with turtle-and friend.png", title: "Chief posing with Trutle", alt: "Chief posing with Turtle" },
+{ src: "/gallery/phil-love-this-guy.JPG", alt: "Phil Love This Guy", title: "Phil - Love This Guy" },
+{ src: "/gallery/fieldy-phil.jpg", alt: "Fieldy Phil", title: "Fieldy Phil" },
+{ src: "/gallery/phil-sandra-wedding.jpg", alt: "Phil Sandra Wedding", title: "Phil Sandra Wedding" },
+{ src: "/gallery/humbled-chiefism.png", alt: "Chiefism is humbled", title: "Chiefism is humbled" },
+{ src: "/gallery/old-school-biker-phil.png", alt: "Old School Biker Phil", title: "Old School Biker Phil" },
+{ src: "/gallery/ufc-fighter-phil.png", alt: "UFC Fighter with Phil", title: "UFC Fighter with Phil" },
+{ src: "/gallery/worldshaker-event-phil.png", title: "Worldshaker Society Event", alt: "Worldshaker Society Event" },
+{ src: "/gallery/phil-love-this-guy.JPG", alt: "Phil Love This Guy", title: "Phil - Love This Guy" },
+{ src: "/gallery/dying-breed-phil.png", alt: "Dying Breed shirt Phil", title: "Dying Breed shirt Phil" },
+{ src: "/gallery/phil-sandra-with-girls.png", alt: "Sandra and Phil with girls", title: "Sandra and Phil with girls" },
+{ src: "/gallery/san-diego-set-free.jpg", alt: "San Diego Set Free", title: "San Diego Set Free" },
+{ src: "/gallery/crew-at-phils.jpeg", title: "Group biker photo with Phil at his house", alt: "Group biker photo with Phil at his house" }
 ]
 export const galleryImages2: GalleryImage[] = [{ src: "/gallery/chief-in-front-the-palace.jpg", alt: "Chief in front of the palace", title: "Chief in front of the palace" },
 { src: "/gallery/joe-phil-jen-sandra-wedding.jpg", alt: "Joe, Phil, Jen, and Sandra wedding", title: "Joe, Phil, Jen, and Sandra at Joe's wedding" },
