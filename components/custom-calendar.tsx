@@ -136,18 +136,31 @@ Come as you are — bring a Bible, bring a friend, and let’s grow together.`,
     recurring: true
   },
   {
-    id: "sfu-class",
-    title: "SET FREE UNIVERSITY - SFU CLASS",
+    id: "power-study",
+    title: "POWER STUDY",
     time: "7:00 PM",
     address: addresses["Main Sanctuary"],
-    description: "Want a classroom style bible study? Come on over to SFU Class where you will be taught something new as we navigate through subjects in the bible as a church. Bring your notebook and pencils. We're gunna dive deep!",
+    description: "Want a classroom-style Bible study? Come through every Thursday night where we dive deep into God’s Word and learn something new together as a church. Bring your Bible, notebook, and a pen—we’re going in!",
     image: "/gallery/bible-nerd.jpg",
     dayOfWeek: 4, // Thursday
     location: "Prayer Room",
     recurring: true
   },
+]
 
-
+const oneTimeEvents: (Event & { dateISO: string })[] = [
+  {
+    id: "magic-house-recovery-night-2026-02-22",
+    dateISO: "2026-02-22",
+    address: addresses["Lift Off Recovery"],
+    title: "MAGIC HOUSE - RECOVERY NIGHT",
+    time: "6:00 PM",
+    description: "Join us for a night of recovery and fellowship as we gather to support one another in our journey of recovery. We'll be sharing our stories, our struggles, and our victories as we journey together. With special guest Fieldy serving free hot dogs!",
+    image: "/graphics/magic-house-flyer.jpg",
+    dayOfWeek: 0, // Sunday
+    location: "Lift Off Recovery",
+    recurring: false,
+  },
 ]
 
 export default function CustomCalendar ()
@@ -222,7 +235,9 @@ export default function CustomCalendar ()
         return true
       })
 
-      eventsForDay.forEach((event) =>
+      const oneTimeForDay = oneTimeEvents.filter((event) => event.dateISO === dt.toISODate())
+
+      ;[...eventsForDay, ...oneTimeForDay].forEach((event) =>
       {
         next7Days.push({
           ...event,
@@ -230,6 +245,7 @@ export default function CustomCalendar ()
           dateLabel: i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : labelLong,
         })
       })
+
     }
 
     return next7Days
