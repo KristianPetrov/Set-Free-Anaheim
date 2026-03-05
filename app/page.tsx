@@ -5,6 +5,7 @@ import CalendarSection from "@/components/sections/CalendarSection"
 import VideoSection from "@/components/sections/VideoSection"
 import News from "@/components/sections/News"
 import Testimonies from "@/components/sections/Testimonies"
+import SetFreeUniversitySignUp from "@/components/sections/SetFreeUniversitySignUp"
 import Contact from "@/components/sections/Contact"
 import FooterSection from "@/components/sections/FooterSection"
 
@@ -18,6 +19,7 @@ export default function SetFreeChurch() {
       <VideoSection />
       <News />
       <Testimonies />
+      <SetFreeUniversitySignUp />
       <Contact />
       <FooterSection />
     </div>

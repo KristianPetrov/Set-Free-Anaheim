@@ -13,6 +13,17 @@ export const prayers = sqliteTable('prayers', {
 export type InsertPrayer = typeof prayers.$inferInsert
 export type SelectPrayer = typeof prayers.$inferSelect
 
+export const universitySignups = sqliteTable('university_signups', {
+    id: text('id').primaryKey(),
+    name: text('name').notNull(),
+    phone: text('phone').notNull(),
+    reason: text('reason').notNull(),
+    createdAt: text('created_at').notNull(),
+})
+
+export type InsertUniversitySignup = typeof universitySignups.$inferInsert
+export type SelectUniversitySignup = typeof universitySignups.$inferSelect
+
 
 // Store orders
 export const orders = sqliteTable('orders', {

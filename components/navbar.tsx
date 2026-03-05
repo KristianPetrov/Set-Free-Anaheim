@@ -50,6 +50,9 @@ export default function Navbar({ className }: NavbarProps) {
           <Link href="/#testimonies" className="text-gray-300 hover:text-red-500 transition-colors">
             Stories
           </Link>
+          <Link href="/#set-free-university" className="text-gray-300 hover:text-red-500 transition-colors">
+            University
+          </Link>
           <Link href="/#contact" className="text-gray-300 hover:text-red-500 transition-colors">
             Connect
           </Link>
@@ -100,6 +103,13 @@ export default function Navbar({ className }: NavbarProps) {
             onClick={() => setMobileMenuOpen(false)}
           >
             Stories
+          </Link>
+          <Link
+            href="/#set-free-university"
+            className="block text-gray-300 hover:text-red-500 transition-colors py-2"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            University
           </Link>
           <Link
             href="/#contact"

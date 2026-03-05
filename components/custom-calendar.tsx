@@ -160,7 +160,7 @@ const oneTimeEvents: (Event & { dateISO: string })[] = [
     dayOfWeek: 0, // Sunday
     location: "Lift Off Recovery",
     recurring: false,
-  },
+  }, 
 ]
 
 export default function CustomCalendar ()
