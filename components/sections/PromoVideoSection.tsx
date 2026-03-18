@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { Play } from "lucide-react"
 
 const promoVideoId = "_M2lMqeiScU"
@@ -25,9 +24,6 @@ export default function PromoVideoSection() {
             </p>
             <h2 className="text-4xl font-bold text-red-500 neon-text md:text-5xl">
               Set Free Anaheim Promo
-            </h2>
-            <h2 className="text-4xl font-bold text-red-500 neon-text md:text-5xl">
-
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-base text-gray-300 md:text-lg">
               Get a front-row look at the heart of Set Free Anaheim: real people, real stories, and real
@@ -66,12 +62,15 @@ export default function PromoVideoSection() {
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/10" />
+                  <div className="absolute left-4 top-4 rounded-full border border-yellow-400/40 bg-black/65 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-yellow-300 md:hidden">
+                    Tap to play
+                  </div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="flex h-20 w-20 items-center justify-center rounded-full border border-white/40 bg-red-600/90 text-white shadow-[0_0_30px_rgba(220,38,38,0.5)] transition duration-300 group-hover:scale-110 group-hover:bg-red-500">
                       <Play className="ml-1 h-9 w-9 fill-current" />
                     </span>
                   </div>
-                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                  <div className="absolute inset-x-0 bottom-0 hidden p-6 md:block md:p-8">
                     <p className="text-sm font-semibold uppercase tracking-[0.3em] text-yellow-300">
                       Watch Now
                     </p>
