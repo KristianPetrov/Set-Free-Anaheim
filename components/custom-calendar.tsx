@@ -92,7 +92,7 @@ const weeklyEvents: Event[] = [
   // },
   {
     id: "wellbreity",
-    title: "WELLBREITY",
+    title: "SET FREE TRIBE - WELLBREITY",
     address: addresses["Main Sanctuary"],
     time: "7:00 PM",
     description: "Wellness meeting based in native tradition and using culture as a form of prevention.",
@@ -146,6 +146,18 @@ Come as you are — bring a Bible, bring a friend, and let’s grow together.`,
     location: "Prayer Room",
     recurring: true
   },
+  {
+    id: "alcoholic-anarchy-pastor-joe",
+    title: "ALCOHOLIC ANARCHY WITH PASTOR JOE",
+    address: addresses["Lift Off Recovery"],
+    time: "7:00 PM",
+    description:
+      "Alcoholic Anarchy is Pastor Joe's Set Free style spinoff of AA - for the beautifully broken, slightly rebellious, and completely over doing life the old way. It's recovery with Jesus, accountability, street-level truth, and just enough holy chaos to make the devil nervous.",
+    image: "/gallery/joe-alcoholic-anarchy.JPEG",
+    dayOfWeek: 5, // Friday
+    location: "Main Sanctuary",
+    recurring: true
+  }
 ]
 
 const oneTimeEvents: (Event & { dateISO: string })[] = [
@@ -160,7 +172,7 @@ const oneTimeEvents: (Event & { dateISO: string })[] = [
     dayOfWeek: 0, // Sunday
     location: "Lift Off Recovery",
     recurring: false,
-  }, 
+  },
 ]
 
 export default function CustomCalendar ()
