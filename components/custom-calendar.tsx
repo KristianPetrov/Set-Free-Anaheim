@@ -149,7 +149,7 @@ Come as you are — bring a Bible, bring a friend, and let’s grow together.`,
   {
     id: "alcoholic-anarchy-pastor-joe",
     title: "ALCOHOLIC ANARCHY WITH PASTOR JOE",
-    address: addresses["Lift Off Recovery"],
+    address: addresses["Main Sanctuary"],
     time: "7:00 PM",
     description:
       "Alcoholic Anarchy is Pastor Joe's Set Free style spinoff of AA - for the beautifully broken, slightly rebellious, and completely over doing life the old way. It's recovery with Jesus, accountability, street-level truth, and just enough holy chaos to make the devil nervous.",
