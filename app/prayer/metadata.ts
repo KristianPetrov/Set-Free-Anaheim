@@ -3,42 +3,39 @@ import type { Metadata } from 'next'
 const baseUrl = 'https://setfreeanaheim.com'
 
 export const metadata: Metadata = {
-    title: "Prayer Wall | Tristin's Upper Room — Set Free Anaheim",
+    title: 'Prayer Wall',
     description:
-        'Share your prayer request and join the Prayer Wall at Tristin\'s Upper Room — Set Free Anaheim. Public prayers are lifted up together. Optional love offering welcome.',
+        'Share your prayer request and join the Prayer Wall at Set Free Anaheim. Public prayers are lifted up together. Optional love offering welcome.',
     alternates: {
         canonical: `${baseUrl}/prayer`,
     },
     openGraph: {
         type: 'website',
         url: `${baseUrl}/prayer`,
-        title: "Prayer Wall | Tristin's Upper Room — Set Free Anaheim",
+        title: 'Prayer Wall | Set Free Anaheim',
         description:
-            'Share your prayer request and join the Prayer Wall at Tristin\'s Upper Room — Set Free Anaheim. Public prayers are lifted up together. Optional love offering welcome.',
+            'Share your prayer request and join the Prayer Wall at Set Free Anaheim. Public prayers are lifted up together. Optional love offering welcome.',
         siteName: 'Set Free Anaheim',
         images: [
             {
-                url: `${baseUrl}/tristin-upper-room-screenshot.png`,
-                width: 1200,
-                height: 630,
-                alt: "Prayer Wall — Tristin's Upper Room",
+                url: `${baseUrl}/prayer/written-prayer-note.png`,
+                width: 1024,
+                height: 1024,
+                alt: 'Prayer Wall',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: "Prayer Wall | Tristin's Upper Room — Set Free Anaheim",
+        title: 'Prayer Wall | Set Free Anaheim',
         description:
-            'Share your prayer request and join the Prayer Wall at Tristin\'s Upper Room — Set Free Anaheim. Public prayers are lifted up together. Optional love offering welcome.',
-        images: [`${baseUrl}/tristin-upper-room-screenshot.png`],
+            'Share your prayer request and join the Prayer Wall at Set Free Anaheim. Public prayers are lifted up together. Optional love offering welcome.',
+        images: [`${baseUrl}/prayer/written-prayer-note.png`],
     },
     keywords: [
         'Prayer Wall',
         'Set Free Anaheim',
-        "Tristin's Upper Room",
         'Prayer Request',
         'Christian Church Anaheim',
     ],
 }
-
-

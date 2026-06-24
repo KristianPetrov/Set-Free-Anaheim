@@ -1,6 +1,5 @@
 "use client"
 
-import { format, startOfWeek, addDays, isSameDay, startOfDay } from "date-fns"
 import { DateTime } from 'luxon'
 import { Calendar, Clock, MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
@@ -39,18 +38,6 @@ interface EventWithDate extends Event
   dateLabel: string
 }
 
-interface GoogleEvent
-{
-  id: string
-  title: string
-  description?: string
-  start: Date
-  end: Date
-  location?: string
-  isAllDay: boolean
-  url?: string
-  creator?: string
-}
 type Addresses = {
   "Main Sanctuary": "1171 N West St, Anaheim, CA 92801, USA",
   "Lift Off Recovery": "1567 W Embassy St, Anaheim, CA 92802, USA",
@@ -147,14 +134,26 @@ Come as you are — bring a Bible, bring a friend, and let’s grow together.`,
     recurring: true
   },
   {
-    id: "alcoholic-anarchy-pastor-joe",
-    title: "ALCOHOLIC ANARCHY WITH PASTOR JOE",
+    id: "alcoholic-anarchy-alaya-tobias",
+    title: "ALCOHOLIC ANARCHY WITH ALAYA & TOBIAS",
     address: addresses["Main Sanctuary"],
     time: "7:00 PM",
     description:
-      "Alcoholic Anarchy is Pastor Joe's Set Free style spinoff of AA - for the beautifully broken, slightly rebellious, and completely over doing life the old way. It's recovery with Jesus, accountability, street-level truth, and just enough holy chaos to make the devil nervous.",
-    image: "/gallery/joe-alcoholic-anarchy.JPEG",
+      "Hosted by Alaya and Tobias, a beautiful couple walking the road of recovery, Alcoholic Anarchy is a Set Free style recovery meeting for anyone ready to stop doing life the old way. Expect Jesus, honest accountability, real stories, and a room full of people fighting for freedom together.",
+    image: "/gallery/alaya-tobias.jpg",
     dayOfWeek: 5, // Friday
+    location: "Main Sanctuary",
+    recurring: true
+  },
+  {
+    id: "family-fun-night-chrissy",
+    title: "FAMILY FUN NIGHT WITH CHRISSY",
+    address: addresses["Main Sanctuary"],
+    time: "7:00 PM",
+    description:
+      "Hosted by Chrissy every Saturday night, Family Fun Night is where the Set Free family gathers for karaoke, laughs, fellowship, and a laid-back night together. Bring your voice, bring your people, and come ready to make some joyful noise.",
+    image: "/gallery/Set-Free.jpg",
+    dayOfWeek: 6, // Saturday
     location: "Main Sanctuary",
     recurring: true
   }
@@ -180,10 +179,6 @@ export default function CustomCalendar ()
   // const [googleEvents, setGoogleEvents] = useState<GoogleEvent[]>([])
   // const [isLoadingEvents, setIsLoadingEvents] = useState(false)
   // const [eventError, setEventError] = useState<string | null>(null)
-
-  const currentDate = new Date()
-  const weekStart = startOfWeek(currentDate)
-  const weekDays = Array.from({ length: 7 }, (_, i) => addDays(weekStart, i))
 
   // // Fetch Google Calendar events
   // const fetchGoogleEvents = async () => {

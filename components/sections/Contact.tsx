@@ -9,7 +9,7 @@ export default function Contact() {
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold mb-8 text-red-500 neon-text">READY TO GET SET FREE?</h2>
         <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-          Don't wait. Your breakthrough is one step away. Come as you are - Jesus is waiting with open arms and
+          Don&apos;t wait. Your breakthrough is one step away. Come as you are - Jesus is waiting with open arms and
           unconditional love.
         </p>
 
@@ -17,20 +17,20 @@ export default function Contact() {
           <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 animate-slow-glow">
             <div className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-red-600/25 blur-3xl opacity-70 animate-candle" />
             <Image
-              src="/logos/tristin-upper-room-logo.png"
-              alt="Tristin's Upper Room"
+              src="/prayer/written-prayer-note.png"
+              alt="Written Prayer Note"
               fill
               className="object-contain drop-shadow-[0_0_20px_rgba(239,68,68,0.55)]"
               priority={false}
             />
           </div>
           <div className="text-center">
-            <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2">Tristin's Upper Room — Prayer Wall</h3>
-            <p className="text-gray-300 max-w-xl mx-auto">Send your prayer now. We'll lift it up together. Add a love offering if you'd like.</p>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2">Prayer Wall</h3>
+            <p className="text-gray-300 max-w-xl mx-auto">Send your prayer now. We&apos;ll lift it up together. Add a love offering if you&apos;d like.</p>
           </div>
           <Link href="/prayer">
             <Button className="bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 text-black font-extrabold uppercase tracking-wide px-8 py-4 text-lg rounded-xl shadow-lg shadow-red-500/30 ring-1 ring-red-500/40 transition-all hover:scale-105">
-              Submit a Prayer
+              Prayer Wall
             </Button>
           </Link>
         </div>
@@ -121,5 +121,3 @@ export default function Contact() {
     </section>
   )
 }
-
-
