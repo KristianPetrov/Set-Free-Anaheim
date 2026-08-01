@@ -146,6 +146,17 @@ Come as you are — bring a Bible, bring a friend, and let’s grow together.`,
     recurring: true
   },
   {
+    id: "drop-the-rock-study-migs-whiskey",
+    title: "DROP THE ROCK STUDY",
+    address: addresses["Main Sanctuary"],
+    time: "11:00 AM",
+    description: "Join us Saturdays at Set Free With Migs Whiskey for a Drop the Rock study focused on letting go of the character defects, habits, and fears that keep us stuck. Together, we’ll explore the principles of Steps Six and Seven through honest conversation, personal reflection, and mutual support, creating a welcoming space for anyone seeking greater freedom, growth, and serenity in recovery.",
+    image: "/gallery/migs-whiskey.jpg",
+    dayOfWeek: 6, // Saturday
+    location: "Main Sanctuary",
+    recurring: true
+  },
+  {
     id: "family-fun-night-chrissy",
     title: "FAMILY FUN NIGHT WITH CHRISSY",
     address: addresses["Main Sanctuary"],

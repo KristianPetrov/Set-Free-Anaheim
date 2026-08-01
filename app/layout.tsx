@@ -193,6 +193,18 @@ export default function RootLayout({
                     "repeatFrequency": "P1W",
                     "byDay": "Monday"
                   }
+                },
+                {
+                  "@type": "Event",
+                  "name": "Drop The Rock Study",
+                  "description": "A weekly Drop The Rock Study hosted by Migs Whiskey.",
+                  "image": "https://setfreeanaheim.com/gallery/migs-whiskey.jpg",
+                  "startDate": "2026-08-01T11:00:00-07:00",
+                  "eventSchedule": {
+                    "@type": "Schedule",
+                    "repeatFrequency": "P1W",
+                    "byDay": "Saturday"
+                  }
                 }
               ]
             })
