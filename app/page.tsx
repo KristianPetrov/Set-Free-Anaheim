@@ -1,5 +1,6 @@
 import Header from "@/components/sections/Header"
 import Hero from "@/components/sections/Hero"
+import DogDaycare from "@/components/sections/DogDaycare"
 import PromoVideoSection from "@/components/sections/PromoVideoSection"
 import About from "@/components/sections/About"
 import CalendarSection from "@/components/sections/CalendarSection"
@@ -15,6 +16,7 @@ export default function SetFreeChurch() {
     <div className="min-h-screen bg-black text-white">
       <Header />
       <Hero />
+      <DogDaycare />
       <PromoVideoSection />
       <About />
       <CalendarSection />

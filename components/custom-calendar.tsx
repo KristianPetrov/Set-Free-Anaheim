@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 import type { ClassValue } from "clsx"
 
 
-interface Event
+interface CalendarEvent
 {
   address: string
   id: string
@@ -32,7 +32,7 @@ interface Event
   addressClass?: ClassValue
 }
 
-interface EventWithDate extends Event
+interface EventWithDate extends CalendarEvent
 {
   date: Date
   dateLabel: string
@@ -48,7 +48,7 @@ const addresses: Addresses = {
   "Lift Off Recovery": "1567 W Embassy St, Anaheim, CA 92802, USA",
   "The Magic House": "301 S Archer St, Anaheim, CA  92804, USA"
 } as const
-const weeklyEvents: Event[] = [
+const weeklyEvents: CalendarEvent[] = [
   {
     id: "sunday-service",
     address: addresses["Main Sanctuary"],
@@ -170,7 +170,7 @@ Come as you are — bring a Bible, bring a friend, and let’s grow together.`,
   }
 ]
 
-const oneTimeEvents: (Event & { dateISO: string })[] = [
+const oneTimeEvents: (CalendarEvent & { dateISO: string })[] = [
   {
     id: "magic-house-recovery-night-2026-02-22",
     dateISO: "2026-02-22",
